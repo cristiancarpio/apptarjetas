@@ -436,21 +436,7 @@ h2{font-family:'Bubblegum Sans',cursive;font-size:clamp(26px,4vw,44px);color:whi
 .feat-title{font-family:'Bubblegum Sans',cursive;font-size:18px;color:white;margin-bottom:7px;}
 .feat-desc{color:rgba(255,255,255,.45);font-size:13px;line-height:1.7;font-weight:500;}
 
-/* ── PRICING ── */
-.price-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;align-items:start;}
-.price-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:22px;padding:26px 20px;position:relative;}
-.price-card.hot{border-color:#7c3aed;background:rgba(124,58,237,.1);box-shadow:0 0 40px rgba(124,58,237,.18);}
-.price-hot-badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#7c3aed,#f43f5e);color:white;border-radius:40px;padding:4px 16px;font-size:11px;font-weight:700;white-space:nowrap;}
-.price-name{font-family:'Bubblegum Sans',cursive;font-size:19px;color:white;margin-bottom:5px;}
-.price-amount{font-family:'Bubblegum Sans',cursive;font-size:42px;color:#f59e0b;margin-bottom:2px;}
-.price-period{color:rgba(255,255,255,.35);font-size:11px;font-weight:600;margin-bottom:16px;}
-.price-list{list-style:none;margin-bottom:20px;}
-.price-list li{padding:5px 0;font-size:12px;font-weight:600;color:rgba(255,255,255,.65);border-bottom:1px solid rgba(255,255,255,.05);}
-.price-list li::before{content:"✦ ";color:#7c3aed;}
-.price-btn{width:100%;padding:12px;border-radius:40px;border:none;font-size:13px;font-weight:700;cursor:pointer;font-family:'Quicksand',sans-serif;transition:transform .15s;}
-.price-btn:hover{transform:scale(1.02);}
-.price-btn.main{background:linear-gradient(135deg,#7c3aed,#f43f5e);color:white;}
-.price-btn.sec{background:rgba(255,255,255,.08);color:rgba(255,255,255,.65);}
+
 
 /* ── TESTI ── */
 .testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;}
@@ -611,20 +597,7 @@ footer p{color:rgba(255,255,255,.25);font-size:12px;font-weight:500;line-height:
   </div>
 </section>
 
-<!-- PRICING -->
-<section id="precios" style="padding:60px 20px;">
-  <div class="container">
-    <div style="text-align:center;margin-bottom:44px;">
-      <span class="section-label">Precios</span>
-      <h2>Simple y transparente</h2>
-    </div>
-    <div class="price-grid">
-      <div class="price-card"><div class="price-name">🆓 Gratis</div><div class="price-amount">$0</div><p class="price-period">Para descubrir la magia</p><ul class="price-list"><li>2 cuentos personalizados</li><li>Todas las temáticas</li><li>Biblioteca local</li><li>WhatsApp e imprimir</li></ul><button class="price-btn sec" onclick="scrollToApp()">Empezar gratis</button></div>
-      <div class="price-card hot"><div class="price-hot-badge">✦ Más elegido</div><div class="price-name">📚 Pack Cuentos</div><div class="price-amount">$5</div><p class="price-period">USD · 10 cuentos</p><ul class="price-list"><li>10 cuentos únicos</li><li>Todas las longitudes</li><li>Descarga en alta calidad</li><li>Ideal para regalar</li></ul><button class="price-btn main">Comprar pack</button></div>
-      <div class="price-card"><div class="price-name">👑 Familia</div><div class="price-amount">$12</div><p class="price-period">USD / mes · ilimitado</p><ul class="price-list"><li>Cuentos ilimitados</li><li>Múltiples perfiles</li><li>Temáticas exclusivas</li><li>Acceso anticipado</li></ul><button class="price-btn sec">Suscribirme</button></div>
-    </div>
-  </div>
-</section>
+
 
 <!-- FAQ -->
 <section style="padding:60px 20px;">
@@ -637,6 +610,7 @@ footer p{color:rgba(255,255,255,.25);font-size:12px;font-weight:500;line-height:
       <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">¿Cómo instalo la app en mi celu? <span>▾</span></button><div class="faq-a">En Android: tocá el menú del navegador y "Agregar a pantalla de inicio". En iPhone: tocá el ícono de compartir en Safari y "Agregar a pantalla de inicio". También aparece el banner de instalación automáticamente.</div></div>
       <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">¿Para qué edades es apropiado? <span>▾</span></button><div class="faq-a">De 2 a 10 años. La IA adapta el vocabulario y complejidad según la edad. Para bebés de 2-3 años el cuento es muy simple y visual; para niños de 7-10 es más elaborado.</div></div>
       <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">¿Los cuentos quedan guardados? <span>▾</span></button><div class="faq-a">Sí, todos los cuentos que generás quedan guardados automáticamente en tu dispositivo y aparecen en tu biblioteca personal. Podés releerlos cuando quieras.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">¿Es realmente gratis? <span>▾</span></button><div class="faq-a">Sí, MagiCuento es completamente gratis. No hay suscripciones ni pagos obligatorios. Si te gusta el proyecto podés apoyarlo con una donación voluntaria en Cafecito (Argentina) o Ko-fi (internacional), pero no es obligatorio.</div></div>
     </div>
   </div>
 </section>
@@ -645,7 +619,8 @@ footer p{color:rgba(255,255,255,.25);font-size:12px;font-weight:500;line-height:
   <div class="footer-logo">🌙 MagiCuento</div>
   <p>Cuentos personalizados con IA · Tu peque es el protagonista<br>Estimulación temprana · Lectura · Imaginación</p>
   <div class="footer-links"><a href="#">Términos</a><a href="#">Privacidad</a><a href="#">Contacto</a><a href="#">Instagram</a></div>
-  <p style="margin-top:16px;font-size:10px;">© 2025 MagiCuento · PWA · Funciona offline</p>
+  <p style="margin-top:16px;font-size:10px;">© 2025 MagiCuento · Gratis · PWA · Funciona offline</p>
+  <p style="margin-top:8px;font-size:11px;color:rgba(255,255,255,.2);">¿Te gusta lo que hacemos? <a href="https://cafecito.app/magicuento" target="_blank" style="color:#f59e0b;text-decoration:none;font-weight:700;">Invitanos un cafecito ☕</a></p>
 </footer>
 
 <script>
@@ -746,17 +721,6 @@ function openSavedStory(idx) {
   render();
 }
 
-// Credits system
-function getCredits() {
-  try { return parseInt(localStorage.getItem('mc_credits') || '2'); }
-  catch(e) { return 2; }
-}
-function useCredit() {
-  const c = getCredits();
-  if (c <= 0) return false;
-  localStorage.setItem('mc_credits', c - 1);
-  return true;
-}
 
 // ══════════════════════════════════════════
 // THEMES
@@ -830,14 +794,7 @@ const SCREENS = {
   form() {
     const f = state.form;
     const t = THEMES.find(x=>x.id===f.theme)||THEMES[0];
-    const credits = getCredits();
-    const totalDots = 2;
-    return `
-      <!-- Credits -->
-      <div class="credits-bar">
-        <div class="credits-dots">
-          ${Array(totalDots).fill(0).map((_,i)=>`<div class="cdot ${i<credits?'avail':'used'}"></div>`).join('')}
-        </div>
+      return `
         <span class="credits-text">${credits > 0 ? `${credits} cuento${credits!==1?'s':''} gratis disponible${credits!==1?'s':''}` : 'Créditos agotados · Comprá un pack'}</span>
       </div>
 
@@ -956,6 +913,28 @@ const SCREENS = {
           <button class="bact-btn bact-print" onclick="window.print()">🖨️ Imprimir</button>
           <button class="bact-btn bact-copy" onclick="copyText()">📋 Copiar texto</button>
           <button class="btn-new" onclick="resetApp()">+ Crear otro cuento</button>
+        </div>
+
+        <!-- DONATION CARD -->
+        <div class="donation-card" id="donation-card">
+          <div class="donation-emoji">☕</div>
+          <div class="donation-title">¿Te gustó el cuento de ${state.form.name}?</div>
+          <div class="donation-sub">
+            MagiCuento es completamente gratis.<br>
+            Si querés ayudarnos a seguir creando magia,<br>
+            podés invitarnos un cafecito 🌙
+          </div>
+          <div class="donation-btns">
+            <a class="btn-cafecito" href="https://cafecito.app/magicuento" target="_blank" rel="noopener">
+              ☕ Cafecito (Argentina)
+            </a>
+            <a class="btn-kofi" href="https://ko-fi.com/magicuento" target="_blank" rel="noopener">
+              💙 Ko-fi (Internacional)
+            </a>
+          </div>
+          <button class="donation-skip" onclick="document.getElementById('donation-card').style.display='none'">
+            No por ahora
+          </button>
         </div>
       </div>
     `;
@@ -1152,35 +1131,60 @@ async function generateStory() {
   const f = state.form;
   const t = THEMES.find(x=>x.id===f.theme)||THEMES[0];
   const lengthCfg = LENGTHS.find(l=>l.id===f.length)||LENGTHS[1];
-  const moodMap = { fun:'divertido y con humor', brave:'aventurero y emocionante', cozy:'tranquilo y perfecto para dormir', edu:'educativo con una enseñanza clara', magic:'mágico y lleno de fantasía' };
-  const moodStr = moodMap[f.mood] || 'mágico';
 
-  const prompt = `Escribí un cuento infantil ${moodStr} dividido en exactamente ${lengthCfg.pages} párrafos.
+  const moodCfg = {
+    fun:   { estilo:'humor genuino y situaciones absurdas que den ganas de reírse a carcajadas', ritmo:'rápido con sorpresas: cada párrafo termina con algo inesperado', valor:'la alegría y no tomarse todo tan en serio', gancho:'una situación ridícula que rompe las expectativas desde la primera línea' },
+    brave: { estilo:'aventura con tensión real, peligro creíble y momentos de duda interna genuina', ritmo:'crescendo: arranca tranquilo y se intensifica hasta el clímax', valor:'el miedo no te detiene, sino que te acompaña mientras actuás igual', gancho:'un peligro o misterio que engancha sin explicación inmediata' },
+    cozy:  { estilo:'calidez, detalles sensoriales muy concretos (olores, texturas, sonidos), momentos tiernos y reales', ritmo:'pausado y envolvente, como meterse bajo una manta en día de lluvia', valor:'el amor de las personas que te rodean y la seguridad de lo conocido', gancho:'una imagen sensorial tan concreta que te lleve a otro lugar desde la primera línea' },
+    edu:   { estilo:'curiosidad desbordante, el protagonista hace preguntas reales y descubre cosas que sorprenden', ritmo:'descubrimiento progresivo: cada párrafo revela algo que el anterior dejaba abierto', valor:'aprender es una aventura y equivocarse es parte del proceso', gancho:'un misterio sin solución obvia que intriga desde el arranque' },
+    magic: { estilo:'maravilla pura, imágenes visuales potentes, lo imposible vuelto completamente cotidiano', ritmo:'onírico y libre, como un sueño con lógica propia', valor:'creer en lo imposible y que la imaginación no tiene límites', gancho:'algo extraordinario e inexplicable que irrumpe en la vida normal sin aviso' },
+  };
+  const mc = moodCfg[f.mood] || moodCfg.magic;
+  const age = parseInt(f.age) || 5;
+  const ageGuide = age <= 3 ? 'oraciones muy cortas (máx 8 palabras), vocabulario cotidiano, repetición rítmica y onomatopeyas'
+    : age <= 5 ? 'oraciones cortas y directas, alguna palabra nueva explicada en contexto, diálogos simples y graciosos'
+    : age <= 8 ? 'oraciones de complejidad media, metáforas simples, diálogos con personalidad y humor'
+    : 'oraciones complejas, metáforas, ironía suave, el protagonista puede dudar y equivocarse';
 
-Protagonista: ${f.name}${f.age ? ', '+f.age+' años' : ''}
-Temática: ${t.name} (${t.storyStyle})
-Personaje/tema favorito: ${f.character || t.name}
-${f.extra ? 'Detalle especial: '+f.extra : ''}
+  const sysP = `Sos un escritor de cuentos infantiles excepcional. Creás historias que los padres quieren releer en voz alta y que los niños piden escuchar una y otra vez. Español rioplatense auténtico, personajes con voz propia, detalles que hacen el mundo creíble, y siempre un momento que genera una emoción genuina. Tu objetivo: que cuando terminen de leer, tanto el niño como el adulto sientan algo real.`;
+
+  const structGuide = [
+    `P1 — GANCHO: ${mc.gancho}. Presentá a ${f.name} con un detalle MUY específico que lo/a haga único/a. No "era curioso/a" sino algo concreto como "tenía la manía de contar los escalones de cada escalera" o "nunca tiraba el último pedacito de nada, por si alguien lo necesitaba después".`,
+    `P2 — MUNDO: Mostrá el entorno con DOS detalles sensoriales (olor específico, sonido concreto, textura). Introducí el conflicto de forma concreta sin explicarlo del todo. Que el lector sienta curiosidad.`,
+    `P3 — COMPLICACIÓN: El problema se profundiza. ${f.name} intenta algo y falla, o aparece un obstáculo nuevo. Aparece un personaje secundario con nombre propio y una característica memorable. Incluí un diálogo con raya (—).`,
+    `P4 — GIRO: ${f.name} descubre algo que cambia su manera de ver la situación. Gracioso, emotivo o sorprendente según el tono. Un momento de acción o decisión con peso real.`,
+    `P5 — CLÍMAX: El momento más intenso del cuento. ${f.name} actúa con todo lo que aprendió. Consecuencias reales y concretas.`,
+    `P6 — RESOLUCIÓN SORPRESIVA: El problema se resuelve de forma no obvia. El personaje secundario tiene rol clave. Hay un detalle que conecta con el P1.`,
+    `P7 — CIERRE QUE DEJA HUELLA: Una imagen concreta o frase que quede dando vueltas. Sin moraleja explícita. Que quieran saber qué pasa después.`,
+  ].slice(0, lengthCfg.pages).join('\n');
+
+  const prompt = `Escribí un cuento infantil de exactamente ${lengthCfg.pages} párrafos.
+
+PROTAGONISTA: ${f.name}, ${f.age||5} años. Mundo: ${t.name} — ${t.storyStyle}. Le encanta: ${f.character||t.name}.${f.extra?' Detalle personal: '+f.extra:''}
+
+TONO: ${mc.estilo} | RITMO: ${mc.ritmo} | VOCABULARIO: ${ageGuide}
+
+ESTRUCTURA:
+${structGuide}
 
 REGLAS:
-- Usá el nombre ${f.name} varias veces
-- El cuento tiene problema → acción → solución
-- Vocabulario apropiado para la edad
-- Español rioplatense (vos, che, boludo no)
-- Cada párrafo máximo 45 palabras
-- ${lengthCfg.pages} párrafos separados por línea en blanco
-- Sin título, sin numeración, solo los párrafos
-- El valor del cuento debe ser: ${f.mood==='edu'?'aprendizaje y curiosidad':f.mood==='brave'?'valentía y perseverancia':f.mood==='cozy'?'amor familiar y calidez':'amistad y bondad'}
+✓ Nombre ${f.name} al menos una vez por párrafo
+✓ Mínimo 2 diálogos con raya (—)
+✓ Mínimo 1 detalle sensorial concreto
+✓ Personaje secundario con nombre propio
+✓ Cada párrafo entre 65 y 95 palabras
+✓ Párrafos separados por línea en blanco, sin título ni numeración
 
-¡Hacé que ${f.name} sea el héroe de la historia!`;
+✗ PROHIBIDO: "érase una vez", "vivió feliz para siempre", "colorín colorado", "aprendió una gran lección", "era un día especial", moraleja explícita, resoluciones mágicas sin lógica interna
+
+Solo los ${lengthCfg.pages} párrafos. Nada más.`;
 
   try {
     const res = await fetch('https://api.anthropic.com/v1/messages', {
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
+      method:'POST', headers:{'Content-Type':'application/json'},
       body:JSON.stringify({
-        model:'claude-sonnet-4-20250514',
-        max_tokens:1200,
+        model:'claude-sonnet-4-20250514', max_tokens:3000,
+        system: sysP,
         messages:[{role:'user',content:prompt}]
       })
     });
@@ -1188,23 +1192,22 @@ REGLAS:
     const raw = (data.content||[]).map(b=>b.text||'').join('').trim();
     const paragraphs = raw.split(/\n\n+/).filter(p=>p.trim()).slice(0, lengthCfg.pages);
     while (paragraphs.length < lengthCfg.pages) {
-      paragraphs.push(`Y así ${f.name} siguió su camino con el corazón lleno de alegría y ganas de vivir nuevas aventuras. ✨`);
+      paragraphs.push(`${f.name} cerró los ojos un momento. Afuera, el mundo seguía igual que siempre. Pero adentro, algo había cambiado para siempre. Y eso, pensó ${f.name}, era exactamente suficiente.`);
     }
     state.pages = paragraphs.map((text,i)=>({text,page:i+1}));
-    useCredit();
   } catch(e) {
-    // Fallback
     const name = f.name;
+    const fallback = [
+      `${name} tenía una manía rara: antes de dormir, contaba las estrellas por la ventana. No todas. Solo las que brillaban de forma irregular, como si titilaran en código morse. Esa noche, una parpadeó tres veces seguidas y ${name} supo, con esa certeza que no necesita explicación, que era una señal para algo.`,
+      `El jardín de noche olía diferente. A pasto húmedo, a tierra mojada, a algo que ${name} no sabía nombrar pero reconocía. —¿Quién anda ahí? —preguntó, con la linterna apuntando a los arbustos. Una pausa larga. Luego, una voz pequeñísima respondió: —Yo. Aunque todavía no sé bien quién soy.`,
+      `El problema era que ${f.character||'todo'} había desaparecido. No de golpe, sino de a poco, como se van las cosas importantes. ${name} revisó todos los lugares posibles y algunos imposibles. Entonces apareció Ramona, la vecina de ocho años que nunca hablaba, y dijo: —Yo lo vi. Pero vas a tener que prometerme algo primero.`,
+      `—Te prometo —dijo ${name}, sin saber todavía qué estaba prometiendo. Ramona asintió y empezó a caminar. ${name} la siguió. Cruzaron el jardín, la calle, la plaza, y llegaron a un lugar que ${name} había pasado mil veces sin ver nunca. Estaba escondido entre dos edificios, como un secreto que lleva años esperando ser encontrado.`,
+      `Lo que ${name} encontró no era exactamente lo que buscaba. Era algo mejor. O peor. O las dos cosas al mismo tiempo, que a veces es lo más honesto que puede pasar. Ramona sonrió por primera vez en toda la noche. —¿Ves? —dijo—. Las cosas no se pierden. Solo cambian de lugar. ${name} pensó que eso era cierto para muchas cosas más.`,
+      `De vuelta en casa, ${name} contó las estrellas otra vez. La que parpadeaba en código morse ya no estaba. O quizás había dejado de parpadear. Igual daba. Algunas señales solo necesitan que las veas una vez. ${name} apagó la luz y por primera vez en mucho tiempo, durmió sin contar nada.`,
+      `Ramona siguió sin hablar mucho. Pero a veces, cuando ${name} pasaba por la vereda, ella levantaba la mano en un saludo pequeñísimo. Y ${name} se lo devolvía. Eso era todo. Y era, descubrió ${name} con el tiempo, exactamente suficiente.`,
+    ];
     state.pages = Array(lengthCfg.pages).fill(0).map((_,i)=>({
-      text:[
-        `Érase una vez ${name}, un niño/a muy curioso/a que vivía en un lugar lleno de magia. Una mañana, ${name} encontró algo brillante entre los árboles. 🌟`,
-        `Era una puerta pequeña con estrellitas doradas. ${name} la abrió despacito y apareció un mundo lleno de ${f.character||'colores y maravillas'}. ✨`,
-        `Al principio daba un poco de miedo, pero ${name} era muy valiente. Adentro, un amiguito necesitaba ayuda urgente. 💜`,
-        `Sin dudarlo, ${name} lo ayudó con todo su corazón. Juntos resolvieron el problema y todo se llenó de luz y alegría. 🌈`,
-        `Esa noche, ${name} volvió a casa sonriendo. Había aprendido que ayudar a los demás es el acto más mágico del mundo. 🌟`,
-        `Los días siguientes, ${name} volvió muchas veces a ese lugar mágico. Cada visita era una nueva aventura llena de sorpresas. ⭐`,
-        `Y desde entonces, ${name} supo que la magia más grande no está en los lugares, sino en el corazón de quienes se animan a ayudar. ✨`,
-      ][i] || `Y ${name} vivió feliz para siempre, listo/a para la próxima aventura. 🌟`,
+      text: fallback[i % fallback.length],
       page: i+1
     }));
   }
