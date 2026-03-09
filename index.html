@@ -2,733 +2,584 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
 <title>MagiCuento – Cuentos Personalizados con IA para Niños</title>
 <meta name="description" content="Creá cuentos mágicos personalizados con el nombre de tu hijo/a como protagonista. IA en español, formato librito con páginas, listo para leer o imprimir."/>
 <meta name="keywords" content="cuentos personalizados niños, cuentos con nombre del niño, estimulación temprana, cuentos para dormir personalizados, libros personalizados infantiles"/>
+<meta name="theme-color" content="#7c3aed"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+<meta name="apple-mobile-web-app-title" content="MagiCuento"/>
+<meta name="mobile-web-app-capable" content="yes"/>
 <meta property="og:title" content="MagiCuento – Cuentos con IA para tus peques"/>
 <meta property="og:description" content="Tu hijo/a como protagonista del cuento. Generado con IA, formato librito mágico."/>
+<meta property="og:type" content="website"/>
+<link rel="manifest" href="manifest.json"/>
+<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%237c3aed'/><text y='75' x='10' font-size='70'>🌙</text></svg>"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 :root {
-  --ink: #1a0a2e;
-  --soft: #f9f5ff;
-  --gold: #f59e0b;
-  --rose: #f43f5e;
-  --violet: #7c3aed;
-  --teal: #0d9488;
-  --sky: #0ea5e9;
-  --page-w: 340px;
-  --page-h: 460px;
+  --ink:#1a0a2e; --soft:#f9f5ff; --gold:#f59e0b; --rose:#f43f5e;
+  --violet:#7c3aed; --teal:#0d9488; --sky:#0ea5e9;
+  --page-w:340px; --page-h:460px;
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bot: env(safe-area-inset-bottom, 0px);
 }
-
 *{box-sizing:border-box;margin:0;padding:0;}
-
-body {
+html{scroll-behavior:smooth;}
+body{
   font-family:'Quicksand',sans-serif;
-  background: #0f0720;
-  color: var(--ink);
-  min-height: 100vh;
-  overflow-x: hidden;
+  background:#0f0720; color:var(--ink);
+  min-height:100vh; overflow-x:hidden;
+  padding-top:var(--safe-top);
+  padding-bottom:var(--safe-bot);
 }
 
-/* ── STARFIELD ── */
-.stars {
-  position: fixed; inset: 0; pointer-events: none; z-index: 0;
+/* ── STARS ── */
+.stars{position:fixed;inset:0;pointer-events:none;z-index:0;
   background:
-    radial-gradient(1px 1px at 10% 15%, white, transparent),
-    radial-gradient(1px 1px at 25% 40%, white, transparent),
-    radial-gradient(1.5px 1.5px at 40% 10%, #ffe, transparent),
-    radial-gradient(1px 1px at 55% 60%, white, transparent),
-    radial-gradient(1px 1px at 70% 25%, white, transparent),
-    radial-gradient(1.5px 1.5px at 80% 70%, #ffe, transparent),
-    radial-gradient(1px 1px at 90% 45%, white, transparent),
-    radial-gradient(1px 1px at 15% 80%, white, transparent),
-    radial-gradient(1px 1px at 60% 85%, white, transparent),
-    radial-gradient(1px 1px at 35% 65%, white, transparent),
-    radial-gradient(1.5px 1.5px at 5% 50%, #ffe, transparent),
-    radial-gradient(1px 1px at 95% 15%, white, transparent);
+    radial-gradient(1px 1px at 10% 15%,white,transparent),
+    radial-gradient(1px 1px at 25% 40%,white,transparent),
+    radial-gradient(1.5px 1.5px at 40% 10%,#ffe,transparent),
+    radial-gradient(1px 1px at 55% 60%,white,transparent),
+    radial-gradient(1px 1px at 70% 25%,white,transparent),
+    radial-gradient(1.5px 1.5px at 80% 70%,#ffe,transparent),
+    radial-gradient(1px 1px at 90% 45%,white,transparent),
+    radial-gradient(1px 1px at 15% 80%,white,transparent),
+    radial-gradient(1px 1px at 60% 85%,white,transparent),
+    radial-gradient(1px 1px at 35% 65%,white,transparent),
+    radial-gradient(1px 1px at 5% 50%,white,transparent),
+    radial-gradient(1px 1px at 95% 15%,white,transparent);
+}
+
+/* ── ANIMATIONS ── */
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+@keyframes floatB{0%,100%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-10px) rotate(5deg)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes shimmer{0%{background-position:-200% center}100%{background-position:200% center}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes sparkle{0%,100%{opacity:0;transform:scale(0) rotate(0deg)}50%{opacity:1;transform:scale(1) rotate(180deg)}}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(124,58,237,.4)}70%{box-shadow:0 0 0 14px rgba(124,58,237,0)}}
+@keyframes slideIn{from{transform:translateX(120%);opacity:0}to{transform:translateX(0);opacity:1}}
+@keyframes slideOut{from{transform:translateX(0);opacity:1}to{transform:translateX(120%);opacity:0}}
+@keyframes confettiFall{0%{transform:translateY(-20px) rotate(0deg);opacity:1}100%{transform:translateY(100vh) rotate(720deg);opacity:0}}
+@keyframes heartPop{0%{transform:scale(0)}60%{transform:scale(1.3)}100%{transform:scale(1)}}
+
+/* ── INSTALL BANNER ── */
+#install-banner{
+  position:fixed;bottom:20px;left:50%;transform:translateX(-50%);
+  background:linear-gradient(135deg,#7c3aed,#db2777);
+  color:white;border-radius:50px;padding:14px 24px;
+  display:none;align-items:center;gap:12px;
+  box-shadow:0 8px 32px rgba(124,58,237,.5);
+  z-index:1000;max-width:90vw;
+  animation:slideIn .4s ease;
+  font-family:'Quicksand',sans-serif;
+}
+#install-banner.visible{display:flex;}
+#install-banner p{font-size:13px;font-weight:700;}
+#install-banner button{
+  background:white;color:#7c3aed;border:none;
+  border-radius:30px;padding:8px 16px;font-size:12px;
+  font-weight:800;cursor:pointer;font-family:'Quicksand',sans-serif;
+  white-space:nowrap;
+}
+.install-close{
+  background:none!important;color:rgba(255,255,255,.6)!important;
+  padding:4px 8px!important;font-size:16px!important;
+}
+
+/* ── OFFLINE TOAST ── */
+#offline-toast{
+  position:fixed;top:80px;left:50%;transform:translateX(-50%);
+  background:#1f2937;color:white;border-radius:12px;
+  padding:10px 20px;font-size:13px;font-weight:700;
+  display:none;z-index:1000;border:1px solid rgba(255,255,255,.1);
+  font-family:'Quicksand',sans-serif;
+}
+
+/* ── CONFETTI ── */
+.confetti-piece{
+  position:fixed;pointer-events:none;z-index:999;
+  width:8px;height:8px;border-radius:2px;
+  animation:confettiFall 3s ease-in forwards;
 }
 
 /* ── NAV ── */
-nav {
-  position: relative; z-index: 10;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 18px 32px;
-  background: rgba(15,7,32,0.7);
-  backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+nav{
+  position:sticky;top:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 24px;
+  background:rgba(15,7,32,.85);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(255,255,255,.08);
 }
-.logo {
-  font-family:'Bubblegum Sans',cursive;
-  font-size: 28px;
-  background: linear-gradient(135deg, #f9a8d4, #c4b5fd, #93c5fd);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  letter-spacing: .5px;
+.logo{
+  font-family:'Bubblegum Sans',cursive;font-size:26px;
+  background:linear-gradient(135deg,#f9a8d4,#c4b5fd,#93c5fd);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
 }
-.nav-right { display:flex; gap:12px; align-items:center; }
-.btn-nav {
-  background: linear-gradient(135deg,#7c3aed,#db2777);
-  color: white; border: none; border-radius: 40px;
-  padding: 9px 22px; font-size: 13px; font-weight: 700;
-  cursor: pointer; font-family:'Quicksand',sans-serif;
-  transition: transform .15s, box-shadow .15s;
+.nav-right{display:flex;gap:10px;align-items:center;}
+.btn-nav{
+  background:linear-gradient(135deg,#7c3aed,#db2777);
+  color:white;border:none;border-radius:40px;
+  padding:9px 20px;font-size:13px;font-weight:700;
+  cursor:pointer;font-family:'Quicksand',sans-serif;
+  transition:transform .15s,box-shadow .15s;
 }
-.btn-nav:hover { transform:scale(1.04); box-shadow: 0 4px 20px #7c3aed66; }
+.btn-nav:hover{transform:scale(1.04);box-shadow:0 4px 20px #7c3aed66;}
 
 /* ── HERO ── */
-.hero {
-  position: relative; z-index: 1;
-  text-align: center;
-  padding: 70px 20px 50px;
-}
-@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-14px)} }
-@keyframes floatB { 0%,100%{transform:translateY(0) rotate(-5deg)} 50%{transform:translateY(-10px) rotate(5deg)} }
-@keyframes fadeUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
-@keyframes shimmer {
-  0%{background-position:-200% center}
-  100%{background-position:200% center}
-}
-@keyframes spin { to{transform:rotate(360deg)} }
-@keyframes pageTurn {
-  0%{transform:rotateY(0deg)}
-  100%{transform:rotateY(-180deg)}
-}
-@keyframes sparkle {
-  0%,100%{opacity:0;transform:scale(0) rotate(0deg)}
-  50%{opacity:1;transform:scale(1) rotate(180deg)}
-}
-@keyframes bounce {
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-8px)}
-}
-
-.hero-deco {
-  position: absolute; font-size: 40px; pointer-events:none; user-select:none;
-}
-
-.hero h1 {
+.hero{position:relative;z-index:1;text-align:center;padding:60px 20px 50px;}
+.hero-deco{position:absolute;font-size:40px;pointer-events:none;user-select:none;}
+.hero h1{
   font-family:'Bubblegum Sans',cursive;
-  font-size: clamp(36px,7vw,72px);
-  line-height: 1.1;
-  background: linear-gradient(135deg, #fde68a 0%, #f9a8d4 40%, #c4b5fd 70%, #93c5fd 100%);
-  background-size: 200% auto;
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  animation: shimmer 4s linear infinite, fadeUp .8s ease both;
-  margin-bottom: 18px;
+  font-size:clamp(34px,7vw,70px);line-height:1.1;
+  background:linear-gradient(135deg,#fde68a 0%,#f9a8d4 40%,#c4b5fd 70%,#93c5fd 100%);
+  background-size:200% auto;
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  animation:shimmer 4s linear infinite,fadeUp .8s ease both;
+  margin-bottom:18px;
 }
-.hero-sub {
-  color: rgba(255,255,255,.7);
-  font-size: clamp(15px,2.5vw,19px);
-  font-weight: 600; line-height: 1.7;
-  max-width: 540px; margin: 0 auto 36px;
-  animation: fadeUp .9s .1s ease both;
+.hero-sub{
+  color:rgba(255,255,255,.7);font-size:clamp(15px,2.5vw,19px);
+  font-weight:600;line-height:1.7;max-width:540px;margin:0 auto 36px;
+  animation:fadeUp .9s .1s ease both;
 }
-.hero-btns {
-  display:flex; gap:14px; justify-content:center; flex-wrap:wrap;
-  animation: fadeUp 1s .2s ease both;
+.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;animation:fadeUp 1s .2s ease both;}
+.btn-hero{
+  background:linear-gradient(135deg,#f59e0b,#f43f5e);
+  color:white;border:none;border-radius:50px;
+  padding:16px 38px;font-size:17px;font-weight:700;
+  cursor:pointer;font-family:'Quicksand',sans-serif;
+  box-shadow:0 8px 32px #f43f5e55;
+  transition:transform .15s,box-shadow .15s;
+  animation:bounce 2.5s ease infinite;
 }
-.btn-hero {
-  background: linear-gradient(135deg,#f59e0b,#f43f5e);
-  color: white; border: none; border-radius: 50px;
-  padding: 16px 38px; font-size: 17px; font-weight: 700;
-  cursor: pointer; font-family:'Quicksand',sans-serif;
-  box-shadow: 0 8px 32px #f43f5e55;
-  transition: transform .15s, box-shadow .15s;
-  animation: bounce 2.5s ease infinite;
+.btn-hero:hover{transform:scale(1.05);box-shadow:0 12px 40px #f43f5e77;}
+.btn-ghost{
+  background:rgba(255,255,255,.08);color:white;
+  border:1px solid rgba(255,255,255,.2);border-radius:50px;
+  padding:16px 32px;font-size:16px;font-weight:700;
+  cursor:pointer;font-family:'Quicksand',sans-serif;
+  transition:all .15s;animation:none;
 }
-.btn-hero:hover { transform:scale(1.05); box-shadow: 0 12px 40px #f43f5e77; }
-.btn-ghost {
-  background: rgba(255,255,255,.08);
-  color: white; border: 1px solid rgba(255,255,255,.2);
-  border-radius: 50px; padding: 16px 32px;
-  font-size: 16px; font-weight: 700;
-  cursor: pointer; font-family:'Quicksand',sans-serif;
-  transition: all .15s; animation: none;
-}
-.btn-ghost:hover { background: rgba(255,255,255,.15); }
+.btn-ghost:hover{background:rgba(255,255,255,.15);}
+.hero-stats{display:flex;gap:32px;justify-content:center;margin-top:44px;flex-wrap:wrap;}
+.stat-num{font-family:'Bubblegum Sans',cursive;font-size:30px;color:#f59e0b;}
+.stat-lbl{font-size:11px;font-weight:700;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.5px;}
 
-/* ── DEMO BOOK (hero preview) ── */
-.hero-book {
-  margin: 50px auto 0;
-  position: relative;
-  width: 280px; height: 200px;
-  animation: float 5s ease-in-out infinite;
+/* ── HERO BOOK PREVIEW ── */
+.hero-book{margin:48px auto 0;position:relative;width:280px;height:200px;animation:float 5s ease-in-out infinite;}
+.demo-page{position:absolute;border-radius:12px;padding:20px;box-shadow:0 20px 60px rgba(0,0,0,.5);}
+
+/* ── LIBRARY SECTION ── */
+#library-section{padding:60px 20px;}
+.library-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:16px;
+  margin-top:24px;
 }
-.demo-page {
-  position: absolute;
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 20px 60px rgba(0,0,0,.5);
+.library-card{
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:16px;padding:16px;
+  cursor:pointer;transition:all .2s;
+  text-align:center;
+}
+.library-card:hover{transform:translateY(-4px);border-color:#7c3aed;background:rgba(124,58,237,.15);}
+.lib-cover{
+  width:100%;aspect-ratio:3/4;border-radius:10px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  margin-bottom:10px;font-size:36px;
+  box-shadow:0 4px 16px rgba(0,0,0,.3);
+}
+.lib-title{font-size:12px;font-weight:700;color:white;margin-bottom:3px;line-height:1.3;}
+.lib-date{font-size:10px;color:rgba(255,255,255,.3);font-weight:600;}
+.lib-empty{
+  text-align:center;padding:40px 20px;
+  color:rgba(255,255,255,.3);font-size:14px;font-weight:600;
 }
 
 /* ── SECTION BASE ── */
-section { position: relative; z-index: 1; padding: 80px 20px; }
-.container { max-width: 1080px; margin: 0 auto; }
-.section-label {
-  display: inline-block;
-  background: rgba(124,58,237,.3);
-  border: 1px solid rgba(124,58,237,.5);
-  color: #c4b5fd; border-radius: 40px;
-  padding: 5px 16px; font-size: 12px; font-weight: 700;
-  letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 14px;
+section{position:relative;z-index:1;padding:80px 20px;}
+.container{max-width:1080px;margin:0 auto;}
+.section-label{
+  display:inline-block;background:rgba(124,58,237,.3);
+  border:1px solid rgba(124,58,237,.5);color:#c4b5fd;
+  border-radius:40px;padding:5px 16px;font-size:12px;font-weight:700;
+  letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px;
 }
-h2 {
-  font-family:'Bubblegum Sans',cursive;
-  font-size: clamp(28px,4vw,46px);
-  color: white; margin-bottom: 12px; line-height: 1.2;
-}
-.section-sub {
-  color: rgba(255,255,255,.6);
-  font-size: 16px; font-weight: 500; line-height: 1.7;
-  max-width: 520px; margin-bottom: 48px;
-}
-
-/* ── THEMES SHOWCASE ── */
-.themes-row {
-  display: flex; gap: 14px; overflow-x: auto;
-  padding-bottom: 12px; scrollbar-width: none;
-}
-.themes-row::-webkit-scrollbar { display:none; }
-.theme-pill {
-  flex-shrink: 0;
-  border-radius: 16px; padding: 16px 20px;
-  text-align: center; cursor: pointer;
-  border: 2px solid transparent;
-  transition: transform .2s, border-color .2s;
-  min-width: 90px;
-}
-.theme-pill:hover { transform: scale(1.08); }
-.theme-pill .tp-emoji { font-size: 28px; display:block; margin-bottom:6px; }
-.theme-pill .tp-name { font-size: 11px; font-weight: 700; }
+h2{font-family:'Bubblegum Sans',cursive;font-size:clamp(26px,4vw,44px);color:white;margin-bottom:12px;line-height:1.2;}
+.section-sub{color:rgba(255,255,255,.5);font-size:15px;font-weight:500;line-height:1.7;max-width:520px;margin-bottom:48px;}
 
 /* ── APP PANEL ── */
-#app-section { padding: 60px 20px 80px; }
-.app-container {
-  max-width: 780px; margin: 0 auto;
-}
-.app-panel {
-  background: rgba(255,255,255,.04);
-  border: 1px solid rgba(255,255,255,.1);
-  border-radius: 28px;
-  padding: 36px 32px;
-  backdrop-filter: blur(20px);
-  box-shadow: 0 32px 80px rgba(0,0,0,.4);
-}
-
-/* Step dots */
-.steps-dots {
-  display:flex; gap:8px; justify-content:center; margin-bottom:28px;
-}
-.sdot {
-  height:8px; border-radius:4px; background:rgba(255,255,255,.15);
-  transition: all .3s;
-}
-.sdot.active { background:#f59e0b; width:28px; }
-.sdot.done   { background:#7c3aed; width:8px; }
-.sdot.idle   { width:8px; }
-
-/* Form styles */
-.panel-title {
-  font-family:'Bubblegum Sans',cursive;
-  font-size: 26px; color: white; text-align:center; margin-bottom:6px;
-}
-.panel-sub {
-  color:rgba(255,255,255,.5); font-size:14px; font-weight:600;
-  text-align:center; margin-bottom:24px;
-}
-.form-row { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:14px; }
-.form-row.full { grid-template-columns:1fr; }
-.field { display:flex; flex-direction:column; gap:6px; }
-.field label {
-  font-size:11px; font-weight:700; color:rgba(255,255,255,.5);
-  text-transform:uppercase; letter-spacing:.8px;
-}
-.field input, .field select, .field textarea {
-  background: rgba(255,255,255,.07);
-  border: 1.5px solid rgba(255,255,255,.12);
-  border-radius: 12px; padding: 12px 14px;
-  color: white; font-size: 14px; font-weight: 600;
-  font-family:'Quicksand',sans-serif; outline:none;
-  transition: border-color .2s, background .2s;
-}
-.field input:focus, .field select:focus, .field textarea:focus {
-  border-color: #7c3aed;
-  background: rgba(124,58,237,.15);
-}
-.field input::placeholder { color: rgba(255,255,255,.25); }
-.field select option { background: #1a0a2e; color:white; }
-.field textarea { resize:vertical; min-height:80px; }
-
-/* Theme grid in form */
-.theme-grid-sm {
-  display: grid; grid-template-columns: repeat(5,1fr); gap:8px; margin-bottom:20px;
-}
-.tgs-btn {
-  border-radius: 12px; padding: 10px 6px;
-  cursor: pointer; text-align: center; border: 2px solid transparent;
-  transition: all .2s; background: rgba(255,255,255,.06);
-}
-.tgs-btn:hover { transform:scale(1.08); }
-.tgs-btn.selected { border-color: #f59e0b; box-shadow: 0 0 20px #f59e0b44; }
-.tgs-btn .te { font-size:22px; display:block; margin-bottom:3px; }
-.tgs-btn .tl { font-size:9.5px; font-weight:700; color:rgba(255,255,255,.7); }
-
-/* Big generate button */
-.btn-generate {
-  width:100%; padding:16px;
-  background: linear-gradient(135deg,#7c3aed,#f43f5e);
-  color:white; border:none; border-radius:50px;
-  font-size:17px; font-weight:700; cursor:pointer;
-  font-family:'Quicksand',sans-serif;
-  box-shadow: 0 8px 32px rgba(124,58,237,.4);
-  transition: transform .15s, box-shadow .15s, opacity .15s;
-  margin-top:4px;
-}
-.btn-generate:hover:not(:disabled) {
-  transform:scale(1.02); box-shadow: 0 12px 40px rgba(124,58,237,.6);
-}
-.btn-generate:disabled { opacity:.4; cursor:not-allowed; }
-
-.btn-back {
-  background:none; border:none; color:rgba(255,255,255,.4);
-  font-size:13px; font-weight:700; cursor:pointer;
-  display:block; margin:14px auto 0;
-  font-family:'Quicksand',sans-serif;
-  transition: color .2s;
-}
-.btn-back:hover { color:rgba(255,255,255,.8); }
-
-/* ── LOADING ── */
-.loading-wrap {
-  text-align:center; padding:48px 20px;
-}
-.magic-loader {
-  position:relative; width:80px; height:80px; margin:0 auto 24px;
-}
-.ml-ring {
-  position:absolute; inset:0; border-radius:50%;
-  border: 3px solid transparent;
-  border-top-color: #7c3aed;
-  animation: spin 1.2s linear infinite;
-}
-.ml-ring2 {
-  position:absolute; inset:8px; border-radius:50%;
-  border: 3px solid transparent;
-  border-top-color: #f59e0b;
-  animation: spin .8s linear infinite reverse;
-}
-.ml-center {
-  position:absolute; inset:0;
-  display:grid; place-items:center;
-  font-size:28px;
-}
-.loading-title {
-  font-family:'Bubblegum Sans',cursive;
-  font-size:24px; color:white; margin-bottom:8px;
-}
-.loading-sub {
-  color:rgba(255,255,255,.5); font-size:14px; font-weight:600;
-}
-.loading-dots span {
-  display:inline-block; width:8px; height:8px; border-radius:50%;
-  background:#7c3aed; margin:0 3px;
-  animation: bounce 1s infinite;
-}
-.loading-dots span:nth-child(2) { animation-delay:.15s; background:#f43f5e; }
-.loading-dots span:nth-child(3) { animation-delay:.3s; background:#f59e0b; }
-
-/* ── BOOK VIEWER ── */
-.book-viewer {
-  display:flex; flex-direction:column; align-items:center;
-}
-.book-title-display {
-  font-family:'Bubblegum Sans',cursive;
-  font-size:22px; color:white; text-align:center;
-  margin-bottom:6px;
-}
-.book-subtitle-display {
-  color:rgba(255,255,255,.5); font-size:13px; font-weight:600;
-  text-align:center; margin-bottom:24px;
-}
-
-/* THE BOOK */
-.book-wrap {
-  perspective: 1200px;
-  width: var(--page-w);
-  height: var(--page-h);
-  position: relative;
-  margin-bottom: 28px;
-}
-.book {
-  width: 100%; height: 100%;
-  position: relative;
-  transform-style: preserve-3d;
-}
-.book-shadow {
-  position:absolute; bottom:-16px; left:10%; right:10%;
-  height:20px; background:radial-gradient(ellipse, rgba(0,0,0,.6), transparent);
-  filter:blur(8px);
-}
-
-/* Each page */
-.page {
-  position:absolute; inset:0;
-  border-radius: 4px 16px 16px 4px;
-  padding: 28px 24px;
-  overflow:hidden;
-  display:flex; flex-direction:column;
-  transform-origin: left center;
-  transition: transform .6s cubic-bezier(.645,.045,.355,1), box-shadow .6s;
-  cursor: pointer;
-  backface-visibility: hidden;
-}
-.page.is-back {
-  border-radius: 16px 4px 4px 16px;
-  transform-origin: right center;
-  transform: rotateY(180deg);
-  cursor:default;
-}
-.page.flipped {
-  transform: rotateY(-180deg);
-  box-shadow: -8px 0 32px rgba(0,0,0,.5);
-  cursor:default;
-}
-
-/* Page spine line */
-.page::before {
-  content:'';
-  position:absolute; left:0; top:5%; bottom:5%;
-  width:3px; border-radius:2px;
-  background:rgba(0,0,0,.15);
-}
-.page.is-back::before { left:auto; right:0; }
-
-/* Page number */
-.page-num {
-  position:absolute; bottom:14px;
-  font-size:11px; font-weight:700;
-  opacity:.5;
-}
-.page-num.left  { left:20px; }
-.page-num.right { right:20px; }
-
-/* Cover page */
-.page-cover {
-  align-items:center; justify-content:center; text-align:center;
-}
-.cover-emoji {
-  font-size:72px; margin-bottom:12px;
-  filter:drop-shadow(0 8px 24px rgba(0,0,0,.4));
-  animation: float 4s ease-in-out infinite;
-}
-.cover-sparkles {
-  position:absolute; inset:0; pointer-events:none;
-  overflow:hidden;
-}
-.sparkle {
-  position:absolute; font-size:16px;
-  animation: sparkle 2s ease-in-out infinite;
-}
-.cover-title {
-  font-family:'Bubblegum Sans',cursive;
-  font-size:22px; line-height:1.3;
-  text-shadow:0 2px 8px rgba(0,0,0,.3);
-  margin-bottom:8px;
-}
-.cover-name {
-  font-size:13px; font-weight:700; opacity:.8;
-}
-
-/* Story page */
-.page-story {
-  justify-content:space-between;
-}
-.story-illustration {
-  text-align:center;
-  font-size:56px;
-  margin-bottom:12px;
-  filter:drop-shadow(0 4px 12px rgba(0,0,0,.3));
-  flex-shrink:0;
-}
-.story-text {
-  font-size:14px; line-height:1.8; font-weight:600;
-  flex:1; overflow:hidden;
-}
-.story-page-label {
-  font-size:10px; font-weight:700;
-  opacity:.4; text-align:center; margin-top:8px;
-  flex-shrink:0;
-}
-
-/* End page */
-.page-end {
-  align-items:center; justify-content:center; text-align:center;
-}
-.end-emoji { font-size:52px; margin-bottom:12px; }
-.end-title {
-  font-family:'Bubblegum Sans',cursive;
-  font-size:20px; margin-bottom:8px;
-}
-.end-sub { font-size:12px; font-weight:600; opacity:.6; line-height:1.6; }
-
-/* Book nav */
-.book-nav {
-  display:flex; align-items:center; gap:20px; margin-bottom:20px;
-}
-.bnav-btn {
-  width:44px; height:44px; border-radius:50%;
-  background:rgba(255,255,255,.08);
-  border:1px solid rgba(255,255,255,.15);
-  color:white; font-size:18px; cursor:pointer;
-  display:grid; place-items:center;
-  transition: all .2s; font-family:'Quicksand',sans-serif;
-}
-.bnav-btn:hover:not(:disabled) {
-  background:rgba(124,58,237,.4); border-color:#7c3aed;
-  box-shadow:0 4px 16px #7c3aed44;
-}
-.bnav-btn:disabled { opacity:.2; cursor:not-allowed; }
-.page-counter {
-  color:rgba(255,255,255,.6); font-size:13px; font-weight:700;
-  min-width:80px; text-align:center;
-}
-
-/* Action buttons after book */
-.book-actions {
-  display:grid; grid-template-columns:1fr 1fr; gap:12px; width:100%; max-width:var(--page-w);
-}
-.bact-btn {
-  padding:12px; border-radius:40px; border:none;
-  font-size:13px; font-weight:700; cursor:pointer;
-  font-family:'Quicksand',sans-serif; transition:transform .15s;
-}
-.bact-btn:hover { transform:scale(1.03); }
-.bact-print { background:linear-gradient(135deg,#0d9488,#0ea5e9); color:white; }
-.bact-share { background:#25d366; color:white; }
-.btn-new {
-  grid-column: 1/-1;
-  background:rgba(255,255,255,.08); color:rgba(255,255,255,.7);
-  border:1px solid rgba(255,255,255,.15); border-radius:40px;
-  padding:11px; font-size:13px; font-weight:700;
-  cursor:pointer; font-family:'Quicksand',sans-serif;
-  transition:all .15s;
-}
-.btn-new:hover { background:rgba(255,255,255,.15); color:white; }
-
-/* ── FEATURES ── */
-.features-grid {
-  display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:20px;
-}
-.feat-card {
-  background:rgba(255,255,255,.04);
-  border:1px solid rgba(255,255,255,.08);
-  border-radius:20px; padding:28px 22px;
-  transition: transform .2s, border-color .2s;
-}
-.feat-card:hover {
-  transform:translateY(-4px);
-  border-color:rgba(124,58,237,.4);
-}
-.feat-icon { font-size:36px; margin-bottom:14px; display:block; }
-.feat-title {
-  font-family:'Bubblegum Sans',cursive;
-  font-size:19px; color:white; margin-bottom:8px;
-}
-.feat-desc { color:rgba(255,255,255,.5); font-size:14px; line-height:1.7; font-weight:500; }
-
-/* ── PRICING ── */
-.price-grid {
-  display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:20px; align-items:start;
-}
-.price-card {
+#app-section{padding:60px 20px 80px;}
+.app-container{max-width:780px;margin:0 auto;}
+.app-panel{
   background:rgba(255,255,255,.04);
   border:1px solid rgba(255,255,255,.1);
-  border-radius:22px; padding:28px 22px;
-  position:relative;
+  border-radius:28px;padding:36px 32px;
+  backdrop-filter:blur(20px);
+  box-shadow:0 32px 80px rgba(0,0,0,.4);
 }
-.price-card.hot {
-  border-color:#7c3aed;
-  background:rgba(124,58,237,.12);
-  box-shadow:0 0 40px rgba(124,58,237,.2);
+.steps-dots{display:flex;gap:8px;justify-content:center;margin-bottom:28px;}
+.sdot{height:8px;border-radius:4px;background:rgba(255,255,255,.15);transition:all .3s;}
+.sdot.active{background:#f59e0b;width:28px;}
+.sdot.done{background:#7c3aed;width:8px;}
+.sdot.idle{width:8px;}
+.panel-title{font-family:'Bubblegum Sans',cursive;font-size:24px;color:white;text-align:center;margin-bottom:6px;}
+.panel-sub{color:rgba(255,255,255,.45);font-size:13px;font-weight:600;text-align:center;margin-bottom:22px;}
+
+/* FORM */
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;}
+.field{display:flex;flex-direction:column;gap:5px;}
+.field label{font-size:11px;font-weight:700;color:rgba(255,255,255,.45);text-transform:uppercase;letter-spacing:.8px;}
+.field input,.field select,.field textarea{
+  background:rgba(255,255,255,.07);
+  border:1.5px solid rgba(255,255,255,.12);
+  border-radius:12px;padding:12px 14px;
+  color:white;font-size:14px;font-weight:600;
+  font-family:'Quicksand',sans-serif;outline:none;
+  transition:border-color .2s,background .2s;
 }
-.price-hot-badge {
-  position:absolute; top:-13px; left:50%; transform:translateX(-50%);
+.field input:focus,.field select:focus{border-color:#7c3aed;background:rgba(124,58,237,.15);}
+.field input::placeholder{color:rgba(255,255,255,.2);}
+.field select option{background:#1a0a2e;color:white;}
+
+/* MOOD SELECTOR */
+.mood-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px;}
+.mood-btn{
+  background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.12);
+  border-radius:30px;padding:7px 14px;cursor:pointer;
+  font-size:12px;font-weight:700;color:rgba(255,255,255,.6);
+  font-family:'Quicksand',sans-serif;transition:all .2s;
+}
+.mood-btn:hover{border-color:#7c3aed;color:white;}
+.mood-btn.sel{background:rgba(124,58,237,.3);border-color:#7c3aed;color:#c4b5fd;}
+
+/* THEME GRID */
+.theme-grid-sm{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:8px;}
+.tgs-btn{
+  border-radius:12px;padding:10px 4px;cursor:pointer;
+  text-align:center;border:2px solid transparent;
+  transition:all .2s;background:rgba(255,255,255,.06);
+}
+.tgs-btn:hover{transform:scale(1.08);}
+.tgs-btn.selected{border-color:#f59e0b;box-shadow:0 0 20px #f59e0b44;}
+.tgs-btn .te{font-size:20px;display:block;margin-bottom:2px;}
+.tgs-btn .tl{font-size:9px;font-weight:700;color:rgba(255,255,255,.65);}
+
+/* LENGTH TOGGLE */
+.length-row{display:flex;gap:8px;margin-bottom:18px;}
+.len-btn{
+  flex:1;background:rgba(255,255,255,.06);
+  border:1.5px solid rgba(255,255,255,.12);
+  border-radius:12px;padding:10px;cursor:pointer;
+  text-align:center;font-family:'Quicksand',sans-serif;
+  transition:all .2s;
+}
+.len-btn.sel{background:rgba(124,58,237,.3);border-color:#7c3aed;}
+.len-btn .len-emoji{font-size:20px;display:block;margin-bottom:3px;}
+.len-btn .len-name{font-size:11px;font-weight:700;color:rgba(255,255,255,.7);}
+.len-btn .len-desc{font-size:9px;color:rgba(255,255,255,.35);font-weight:600;}
+
+.btn-generate{
+  width:100%;padding:16px;
   background:linear-gradient(135deg,#7c3aed,#f43f5e);
-  color:white; border-radius:40px; padding:4px 16px;
-  font-size:11px; font-weight:700; white-space:nowrap;
+  color:white;border:none;border-radius:50px;
+  font-size:17px;font-weight:700;cursor:pointer;
+  font-family:'Quicksand',sans-serif;
+  box-shadow:0 8px 32px rgba(124,58,237,.4);
+  transition:transform .15s,box-shadow .15s,opacity .15s;
+  margin-top:4px;
+  animation:pulse 2s infinite;
 }
-.price-name { font-family:'Bubblegum Sans',cursive; font-size:20px; color:white; margin-bottom:6px; }
-.price-amount { font-family:'Bubblegum Sans',cursive; font-size:44px; color:#f59e0b; margin-bottom:2px; }
-.price-period { color:rgba(255,255,255,.4); font-size:12px; font-weight:600; margin-bottom:18px; }
-.price-list { list-style:none; margin-bottom:22px; }
-.price-list li {
-  padding:6px 0; font-size:13px; font-weight:600;
-  color:rgba(255,255,255,.7);
-  border-bottom:1px solid rgba(255,255,255,.06);
+.btn-generate:hover:not(:disabled){transform:scale(1.02);box-shadow:0 12px 40px rgba(124,58,237,.6);}
+.btn-generate:disabled{opacity:.35;cursor:not-allowed;animation:none;}
+.btn-back{
+  background:none;border:none;color:rgba(255,255,255,.35);
+  font-size:13px;font-weight:700;cursor:pointer;
+  display:block;margin:14px auto 0;font-family:'Quicksand',sans-serif;
+  transition:color .2s;
 }
-.price-list li::before { content:"✦ "; color:#7c3aed; }
-.price-btn {
-  width:100%; padding:13px; border-radius:40px; border:none;
-  font-size:14px; font-weight:700; cursor:pointer;
-  font-family:'Quicksand',sans-serif; transition:transform .15s;
-}
-.price-btn:hover { transform:scale(1.02); }
-.price-btn.main { background:linear-gradient(135deg,#7c3aed,#f43f5e); color:white; }
-.price-btn.sec  { background:rgba(255,255,255,.08); color:rgba(255,255,255,.7); }
+.btn-back:hover{color:rgba(255,255,255,.8);}
 
-/* ── TESTIMONIALS ── */
-.testi-grid {
-  display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px;
+/* CREDITS BAR */
+.credits-bar{
+  display:flex;align-items:center;justify-content:center;
+  gap:8px;margin-bottom:18px;
+  background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);
+  border-radius:12px;padding:10px 16px;
 }
-.testi-card {
-  background:rgba(255,255,255,.04);
-  border:1px solid rgba(255,255,255,.08);
-  border-radius:18px; padding:22px;
-}
-.testi-stars { color:#f59e0b; font-size:14px; margin-bottom:10px; }
-.testi-text { color:rgba(255,255,255,.7); font-size:13px; line-height:1.8; font-weight:500; margin-bottom:12px; }
-.testi-author { color:rgba(255,255,255,.4); font-size:12px; font-weight:700; }
+.credits-dots{display:flex;gap:4px;}
+.cdot{width:10px;height:10px;border-radius:50%;transition:background .3s;}
+.cdot.used{background:rgba(255,255,255,.15);}
+.cdot.avail{background:#f59e0b;}
+.credits-text{font-size:12px;font-weight:700;color:rgba(255,255,255,.6);}
 
-/* ── FAQ ── */
-.faq-wrap { max-width:680px; margin:0 auto; }
-.faq-item {
-  background:rgba(255,255,255,.04);
-  border:1px solid rgba(255,255,255,.08);
-  border-radius:14px; margin-bottom:10px; overflow:hidden;
+/* ── LOADING ── */
+.loading-wrap{text-align:center;padding:48px 20px;}
+.magic-loader{position:relative;width:80px;height:80px;margin:0 auto 24px;}
+.ml-ring{position:absolute;inset:0;border-radius:50%;border:3px solid transparent;border-top-color:#7c3aed;animation:spin 1.2s linear infinite;}
+.ml-ring2{position:absolute;inset:8px;border-radius:50%;border:3px solid transparent;border-top-color:#f59e0b;animation:spin .8s linear infinite reverse;}
+.ml-center{position:absolute;inset:0;display:grid;place-items:center;font-size:28px;}
+.loading-title{font-family:'Bubblegum Sans',cursive;font-size:24px;color:white;margin-bottom:8px;}
+.loading-sub{color:rgba(255,255,255,.45);font-size:14px;font-weight:600;}
+.loading-dots span{
+  display:inline-block;width:8px;height:8px;border-radius:50%;
+  background:#7c3aed;margin:0 3px;animation:bounce 1s infinite;
 }
-.faq-q {
-  width:100%; background:none; border:none; padding:18px 20px;
-  text-align:left; color:white; font-size:14px; font-weight:700;
-  cursor:pointer; display:flex; justify-content:space-between; align-items:center;
+.loading-dots span:nth-child(2){animation-delay:.15s;background:#f43f5e;}
+.loading-dots span:nth-child(3){animation-delay:.3s;background:#f59e0b;}
+.loading-fact{
+  margin-top:24px;background:rgba(255,255,255,.05);
+  border-radius:12px;padding:14px 18px;
+  color:rgba(255,255,255,.5);font-size:12px;font-weight:600;line-height:1.7;
+  max-width:340px;margin-left:auto;margin-right:auto;
+}
+
+/* ── BOOK ── */
+.book-viewer{display:flex;flex-direction:column;align-items:center;}
+.book-title-display{font-family:'Bubblegum Sans',cursive;font-size:20px;color:white;text-align:center;margin-bottom:4px;}
+.book-subtitle-display{color:rgba(255,255,255,.4);font-size:12px;font-weight:600;text-align:center;margin-bottom:20px;}
+.book-wrap{
+  perspective:1400px;width:var(--page-w);height:var(--page-h);
+  position:relative;margin-bottom:24px;
+}
+.book{width:100%;height:100%;position:relative;transform-style:preserve-3d;}
+.book-shadow{position:absolute;bottom:-16px;left:10%;right:10%;height:20px;background:radial-gradient(ellipse,rgba(0,0,0,.6),transparent);filter:blur(8px);}
+
+/* Pages */
+.page{
+  position:absolute;inset:0;border-radius:4px 16px 16px 4px;
+  padding:24px 20px;overflow:hidden;
+  display:flex;flex-direction:column;
+  transform-origin:left center;
+  transition:transform .55s cubic-bezier(.645,.045,.355,1),box-shadow .55s;
+  cursor:pointer;backface-visibility:hidden;
+}
+.page::before{content:'';position:absolute;left:0;top:5%;bottom:5%;width:3px;border-radius:2px;background:rgba(0,0,0,.12);}
+.page-num{position:absolute;bottom:12px;font-size:10px;font-weight:700;opacity:.4;}
+.page-num.right{right:16px;}
+.page-num.left{left:16px;}
+.cover-sparkles{position:absolute;inset:0;pointer-events:none;overflow:hidden;}
+.sparkle{position:absolute;font-size:14px;animation:sparkle 2.5s ease-in-out infinite;}
+.cover-emoji{font-size:68px;margin-bottom:10px;filter:drop-shadow(0 6px 20px rgba(0,0,0,.4));animation:float 4s ease-in-out infinite;}
+.cover-title{font-family:'Bubblegum Sans',cursive;font-size:20px;line-height:1.3;text-shadow:0 2px 8px rgba(0,0,0,.3);margin-bottom:6px;}
+.cover-name{font-size:12px;font-weight:700;opacity:.75;}
+.story-illustration{text-align:center;font-size:52px;margin-bottom:10px;filter:drop-shadow(0 4px 12px rgba(0,0,0,.3));flex-shrink:0;}
+.story-text{font-size:13.5px;line-height:1.85;font-weight:600;flex:1;overflow:hidden;}
+.page-end{align-items:center;justify-content:center;text-align:center;}
+.end-emoji{font-size:48px;margin-bottom:10px;animation:heartPop .6s ease;}
+.end-title{font-family:'Bubblegum Sans',cursive;font-size:22px;color:white;margin-bottom:8px;}
+.end-sub{font-size:12px;font-weight:600;opacity:.6;line-height:1.7;}
+
+/* Swipe hint */
+.swipe-hint{
+  display:flex;align-items:center;gap:6px;
+  color:rgba(255,255,255,.25);font-size:11px;font-weight:700;
+  margin-bottom:14px;
+}
+
+/* Book nav */
+.book-nav{display:flex;align-items:center;gap:20px;margin-bottom:18px;}
+.bnav-btn{
+  width:44px;height:44px;border-radius:50%;
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);
+  color:white;font-size:20px;cursor:pointer;
+  display:grid;place-items:center;transition:all .2s;
   font-family:'Quicksand',sans-serif;
 }
-.faq-a {
-  display:none; padding:0 20px 16px;
-  color:rgba(255,255,255,.5); font-size:13px; line-height:1.8; font-weight:500;
+.bnav-btn:hover:not(:disabled){background:rgba(124,58,237,.4);border-color:#7c3aed;box-shadow:0 4px 16px #7c3aed44;}
+.bnav-btn:disabled{opacity:.2;cursor:not-allowed;}
+.page-counter{color:rgba(255,255,255,.55);font-size:13px;font-weight:700;min-width:90px;text-align:center;}
+
+/* Progress bar */
+.reading-progress{
+  width:var(--page-w);height:3px;
+  background:rgba(255,255,255,.1);border-radius:2px;
+  margin-bottom:16px;overflow:hidden;
 }
+.rp-fill{height:100%;background:linear-gradient(90deg,#7c3aed,#f59e0b);border-radius:2px;transition:width .4s ease;}
+
+/* Book actions */
+.book-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:100%;max-width:var(--page-w);}
+.bact-btn{
+  padding:12px;border-radius:40px;border:none;
+  font-size:13px;font-weight:700;cursor:pointer;
+  font-family:'Quicksand',sans-serif;transition:transform .15s;
+}
+.bact-btn:hover{transform:scale(1.03);}
+.bact-print{background:linear-gradient(135deg,#0d9488,#0ea5e9);color:white;}
+.bact-share{background:#25d366;color:white;}
+.bact-save{background:linear-gradient(135deg,#f59e0b,#f43f5e);color:white;}
+.bact-copy{background:rgba(255,255,255,.1);color:rgba(255,255,255,.8);}
+.btn-new{
+  grid-column:1/-1;background:rgba(255,255,255,.07);
+  color:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.12);
+  border-radius:40px;padding:11px;font-size:13px;font-weight:700;
+  cursor:pointer;font-family:'Quicksand',sans-serif;transition:all .15s;
+}
+.btn-new:hover{background:rgba(255,255,255,.13);color:white;}
+
+/* ── FEATURES ── */
+.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;}
+.feat-card{
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);
+  border-radius:20px;padding:26px 22px;transition:transform .2s,border-color .2s;
+}
+.feat-card:hover{transform:translateY(-4px);border-color:rgba(124,58,237,.4);}
+.feat-icon{font-size:34px;margin-bottom:12px;display:block;}
+.feat-title{font-family:'Bubblegum Sans',cursive;font-size:18px;color:white;margin-bottom:7px;}
+.feat-desc{color:rgba(255,255,255,.45);font-size:13px;line-height:1.7;font-weight:500;}
+
+/* ── PRICING ── */
+.price-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;align-items:start;}
+.price-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:22px;padding:26px 20px;position:relative;}
+.price-card.hot{border-color:#7c3aed;background:rgba(124,58,237,.1);box-shadow:0 0 40px rgba(124,58,237,.18);}
+.price-hot-badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#7c3aed,#f43f5e);color:white;border-radius:40px;padding:4px 16px;font-size:11px;font-weight:700;white-space:nowrap;}
+.price-name{font-family:'Bubblegum Sans',cursive;font-size:19px;color:white;margin-bottom:5px;}
+.price-amount{font-family:'Bubblegum Sans',cursive;font-size:42px;color:#f59e0b;margin-bottom:2px;}
+.price-period{color:rgba(255,255,255,.35);font-size:11px;font-weight:600;margin-bottom:16px;}
+.price-list{list-style:none;margin-bottom:20px;}
+.price-list li{padding:5px 0;font-size:12px;font-weight:600;color:rgba(255,255,255,.65);border-bottom:1px solid rgba(255,255,255,.05);}
+.price-list li::before{content:"✦ ";color:#7c3aed;}
+.price-btn{width:100%;padding:12px;border-radius:40px;border:none;font-size:13px;font-weight:700;cursor:pointer;font-family:'Quicksand',sans-serif;transition:transform .15s;}
+.price-btn:hover{transform:scale(1.02);}
+.price-btn.main{background:linear-gradient(135deg,#7c3aed,#f43f5e);color:white;}
+.price-btn.sec{background:rgba(255,255,255,.08);color:rgba(255,255,255,.65);}
+
+/* ── TESTI ── */
+.testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;}
+.testi-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:20px;}
+.testi-stars{color:#f59e0b;font-size:13px;margin-bottom:8px;}
+.testi-text{color:rgba(255,255,255,.65);font-size:12px;line-height:1.8;font-weight:500;margin-bottom:10px;}
+.testi-author{color:rgba(255,255,255,.35);font-size:11px;font-weight:700;}
+
+/* ── FAQ ── */
+.faq-wrap{max-width:660px;margin:0 auto;}
+.faq-item{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:14px;margin-bottom:9px;overflow:hidden;}
+.faq-q{width:100%;background:none;border:none;padding:16px 18px;text-align:left;color:white;font-size:13px;font-weight:700;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-family:'Quicksand',sans-serif;}
+.faq-a{display:none;padding:0 18px 14px;color:rgba(255,255,255,.45);font-size:12px;line-height:1.8;font-weight:500;}
 
 /* ── FOOTER ── */
-footer {
-  position:relative; z-index:1;
-  background:rgba(0,0,0,.4); backdrop-filter:blur(10px);
-  border-top:1px solid rgba(255,255,255,.06);
-  padding:40px 20px; text-align:center;
-}
-.footer-logo {
-  font-family:'Bubblegum Sans',cursive; font-size:26px;
-  background:linear-gradient(135deg,#f9a8d4,#c4b5fd);
-  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
-  margin-bottom:10px;
-}
-footer p { color:rgba(255,255,255,.3); font-size:13px; font-weight:500; line-height:1.8; }
-.footer-links { display:flex; gap:20px; justify-content:center; margin-top:16px; flex-wrap:wrap; }
-.footer-links a { color:rgba(255,255,255,.3); text-decoration:none; font-size:12px; font-weight:700; }
-.footer-links a:hover { color:#c4b5fd; }
+footer{position:relative;z-index:1;background:rgba(0,0,0,.5);backdrop-filter:blur(10px);border-top:1px solid rgba(255,255,255,.05);padding:36px 20px;text-align:center;}
+.footer-logo{font-family:'Bubblegum Sans',cursive;font-size:24px;background:linear-gradient(135deg,#f9a8d4,#c4b5fd);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px;}
+footer p{color:rgba(255,255,255,.25);font-size:12px;font-weight:500;line-height:1.8;}
+.footer-links{display:flex;gap:18px;justify-content:center;margin-top:14px;flex-wrap:wrap;}
+.footer-links a{color:rgba(255,255,255,.25);text-decoration:none;font-size:11px;font-weight:700;}
+.footer-links a:hover{color:#c4b5fd;}
 
-/* PRINT */
-@media print {
-  body > *:not(#app-section) { display:none!important; }
-  .stars,.nav,.hero,section:not(#app-section) { display:none!important; }
-  #app-section { padding:0!important; }
-  .app-panel { background:white!important; border:none!important; box-shadow:none!important; padding:0!important; }
-  .steps-dots,.btn-back,.btn-generate,.book-nav,.book-actions,.panel-title,.panel-sub { display:none!important; }
-  .book-wrap { perspective:none!important; }
-  .page { position:relative!important; transform:none!important; break-inside:avoid; page-break-inside:avoid; margin-bottom:20px; border-radius:12px!important; }
-  .page.is-back { transform:none!important; }
-}
-
+/* ── RESPONSIVE ── */
 @media(max-width:600px){
-  :root { --page-w:290px; --page-h:400px; }
-  .form-row { grid-template-columns:1fr; }
-  .theme-grid-sm { grid-template-columns:repeat(5,1fr); }
-  .book-actions { grid-template-columns:1fr; }
-  .app-panel { padding:24px 16px; }
+  :root{--page-w:290px;--page-h:400px;}
+  .form-row{grid-template-columns:1fr;}
+  .book-actions{grid-template-columns:1fr;}
+  .app-panel{padding:22px 16px;}
+  .theme-grid-sm{grid-template-columns:repeat(5,1fr);}
+  .hero-book{display:none;}
+}
+
+/* ── PRINT ── */
+@media print{
+  body>*:not(#app-section){display:none!important;}
+  .stars,.nav,.hero{display:none!important;}
+  #app-section{padding:0!important;}
+  .app-panel{background:white!important;border:none!important;box-shadow:none!important;padding:0!important;}
+  .steps-dots,.btn-back,.btn-generate,.book-nav,.book-actions,.panel-title,.panel-sub,.swipe-hint,.reading-progress{display:none!important;}
+  .book-wrap{perspective:none!important;}
+  .page{position:relative!important;transform:none!important;break-inside:avoid;margin-bottom:16px;border-radius:12px!important;display:flex!important;}
 }
 </style>
 </head>
 <body>
-
 <div class="stars"></div>
+
+<!-- PWA Install Banner -->
+<div id="install-banner">
+  <span style="font-size:20px">📱</span>
+  <p>¡Instalá MagiCuento en tu celu!</p>
+  <button onclick="installPWA()">Instalar</button>
+  <button class="install-close" onclick="closeBanner()">✕</button>
+</div>
+
+<!-- Offline toast -->
+<div id="offline-toast">📵 Sin conexión — los cuentos guardados siguen disponibles</div>
 
 <!-- NAV -->
 <nav>
   <div class="logo">🌙 MagiCuento</div>
   <div class="nav-right">
-    <button class="btn-nav" onclick="scrollToApp()">✨ Crear cuento gratis</button>
+    <button class="btn-nav" onclick="scrollToApp()">✨ Crear gratis</button>
   </div>
 </nav>
 
 <!-- HERO -->
 <header class="hero">
-  <div class="hero-deco" style="top:12%;left:4%;animation:float 4s ease-in-out infinite;">🌟</div>
-  <div class="hero-deco" style="top:18%;right:5%;animation:floatB 5s ease-in-out infinite;font-size:36px;">🦄</div>
-  <div class="hero-deco" style="bottom:22%;left:6%;animation:float 6s 1s ease-in-out infinite;font-size:32px;">🚀</div>
-  <div class="hero-deco" style="bottom:28%;right:7%;animation:floatB 4.5s .5s ease-in-out infinite;font-size:28px;">🌈</div>
-  <div class="hero-deco" style="top:45%;left:1%;animation:float 5.5s 2s ease-in-out infinite;font-size:24px;">⭐</div>
-
+  <div class="hero-deco" style="top:12%;left:4%;animation:float 4s ease-in-out infinite">🌟</div>
+  <div class="hero-deco" style="top:18%;right:5%;animation:floatB 5s ease-in-out infinite;font-size:34px">🦄</div>
+  <div class="hero-deco" style="bottom:22%;left:6%;animation:float 6s 1s ease-in-out infinite;font-size:30px">🚀</div>
+  <div class="hero-deco" style="bottom:28%;right:7%;animation:floatB 4.5s .5s ease-in-out infinite;font-size:26px">🌈</div>
   <h1>Cuentos mágicos<br>con el nombre de tu peque</h1>
-  <p class="hero-sub">La IA crea un libro personalizado donde tu hijo o hija es el protagonista. Con ilustraciones animadas, páginas que se pasan como un libro de verdad, y listo para leer o imprimir.</p>
+  <p class="hero-sub">La IA crea un libro personalizado donde tu hijo o hija es el protagonista. Con ilustraciones animadas y páginas que se pasan como un libro de verdad.</p>
   <div class="hero-btns">
     <button class="btn-hero" onclick="scrollToApp()">📖 Crear mi cuento gratis</button>
     <button class="btn-ghost" onclick="document.getElementById('como').scrollIntoView({behavior:'smooth'})">Ver cómo funciona →</button>
   </div>
-
-  <!-- Mini preview book -->
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-num">+18K</div><div class="stat-lbl">Cuentos creados</div></div>
+    <div class="stat"><div class="stat-num">4.9⭐</div><div class="stat-lbl">Valoración</div></div>
+    <div class="stat"><div class="stat-num">15s</div><div class="stat-lbl">Tiempo promedio</div></div>
+  </div>
   <div class="hero-book">
     <div class="demo-page" style="background:linear-gradient(135deg,#7c3aed,#db2777);color:white;width:170px;height:200px;right:0;top:0;z-index:2;">
-      <div style="font-size:40px;text-align:center;margin-bottom:8px">🦄</div>
-      <div style="font-family:'Bubblegum Sans',cursive;font-size:14px;text-align:center;line-height:1.4">La aventura de<br><strong>Valentina</strong></div>
+      <div style="font-size:38px;text-align:center;margin-bottom:8px">🦄</div>
+      <div style="font-family:'Bubblegum Sans',cursive;font-size:13px;text-align:center;line-height:1.4">La aventura de<br><strong>Valentina</strong></div>
     </div>
-    <div class="demo-page" style="background:linear-gradient(135deg,#1e1b4b,#312e81);color:#c4b5fd;width:160px;height:190px;left:0;top:10px;z-index:1;font-size:11px;line-height:1.7;font-weight:600;">
-      <div style="font-size:24px;margin-bottom:6px">✨</div>
+    <div class="demo-page" style="background:linear-gradient(135deg,#1e1b4b,#312e81);color:#c4b5fd;width:158px;height:188px;left:0;top:12px;z-index:1;font-size:10.5px;line-height:1.7;font-weight:600;">
+      <div style="font-size:22px;margin-bottom:5px">✨</div>
       Érase una vez una niña llamada <strong style="color:white">Valentina</strong> que encontró un unicornio mágico...
     </div>
   </div>
 </header>
 
+<!-- LIBRARY -->
+<section id="library-section" style="padding:40px 20px;">
+  <div class="container">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;flex-wrap:wrap;gap:12px;">
+      <div>
+        <span class="section-label">Mis cuentos</span>
+        <h2 style="margin:0;font-size:clamp(22px,3vw,32px)">Tu biblioteca mágica 📚</h2>
+      </div>
+      <button onclick="scrollToApp()" style="background:rgba(124,58,237,.2);border:1px solid rgba(124,58,237,.4);color:#c4b5fd;border-radius:30px;padding:8px 18px;font-size:12px;font-weight:700;cursor:pointer;font-family:'Quicksand',sans-serif;">+ Nuevo cuento</button>
+    </div>
+    <div class="library-grid" id="library-grid">
+      <div class="lib-empty" style="grid-column:1/-1">
+        <div style="font-size:40px;margin-bottom:12px">📭</div>
+        <p>Todavía no creaste ningún cuento.<br>¡El primero es gratis!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- FEATURES -->
 <section id="como">
   <div class="container">
-    <div style="text-align:center;margin-bottom:48px;">
+    <div style="text-align:center;margin-bottom:44px;">
       <span class="section-label">¿Por qué MagiCuento?</span>
       <h2>Más que un cuento.<br>Una experiencia mágica.</h2>
-      <p class="section-sub" style="margin:0 auto;">Cada cuento es único, personalizado con el nombre y los gustos del niño, en español argentino.</p>
+      <p class="section-sub" style="margin:0 auto;">Cada historia es única, en español argentino, con el nombre y los gustos de tu peque.</p>
     </div>
     <div class="features-grid">
-      <div class="feat-card">
-        <span class="feat-icon">🤖</span>
-        <div class="feat-title">IA que escribe en español</div>
-        <p class="feat-desc">No son plantillas genéricas. Cada cuento es generado de cero con el nombre, edad y personaje favorito de tu peque. Texto creativo, con valores y vocabulario apropiado a la edad.</p>
-      </div>
-      <div class="feat-card">
-        <span class="feat-icon">📖</span>
-        <div class="feat-title">Librito con efecto flip</div>
-        <p class="feat-desc">Las páginas se pasan como un libro real con animación 3D. Cada página tiene su ilustración de emojis animados y el texto de la historia. Funciona en celular y desktop.</p>
-      </div>
-      <div class="feat-card">
-        <span class="feat-icon">🎨</span>
-        <div class="feat-title">10 temáticas mágicas</div>
-        <p class="feat-desc">Unicornios, dinosaurios, espacio, sirenas, princesas, dragones y más. Cada temática tiene su paleta de colores, emojis e ilustraciones propias.</p>
-      </div>
-      <div class="feat-card">
-        <span class="feat-icon">🖨️</span>
-        <div class="feat-title">Imprimible como libro</div>
-        <p class="feat-desc">Descargá e imprimí en casa o llevá al kiosco. El formato está pensado para doblarse como un pequeño libro físico. Ideal para regalar.</p>
-      </div>
-      <div class="feat-card">
-        <span class="feat-icon">💚</span>
-        <div class="feat-title">Compartir por WhatsApp</div>
-        <p class="feat-desc">Con un clic compartís el cuento por WhatsApp. Los abuelos, los amigos del jardín, los primos... todos pueden leerlo al toque desde el celu.</p>
-      </div>
-      <div class="feat-card">
-        <span class="feat-icon">🧠</span>
-        <div class="feat-title">Estimulación real</div>
-        <p class="feat-desc">Los cuentos donde el niño es protagonista estimulan la lectura, la autoestima y la imaginación. La IA genera historias con valores positivos adaptadas a cada edad.</p>
-      </div>
+      <div class="feat-card"><span class="feat-icon">🤖</span><div class="feat-title">IA en español real</div><p class="feat-desc">No son plantillas. Cada cuento se escribe de cero con el nombre, edad y personaje favorito. Vocabulario adaptado a la edad y español rioplatense.</p></div>
+      <div class="feat-card"><span class="feat-icon">📖</span><div class="feat-title">Librito con páginas</div><p class="feat-desc">Animación 3D al pasar páginas como un libro real. Funciona con swipe en el celu, con flechas en desktop y con las teclas del teclado.</p></div>
+      <div class="feat-card"><span class="feat-icon">🎭</span><div class="feat-title">Tono y longitud a medida</div><p class="feat-desc">Elegís si el cuento es divertido, emocionante o educativo. Y si querés 3 páginas para la hora del baño o 7 para la noche.</p></div>
+      <div class="feat-card"><span class="feat-icon">📚</span><div class="feat-title">Biblioteca guardada</div><p class="feat-desc">Todos los cuentos quedan guardados en tu dispositivo. Podés volver a leerlos cuando quieras, sin internet, como una biblioteca personal.</p></div>
+      <div class="feat-card"><span class="feat-icon">📱</span><div class="feat-title">App instalable</div><p class="feat-desc">Se instala en la pantalla de inicio del celu como una app de verdad. Sin App Store, sin Play Store. Un clic y está.</p></div>
+      <div class="feat-card"><span class="feat-icon">🖨️</span><div class="feat-title">Imprimible como libro</div><p class="feat-desc">Imprimí en casa o llevá al kiosco. El formato está pensado para doblarse como librito físico. Ideal para regalar.</p></div>
     </div>
   </div>
 </section>
@@ -736,7 +587,7 @@ footer p { color:rgba(255,255,255,.3); font-size:13px; font-weight:500; line-hei
 <!-- APP -->
 <section id="app-section">
   <div class="app-container">
-    <div style="text-align:center;margin-bottom:32px;">
+    <div style="text-align:center;margin-bottom:28px;">
       <span class="section-label">Probalo ahora · gratis</span>
       <h2>Creá el cuento de tu peque</h2>
       <p class="section-sub" style="margin:0 auto;">Los primeros 2 cuentos son sin costo, sin tarjeta de crédito.</p>
@@ -746,321 +597,311 @@ footer p { color:rgba(255,255,255,.3); font-size:13px; font-weight:500; line-hei
 </section>
 
 <!-- TESTIMONIALS -->
-<section>
+<section style="padding:60px 20px;">
   <div class="container">
-    <div style="text-align:center;margin-bottom:40px;">
+    <div style="text-align:center;margin-bottom:36px;">
       <span class="section-label">Familias felices</span>
       <h2>Lo que dicen los papás</h2>
     </div>
     <div class="testi-grid">
-      <div class="testi-card">
-        <div class="testi-stars">⭐⭐⭐⭐⭐</div>
-        <p class="testi-text">"Mateo no quería que le lean cuentos hasta que vio que él era el personaje principal. Ahora me pide uno nuevo cada noche. Es increíble lo que genera la IA."</p>
-        <span class="testi-author">— Rocío M., mamá de Mateo (4 años)</span>
-      </div>
-      <div class="testi-card">
-        <div class="testi-stars">⭐⭐⭐⭐⭐</div>
-        <p class="testi-text">"Lo usé como regalo de cumpleaños para mi sobrina. Imprimimos el librito, lo encuadernamos y quedó hermoso. Fue el regalo más original de la fiesta."</p>
-        <span class="testi-author">— Florencia D., tía de Emma (5 años)</span>
-      </div>
-      <div class="testi-card">
-        <div class="testi-stars">⭐⭐⭐⭐⭐</div>
-        <p class="testi-text">"La maestra nos recomendó estimular la lectura y esto fue lo mejor que encontré. Sofía escucha el cuento y después quiere leerlo sola. Genial para el desarrollo."</p>
-        <span class="testi-author">— Mariana P., mamá de Sofía (6 años)</span>
-      </div>
+      <div class="testi-card"><div class="testi-stars">⭐⭐⭐⭐⭐</div><p class="testi-text">"Mateo no quería que le lean cuentos hasta que vio que él era el personaje principal. Ahora me pide uno nuevo cada noche."</p><span class="testi-author">— Rocío M., mamá de Mateo (4 años)</span></div>
+      <div class="testi-card"><div class="testi-stars">⭐⭐⭐⭐⭐</div><p class="testi-text">"Lo usé como regalo de cumpleaños. Imprimimos el librito y quedó hermoso. Fue el regalo más original de la fiesta."</p><span class="testi-author">— Florencia D., tía de Emma (5 años)</span></div>
+      <div class="testi-card"><div class="testi-stars">⭐⭐⭐⭐⭐</div><p class="testi-text">"La maestra nos recomendó estimular la lectura y esto fue lo mejor que encontré. Sofía quiere leerlo sola. Genial."</p><span class="testi-author">— Mariana P., mamá de Sofía (6 años)</span></div>
     </div>
   </div>
 </section>
 
 <!-- PRICING -->
-<section id="precios">
+<section id="precios" style="padding:60px 20px;">
   <div class="container">
-    <div style="text-align:center;margin-bottom:48px;">
+    <div style="text-align:center;margin-bottom:44px;">
       <span class="section-label">Precios</span>
       <h2>Simple y transparente</h2>
-      <p class="section-sub" style="margin:0 auto;">Sin suscripciones. Pagás solo lo que necesitás.</p>
     </div>
     <div class="price-grid">
-      <div class="price-card">
-        <div class="price-name">🆓 Gratis</div>
-        <div class="price-amount">$0</div>
-        <p class="price-period">Para descubrir la magia</p>
-        <ul class="price-list">
-          <li>2 cuentos personalizados</li>
-          <li>Todas las temáticas</li>
-          <li>Librito con flip de páginas</li>
-          <li>Compartir por WhatsApp</li>
-        </ul>
-        <button class="price-btn sec" onclick="scrollToApp()">Empezar gratis</button>
-      </div>
-      <div class="price-card hot">
-        <div class="price-hot-badge">✦ Más elegido</div>
-        <div class="price-name">📚 Pack Cuentos</div>
-        <div class="price-amount">$5</div>
-        <p class="price-period">USD · 10 cuentos</p>
-        <ul class="price-list">
-          <li>10 cuentos únicos</li>
-          <li>Descarga en alta calidad</li>
-          <li>Formato imprimible</li>
-          <li>Ideal para regalar</li>
-          <li>Todas las temáticas</li>
-        </ul>
-        <button class="price-btn main">Comprar pack</button>
-      </div>
-      <div class="price-card">
-        <div class="price-name">👑 Familia</div>
-        <div class="price-amount">$12</div>
-        <p class="price-period">USD / mes · ilimitado</p>
-        <ul class="price-list">
-          <li>Cuentos ilimitados</li>
-          <li>Múltiples hijos/perfiles</li>
-          <li>Temáticas exclusivas</li>
-          <li>Nuevas funciones primero</li>
-        </ul>
-        <button class="price-btn sec">Suscribirme</button>
-      </div>
+      <div class="price-card"><div class="price-name">🆓 Gratis</div><div class="price-amount">$0</div><p class="price-period">Para descubrir la magia</p><ul class="price-list"><li>2 cuentos personalizados</li><li>Todas las temáticas</li><li>Biblioteca local</li><li>WhatsApp e imprimir</li></ul><button class="price-btn sec" onclick="scrollToApp()">Empezar gratis</button></div>
+      <div class="price-card hot"><div class="price-hot-badge">✦ Más elegido</div><div class="price-name">📚 Pack Cuentos</div><div class="price-amount">$5</div><p class="price-period">USD · 10 cuentos</p><ul class="price-list"><li>10 cuentos únicos</li><li>Todas las longitudes</li><li>Descarga en alta calidad</li><li>Ideal para regalar</li></ul><button class="price-btn main">Comprar pack</button></div>
+      <div class="price-card"><div class="price-name">👑 Familia</div><div class="price-amount">$12</div><p class="price-period">USD / mes · ilimitado</p><ul class="price-list"><li>Cuentos ilimitados</li><li>Múltiples perfiles</li><li>Temáticas exclusivas</li><li>Acceso anticipado</li></ul><button class="price-btn sec">Suscribirme</button></div>
     </div>
   </div>
 </section>
 
 <!-- FAQ -->
-<section id="faq">
+<section style="padding:60px 20px;">
   <div class="container" style="text-align:center;">
-    <span class="section-label">Preguntas frecuentes</span>
-    <h2 style="margin-bottom:36px;">Todo lo que querés saber</h2>
+    <span class="section-label">FAQ</span>
+    <h2 style="margin-bottom:32px;">Todo lo que querés saber</h2>
     <div class="faq-wrap">
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">¿La IA realmente escribe el cuento de cero? <span>▾</span></button>
-        <div class="faq-a">Sí, cada cuento es generado de cero por inteligencia artificial con el nombre, edad y personaje favorito que ingresás. No son plantillas con espacios en blanco — es una historia original cada vez.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">¿Para qué edades es apropiado? <span>▾</span></button>
-        <div class="faq-a">Desde los 2 hasta los 10 años aproximadamente. La IA adapta el vocabulario y la complejidad de la historia según la edad que ingresás. Para bebés de 0-2 el cuento es muy simple y visual; para niños de 7-10 es más elaborado.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">¿Puedo imprimir el cuento? <span>▾</span></button>
-        <div class="faq-a">Sí. Con el botón "Imprimir" se genera una versión optimizada para papel. Podés imprimirlo en casa, en un kiosco de fotos o en una imprenta. El formato está diseñado para doblarse como un pequeño libro físico.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">¿Está en español argentino? <span>▾</span></button>
-        <div class="faq-a">Sí, los cuentos se generan en español con modismos y expresiones del español rioplatense (vos, che, etc.). Si preferís español neutro o de otro país podés indicarlo en el campo de personaje favorito.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">¿Cuánto tiempo tarda en generarse? <span>▾</span></button>
-        <div class="faq-a">Entre 10 y 20 segundos dependiendo de la conexión. La IA divide el cuento en 5 páginas automáticamente y genera el texto completo en una sola llamada.</div>
-      </div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">¿La IA realmente escribe el cuento de cero? <span>▾</span></button><div class="faq-a">Sí, cada cuento es generado por inteligencia artificial con el nombre, edad y personaje favorito que ingresás. No son plantillas — es una historia original cada vez.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">¿Funciona sin internet? <span>▾</span></button><div class="faq-a">La app instalada funciona offline para leer los cuentos guardados en tu biblioteca. Para generar cuentos nuevos sí necesitás internet, ya que la IA está en la nube.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">¿Cómo instalo la app en mi celu? <span>▾</span></button><div class="faq-a">En Android: tocá el menú del navegador y "Agregar a pantalla de inicio". En iPhone: tocá el ícono de compartir en Safari y "Agregar a pantalla de inicio". También aparece el banner de instalación automáticamente.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">¿Para qué edades es apropiado? <span>▾</span></button><div class="faq-a">De 2 a 10 años. La IA adapta el vocabulario y complejidad según la edad. Para bebés de 2-3 años el cuento es muy simple y visual; para niños de 7-10 es más elaborado.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">¿Los cuentos quedan guardados? <span>▾</span></button><div class="faq-a">Sí, todos los cuentos que generás quedan guardados automáticamente en tu dispositivo y aparecen en tu biblioteca personal. Podés releerlos cuando quieras.</div></div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-logo">🌙 MagiCuento</div>
-  <p>Cuentos personalizados con IA para estimular la lectura y la imaginación.<br>
-  Cada historia es única. Cada niño es el protagonista.</p>
-  <div class="footer-links">
-    <a href="#">Términos</a>
-    <a href="#">Privacidad</a>
-    <a href="#">Contacto</a>
-    <a href="#">Instagram</a>
-  </div>
-  <p style="margin-top:20px;font-size:11px;">© 2025 MagiCuento. Todos los derechos reservados.</p>
+  <p>Cuentos personalizados con IA · Tu peque es el protagonista<br>Estimulación temprana · Lectura · Imaginación</p>
+  <div class="footer-links"><a href="#">Términos</a><a href="#">Privacidad</a><a href="#">Contacto</a><a href="#">Instagram</a></div>
+  <p style="margin-top:16px;font-size:10px;">© 2025 MagiCuento · PWA · Funciona offline</p>
 </footer>
 
 <script>
-// ═══════════════════════════════════
+// ══════════════════════════════════════════
+// PWA
+// ══════════════════════════════════════════
+let deferredPrompt = null;
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('sw.js')
+      .then(r => console.log('[PWA] SW registered'))
+      .catch(e => console.log('[PWA] SW error:', e));
+  });
+}
+
+window.addEventListener('beforeinstallprompt', e => {
+  e.preventDefault();
+  deferredPrompt = e;
+  setTimeout(() => {
+    document.getElementById('install-banner').classList.add('visible');
+  }, 3000);
+});
+
+window.addEventListener('appinstalled', () => {
+  document.getElementById('install-banner').classList.remove('visible');
+  showToast('✅ ¡MagiCuento instalado! Buscalo en tu pantalla de inicio.');
+});
+
+function installPWA() {
+  if (!deferredPrompt) return;
+  deferredPrompt.prompt();
+  deferredPrompt.userChoice.then(r => {
+    deferredPrompt = null;
+    document.getElementById('install-banner').classList.remove('visible');
+  });
+}
+function closeBanner() {
+  const b = document.getElementById('install-banner');
+  b.style.animation = 'slideOut .3s ease forwards';
+  setTimeout(() => b.classList.remove('visible'), 300);
+}
+
+// Online/offline
+window.addEventListener('offline', () => { document.getElementById('offline-toast').style.display='block'; });
+window.addEventListener('online',  () => { document.getElementById('offline-toast').style.display='none'; });
+
+// ══════════════════════════════════════════
+// LOCAL STORAGE — LIBRARY
+// ══════════════════════════════════════════
+function saveStory(story) {
+  try {
+    const lib = JSON.parse(localStorage.getItem('magicuento_library') || '[]');
+    lib.unshift({ ...story, id: Date.now(), savedAt: new Date().toLocaleDateString('es-AR') });
+    if (lib.length > 20) lib.splice(20);
+    localStorage.setItem('magicuento_library', JSON.stringify(lib));
+    renderLibrary();
+  } catch(e) {}
+}
+
+function loadLibrary() {
+  try { return JSON.parse(localStorage.getItem('magicuento_library') || '[]'); }
+  catch(e) { return []; }
+}
+
+function renderLibrary() {
+  const lib = loadLibrary();
+  const grid = document.getElementById('library-grid');
+  if (!grid) return;
+  if (!lib.length) {
+    grid.innerHTML = `<div class="lib-empty" style="grid-column:1/-1"><div style="font-size:40px;margin-bottom:12px">📭</div><p>Todavía no creaste ningún cuento.<br>¡El primero es gratis!</p></div>`;
+    return;
+  }
+  const t = THEMES;
+  grid.innerHTML = lib.map((s,i) => {
+    const theme = t.find(x=>x.id===s.theme)||t[0];
+    return `
+      <div class="library-card" onclick="openSavedStory(${i})">
+        <div class="lib-cover" style="background:${theme.coverGrad}">
+          <div style="font-size:32px">${theme.emoji}</div>
+        </div>
+        <div class="lib-title">${s.title||'Cuento de '+s.name}</div>
+        <div class="lib-date">${s.savedAt}</div>
+      </div>
+    `;
+  }).join('');
+}
+
+function openSavedStory(idx) {
+  const lib = loadLibrary();
+  const s = lib[idx];
+  if (!s) return;
+  state.form = { name:s.name, age:s.age||'', theme:s.theme, character:s.character||'', extra:'' };
+  state.pages = s.pages;
+  state.currentPage = 0;
+  state.screen = 'book';
+  scrollToApp();
+  render();
+}
+
+// Credits system
+function getCredits() {
+  try { return parseInt(localStorage.getItem('mc_credits') || '2'); }
+  catch(e) { return 2; }
+}
+function useCredit() {
+  const c = getCredits();
+  if (c <= 0) return false;
+  localStorage.setItem('mc_credits', c - 1);
+  return true;
+}
+
+// ══════════════════════════════════════════
 // THEMES
-// ═══════════════════════════════════
+// ══════════════════════════════════════════
 const THEMES = [
-  {
-    id:'unicorn', name:'Unicornio', emoji:'🦄',
-    pageEmojis:['🦄','🌈','✨','🌸','💜','⭐'],
-    coverGrad:'linear-gradient(145deg,#7c3aed,#db2777)',
-    pageGrad:'linear-gradient(160deg,#fdf4ff,#ede9fe)',
-    textColor:'#3b0764', headerColor:'white',
-    sparkles:['✨','🌸','💜','🌟'],
-    storyStyle:'Una historia de amistad y magia'
-  },
-  {
-    id:'dino', name:'Dinosaurio', emoji:'🦕',
-    pageEmojis:['🦕','🦖','🌿','🥚','🌴','🐾'],
-    coverGrad:'linear-gradient(145deg,#15803d,#065f46)',
-    pageGrad:'linear-gradient(160deg,#f0fdf4,#dcfce7)',
-    textColor:'#14532d', headerColor:'white',
-    sparkles:['🌿','🦕','🥚','🌴'],
-    storyStyle:'Una aventura prehistórica'
-  },
-  {
-    id:'space', name:'Espacio', emoji:'🚀',
-    pageEmojis:['🚀','⭐','🪐','🌙','👽','💫'],
-    coverGrad:'linear-gradient(145deg,#1e1b4b,#0f172a)',
-    pageGrad:'linear-gradient(160deg,#1e1b4b,#0f172a)',
-    textColor:'#e0e7ff', headerColor:'#fde68a',
-    sparkles:['⭐','💫','🌙','✨'],
-    storyStyle:'Una aventura intergaláctica',
-    dark:true
-  },
-  {
-    id:'mermaid', name:'Sirena', emoji:'🧜',
-    pageEmojis:['🧜','🐚','🌊','🐠','🐬','💙'],
-    coverGrad:'linear-gradient(145deg,#0891b2,#0e7490)',
-    pageGrad:'linear-gradient(160deg,#ecfeff,#cffafe)',
-    textColor:'#164e63', headerColor:'white',
-    sparkles:['🐚','🌊','💙','🐠'],
-    storyStyle:'Una aventura bajo el mar'
-  },
-  {
-    id:'princess', name:'Princesa', emoji:'👑',
-    pageEmojis:['👑','💎','🌸','🪄','🏰','✨'],
-    coverGrad:'linear-gradient(145deg,#be185d,#9d174d)',
-    pageGrad:'linear-gradient(160deg,#fff0f7,#fce7f3)',
-    textColor:'#831843', headerColor:'white',
-    sparkles:['👑','💎','🌸','✨'],
-    storyStyle:'Un cuento de realeza y valentía'
-  },
-  {
-    id:'dragon', name:'Dragón', emoji:'🐉',
-    pageEmojis:['🐉','🔥','🏰','⚔️','🌋','💎'],
-    coverGrad:'linear-gradient(145deg,#c2410c,#7f1d1d)',
-    pageGrad:'linear-gradient(160deg,#fff7ed,#ffedd5)',
-    textColor:'#431407', headerColor:'white',
-    sparkles:['🔥','🐉','⚔️','💎'],
-    storyStyle:'Una aventura épica llena de fuego'
-  },
-  {
-    id:'forest', name:'Bosque', emoji:'🦊',
-    pageEmojis:['🦊','🌲','🍄','🦉','🌺','🐿️'],
-    coverGrad:'linear-gradient(145deg,#166534,#14532d)',
-    pageGrad:'linear-gradient(160deg,#f0fdf4,#dcfce7)',
-    textColor:'#14532d', headerColor:'white',
-    sparkles:['🍄','🌺','🦊','🌲'],
-    storyStyle:'Una aventura en el bosque encantado'
-  },
-  {
-    id:'pirate', name:'Pirata', emoji:'🏴‍☠️',
-    pageEmojis:['🏴‍☠️','⚓','🗺️','💰','🦜','🌊'],
-    coverGrad:'linear-gradient(145deg,#1e3a5f,#0f172a)',
-    pageGrad:'linear-gradient(160deg,#eff6ff,#dbeafe)',
-    textColor:'#1e3a5f', headerColor:'white',
-    sparkles:['⚓','💰','🗺️','🦜'],
-    storyStyle:'Una aventura en alta mar'
-  },
-  {
-    id:'candy', name:'Dulces', emoji:'🍭',
-    pageEmojis:['🍭','🍬','🎂','🍦','🌈','🍰'],
-    coverGrad:'linear-gradient(145deg,#ec4899,#f43f5e)',
-    pageGrad:'linear-gradient(160deg,#fff0f7,#fce7f3)',
-    textColor:'#831843', headerColor:'white',
-    sparkles:['🍭','🍬','✨','🌈'],
-    storyStyle:'Un viaje al mundo de los dulces'
-  },
-  {
-    id:'robot', name:'Robot', emoji:'🤖',
-    pageEmojis:['🤖','⚡','🔧','💡','🌐','🛸'],
-    coverGrad:'linear-gradient(145deg,#1e40af,#1d4ed8)',
-    pageGrad:'linear-gradient(160deg,#eff6ff,#dbeafe)',
-    textColor:'#1e3a5f', headerColor:'white',
-    sparkles:['⚡','🤖','💡','🌐'],
-    storyStyle:'Una aventura tecnológica del futuro'
-  },
+  { id:'unicorn', name:'Unicornio', emoji:'🦄', pageEmojis:['🦄','🌈','✨','🌸','💜','⭐'], coverGrad:'linear-gradient(145deg,#7c3aed,#db2777)', pageGrad:'linear-gradient(160deg,#fdf4ff,#ede9fe)', textColor:'#3b0764', sparkles:['✨','🌸','💜','🌟'], storyStyle:'amistad y magia' },
+  { id:'dino', name:'Dinosaurio', emoji:'🦕', pageEmojis:['🦕','🦖','🌿','🥚','🌴','🐾'], coverGrad:'linear-gradient(145deg,#15803d,#065f46)', pageGrad:'linear-gradient(160deg,#f0fdf4,#dcfce7)', textColor:'#14532d', sparkles:['🌿','🦕','🥚','🌴'], storyStyle:'aventura prehistórica' },
+  { id:'space', name:'Espacio', emoji:'🚀', pageEmojis:['🚀','⭐','🪐','🌙','👽','💫'], coverGrad:'linear-gradient(145deg,#1e1b4b,#0f172a)', pageGrad:'linear-gradient(160deg,#1e1b4b,#0f172a)', textColor:'#e0e7ff', sparkles:['⭐','💫','🌙','✨'], storyStyle:'aventura intergaláctica', dark:true },
+  { id:'mermaid', name:'Sirena', emoji:'🧜', pageEmojis:['🧜','🐚','🌊','🐠','🐬','💙'], coverGrad:'linear-gradient(145deg,#0891b2,#0e7490)', pageGrad:'linear-gradient(160deg,#ecfeff,#cffafe)', textColor:'#164e63', sparkles:['🐚','🌊','💙','🐠'], storyStyle:'aventura bajo el mar' },
+  { id:'princess', name:'Princesa', emoji:'👑', pageEmojis:['👑','💎','🌸','🪄','🏰','✨'], coverGrad:'linear-gradient(145deg,#be185d,#9d174d)', pageGrad:'linear-gradient(160deg,#fff0f7,#fce7f3)', textColor:'#831843', sparkles:['👑','💎','🌸','✨'], storyStyle:'realeza y valentía' },
+  { id:'dragon', name:'Dragón', emoji:'🐉', pageEmojis:['🐉','🔥','🏰','⚔️','🌋','💎'], coverGrad:'linear-gradient(145deg,#c2410c,#7f1d1d)', pageGrad:'linear-gradient(160deg,#fff7ed,#ffedd5)', textColor:'#431407', sparkles:['🔥','🐉','⚔️','💎'], storyStyle:'aventura épica' },
+  { id:'forest', name:'Bosque', emoji:'🦊', pageEmojis:['🦊','🌲','🍄','🦉','🌺','🐿️'], coverGrad:'linear-gradient(145deg,#166534,#14532d)', pageGrad:'linear-gradient(160deg,#f0fdf4,#dcfce7)', textColor:'#14532d', sparkles:['🍄','🌺','🦊','🌲'], storyStyle:'bosque encantado' },
+  { id:'pirate', name:'Pirata', emoji:'🏴‍☠️', pageEmojis:['🏴‍☠️','⚓','🗺️','💰','🦜','🌊'], coverGrad:'linear-gradient(145deg,#1e3a5f,#0f172a)', pageGrad:'linear-gradient(160deg,#eff6ff,#dbeafe)', textColor:'#1e3a5f', sparkles:['⚓','💰','🗺️','🦜'], storyStyle:'alta mar' },
+  { id:'candy', name:'Dulces', emoji:'🍭', pageEmojis:['🍭','🍬','🎂','🍦','🌈','🍰'], coverGrad:'linear-gradient(145deg,#ec4899,#f43f5e)', pageGrad:'linear-gradient(160deg,#fff0f7,#fce7f3)', textColor:'#831843', sparkles:['🍭','🍬','✨','🌈'], storyStyle:'mundo de los dulces' },
+  { id:'robot', name:'Robot', emoji:'🤖', pageEmojis:['🤖','⚡','🔧','💡','🌐','🛸'], coverGrad:'linear-gradient(145deg,#1e40af,#1d4ed8)', pageGrad:'linear-gradient(160deg,#eff6ff,#dbeafe)', textColor:'#1e3a5f', sparkles:['⚡','🤖','💡','🌐'], storyStyle:'futuro tecnológico' },
 ];
 
-// ═══════════════════════════════════
+const MOODS = [
+  { id:'fun',     label:'😂 Divertido' },
+  { id:'brave',   label:'🦸 Aventurero' },
+  { id:'cozy',    label:'🌙 Para dormir' },
+  { id:'edu',     label:'📚 Educativo' },
+  { id:'magic',   label:'✨ Mágico' },
+];
+const LENGTHS = [
+  { id:'short',  emoji:'⚡', name:'Corto',  desc:'3 páginas · 5 min', pages:3 },
+  { id:'medium', emoji:'📖', name:'Medio',  desc:'5 páginas · 10 min', pages:5 },
+  { id:'long',   emoji:'🌟', name:'Largo',  desc:'7 páginas · 15 min', pages:7 },
+];
+
+const FUN_FACTS = [
+  '¿Sabías que los niños que escuchan cuentos personalizados desarrollan mayor vocabulario?',
+  'Los cuentos con el nombre del niño aumentan la atención y el interés por la lectura.',
+  'La estimulación a través de historias mejora la memoria y la creatividad.',
+  'Leer juntos antes de dormir mejora la calidad del sueño infantil.',
+  'Las historias con valores positivos ayudan a desarrollar la empatía.',
+];
+
+// ══════════════════════════════════════════
 // STATE
-// ═══════════════════════════════════
+// ══════════════════════════════════════════
 let state = {
-  screen: 'form',   // form | loading | book
-  form: { name:'', age:'', theme:'unicorn', character:'', extra:'' },
-  pages: [],        // [{emoji, text}]
+  screen: 'form',
+  form: { name:'', age:'', theme:'unicorn', character:'', extra:'', mood:'magic', length:'medium' },
+  pages: [],
   currentPage: 0,
   flipping: false,
+  touchStartX: 0,
 };
 
-// ═══════════════════════════════════
-// RENDER ENGINE
-// ═══════════════════════════════════
+// ══════════════════════════════════════════
+// RENDER
+// ══════════════════════════════════════════
 function render() {
   const root = document.getElementById('app-root');
-  const screenNames = ['form','loading','book'];
-  const cur = screenNames.indexOf(state.screen);
-
+  const snames = ['form','loading','book'];
+  const cur = snames.indexOf(state.screen);
   root.innerHTML = `
     <div class="steps-dots">
-      ${screenNames.map((_,i) => `<div class="sdot ${i<cur?'done':i===cur?'active':'idle'}"></div>`).join('')}
+      ${snames.map((_,i)=>`<div class="sdot ${i<cur?'done':i===cur?'active':'idle'}"></div>`).join('')}
     </div>
     ${SCREENS[state.screen]()}
   `;
-
-  // Attach book 3D after render
-  if (state.screen === 'book') attachBookEvents();
+  if (state.screen==='book') attachBookEvents();
 }
 
-// ═══════════════════════════════════
+// ══════════════════════════════════════════
 // SCREENS
-// ═══════════════════════════════════
+// ══════════════════════════════════════════
 const SCREENS = {
-
   form() {
     const f = state.form;
     const t = THEMES.find(x=>x.id===f.theme)||THEMES[0];
+    const credits = getCredits();
+    const totalDots = 2;
     return `
-      <div class="panel-title">✨ Creá el cuento de tu peque</div>
-      <div class="panel-sub">Contanos sobre tu niño/a y la IA escribirá una historia única</div>
+      <!-- Credits -->
+      <div class="credits-bar">
+        <div class="credits-dots">
+          ${Array(totalDots).fill(0).map((_,i)=>`<div class="cdot ${i<credits?'avail':'used'}"></div>`).join('')}
+        </div>
+        <span class="credits-text">${credits > 0 ? `${credits} cuento${credits!==1?'s':''} gratis disponible${credits!==1?'s':''}` : 'Créditos agotados · Comprá un pack'}</span>
+      </div>
+
+      <div class="panel-title">✨ Creá el cuento</div>
+      <div class="panel-sub">Tu peque será el protagonista de una historia única</div>
 
       <div class="form-row">
         <div class="field">
-          <label>Nombre del protagonista ✦</label>
-          <input id="f-name" placeholder="Ej: Valentina" value="${f.name}"
-            oninput="sf('name',this.value)"/>
+          <label>Nombre ✦</label>
+          <input placeholder="Ej: Valentina" value="${f.name}" oninput="sf('name',this.value)" autofocus/>
         </div>
         <div class="field">
           <label>Edad</label>
-          <input id="f-age" placeholder="Ej: 5" type="number" min="1" max="12" value="${f.age}"
-            oninput="sf('age',this.value)"/>
+          <input placeholder="Ej: 5" type="number" min="1" max="12" value="${f.age}" oninput="sf('age',this.value)"/>
         </div>
       </div>
-
       <div class="field" style="margin-bottom:14px">
         <label>Personaje o tema favorito</label>
-        <input id="f-char" placeholder="Ej: dinosaurios, Peppa Pig, fútbol, mariposas..."
-          value="${f.character}" oninput="sf('character',this.value)"/>
+        <input placeholder="Ej: dinosaurios, Peppa Pig, fútbol, mariposas..." value="${f.character}" oninput="sf('character',this.value)"/>
+      </div>
+      <div class="field" style="margin-bottom:16px">
+        <label>Detalle especial (opcional)</label>
+        <input placeholder="Ej: tiene un perro llamado Firu, le gusta el helado de frutilla..." value="${f.extra}" oninput="sf('extra',this.value)"/>
       </div>
 
-      <div class="field" style="margin-bottom:18px">
-        <label>¿Algo más que quieras incluir? (opcional)</label>
-        <input placeholder="Ej: tiene un perro llamado Firu, le gusta el helado de frutilla..."
-          value="${f.extra}" oninput="sf('extra',this.value)"/>
+      <div class="field" style="margin-bottom:8px"><label>Tono del cuento</label></div>
+      <div class="mood-row" style="margin-bottom:18px">
+        ${MOODS.map(m=>`<button class="mood-btn ${f.mood===m.id?'sel':''}" onclick="sf('mood','${m.id}')">${m.label}</button>`).join('')}
       </div>
 
-      <div class="field" style="margin-bottom:6px"><label>Temática del libro ✦</label></div>
-      <div class="theme-grid-sm" id="tgrid">
-        ${THEMES.map(th => `
-          <button class="tgs-btn ${f.theme===th.id?'selected':''}"
-            style="background:${th.coverGrad};"
-            onclick="selectTheme('${th.id}')">
+      <div class="field" style="margin-bottom:8px"><label>Longitud</label></div>
+      <div class="length-row">
+        ${LENGTHS.map(l=>`
+          <button class="len-btn ${f.length===l.id?'sel':''}" onclick="sf('length','${l.id}')">
+            <span class="len-emoji">${l.emoji}</span>
+            <span class="len-name">${l.name}</span>
+            <span class="len-desc">${l.desc}</span>
+          </button>
+        `).join('')}
+      </div>
+
+      <div class="field" style="margin-bottom:7px"><label>Temática del libro ✦</label></div>
+      <div class="theme-grid-sm">
+        ${THEMES.map(th=>`
+          <button class="tgs-btn ${f.theme===th.id?'selected':''}" style="background:${th.coverGrad};" onclick="sf('theme','${th.id}')">
             <span class="te">${th.emoji}</span>
             <span class="tl">${th.name}</span>
           </button>
         `).join('')}
       </div>
-      <p style="color:rgba(255,255,255,.35);font-size:11px;text-align:center;margin-bottom:18px;margin-top:4px">
-        Temática seleccionada: <strong style="color:#c4b5fd">${t.name} ${t.emoji}</strong>
-        &nbsp;·&nbsp; ${t.storyStyle}
+      <p style="color:rgba(255,255,255,.3);font-size:10px;text-align:center;margin-bottom:18px;margin-top:4px">
+        ${t.emoji} ${t.name} · ${t.storyStyle}
       </p>
 
-      <button class="btn-generate" id="gen-btn"
-        ${f.name ? '' : 'disabled'}
-        onclick="generateStory()">
+      <button class="btn-generate" id="gen-btn" ${f.name?'':'disabled'} onclick="generateStory()">
         🪄 Generar mi cuento mágico
       </button>
-      <p style="color:rgba(255,255,255,.25);font-size:11px;text-align:center;margin-top:10px">
-        Sin tarjeta de crédito · Listo en ~15 segundos
-      </p>
+      <p style="color:rgba(255,255,255,.2);font-size:10px;text-align:center;margin-top:9px">Sin tarjeta de crédito · Listo en ~15 segundos</p>
     `;
   },
 
   loading() {
     const f = state.form;
+    const fact = FUN_FACTS[Math.floor(Math.random()*FUN_FACTS.length)];
     return `
       <div class="loading-wrap">
         <div class="magic-loader">
@@ -1070,14 +911,10 @@ const SCREENS = {
         </div>
         <div class="loading-title">Escribiendo la magia...</div>
         <p class="loading-sub" style="margin-bottom:16px">
-          La IA está creando una historia única<br>para <strong style="color:white">${f.name}</strong> ✨
+          Creando una historia única<br>para <strong style="color:white">${f.name}</strong> ✨
         </p>
-        <div class="loading-dots">
-          <span></span><span></span><span></span>
-        </div>
-        <p style="color:rgba(255,255,255,.2);font-size:11px;margin-top:20px">
-          Generando páginas, ilustraciones y texto personalizado...
-        </p>
+        <div class="loading-dots"><span></span><span></span><span></span></div>
+        <div class="loading-fact">💡 ${fact}</div>
       </div>
     `;
   },
@@ -1085,39 +922,39 @@ const SCREENS = {
   book() {
     const f = state.form;
     const t = THEMES.find(x=>x.id===f.theme)||THEMES[0];
-    const totalPages = state.pages.length + 2; // cover + story pages + end page
+    const total = state.pages.length + 2;
     const cur = state.currentPage;
-    const maxPage = totalPages - 1;
+    const progress = Math.round((cur / (total-1)) * 100);
 
     return `
       <div class="book-viewer">
         <div class="book-title-display">${getBookTitle()}</div>
-        <div class="book-subtitle-display">
-          ${t.emoji} ${t.name} · ${totalPages} páginas
+        <div class="book-subtitle-display">${t.emoji} ${t.name} · ${total} páginas</div>
+
+        <div class="reading-progress">
+          <div class="rp-fill" style="width:${progress}%"></div>
         </div>
 
         <div class="book-wrap" id="book-wrap">
-          <div class="book" id="book-el">
-            ${buildPages(t)}
-          </div>
+          <div class="book" id="book-el">${buildPages(t)}</div>
           <div class="book-shadow"></div>
         </div>
 
+        <div class="swipe-hint">
+          <span>‹ deslizá o usá las flechas ›</span>
+        </div>
+
         <div class="book-nav">
-          <button class="bnav-btn" id="prev-btn"
-            ${cur===0?'disabled':''}
-            onclick="turnPage(-1)">‹</button>
-          <div class="page-counter">
-            ${cur===0?'Portada':cur===maxPage?'Fin':`Página ${cur} de ${maxPage-1}`}
-          </div>
-          <button class="bnav-btn" id="next-btn"
-            ${cur===maxPage?'disabled':''}
-            onclick="turnPage(1)">›</button>
+          <button class="bnav-btn" id="prev-btn" ${cur===0?'disabled':''} onclick="turnPage(-1)">‹</button>
+          <div class="page-counter">${cur===0?'Portada':cur===total-1?'¡Fin!':'Página '+cur+' / '+(total-2)}</div>
+          <button class="bnav-btn" id="next-btn" ${cur===total-1?'disabled':''} onclick="turnPage(1)">›</button>
         </div>
 
         <div class="book-actions">
-          <button class="bact-btn bact-print" onclick="window.print()">🖨️ Imprimir librito</button>
-          <button class="bact-btn bact-share" onclick="shareWA()">📲 Compartir</button>
+          <button class="bact-btn bact-save" onclick="saveAndConfirm()">💾 Guardar</button>
+          <button class="bact-btn bact-share" onclick="shareWA()">📲 WhatsApp</button>
+          <button class="bact-btn bact-print" onclick="window.print()">🖨️ Imprimir</button>
+          <button class="bact-btn bact-copy" onclick="copyText()">📋 Copiar texto</button>
           <button class="btn-new" onclick="resetApp()">+ Crear otro cuento</button>
         </div>
       </div>
@@ -1125,216 +962,188 @@ const SCREENS = {
   }
 };
 
-// ═══════════════════════════════════
+// ══════════════════════════════════════════
 // PAGE BUILDER
-// ═══════════════════════════════════
+// ══════════════════════════════════════════
 function buildPages(t) {
   const f = state.form;
   const pages = state.pages;
-  const dark = t.dark;
   const tc = t.textColor;
-  const totalPages = pages.length + 2;
-
+  const total = pages.length + 2;
   let html = '';
 
-  // Stack all pages; CSS handles z-index via nth-child
-  // Page 0: Cover
+  // Cover
   html += `
-    <div class="page page-cover" id="p-0"
-      style="background:${t.coverGrad};z-index:${totalPages};
-             display:${state.currentPage===0?'flex':'none'};">
+    <div class="page" id="p-0" style="background:${t.coverGrad};z-index:${total};
+      display:${state.currentPage===0?'flex':'none'};flex-direction:column;align-items:center;justify-content:center;text-align:center;">
       <div class="cover-sparkles">
-        ${t.sparkles.map((s,i) => `
-          <span class="sparkle" style="
-            top:${10+i*20}%;left:${5+i*22}%;
-            animation-delay:${i*.4}s;font-size:${14+i*2}px">${s}</span>
-        `).join('')}
-        ${t.sparkles.map((s,i) => `
-          <span class="sparkle" style="
-            top:${60+i*8}%;right:${5+i*18}%;
-            animation-delay:${i*.5+.2}s;font-size:${12+i*2}px">${s}</span>
-        `).join('')}
+        ${t.sparkles.map((s,i)=>`<span class="sparkle" style="top:${10+i*22}%;left:${8+i*20}%;animation-delay:${i*.4}s">${s}</span>`).join('')}
+        ${t.sparkles.map((s,i)=>`<span class="sparkle" style="bottom:${10+i*15}%;right:${6+i*18}%;animation-delay:${i*.5+.3}s">${s}</span>`).join('')}
       </div>
       <div class="cover-emoji">${t.emoji}</div>
       <div class="cover-title" style="color:white">${getBookTitle()}</div>
-      <div class="cover-name" style="color:rgba(255,255,255,.7)">
-        Un cuento para ${f.name}${f.age?' ('+f.age+' años)':''}
-      </div>
-      <div style="margin-top:16px;font-size:13px;color:rgba(255,255,255,.5);font-weight:600">
-        Tocá ▸ para comenzar
-      </div>
-      <div class="page-num right" style="color:rgba(255,255,255,.4)">Portada</div>
+      <div class="cover-name" style="color:rgba(255,255,255,.65)">Para ${f.name}${f.age?' · '+f.age+' años':''}</div>
+      <div style="margin-top:14px;font-size:11px;color:rgba(255,255,255,.4);font-weight:600">Tocá ▸ para comenzar</div>
+      <div class="page-num right" style="color:rgba(255,255,255,.3)">Portada</div>
     </div>
   `;
 
   // Story pages
   pages.forEach((pg, idx) => {
-    const pageNum = idx + 1;
-    const isVisible = state.currentPage === pageNum;
-    const emojiList = t.pageEmojis;
-    const pageEmoji = emojiList[idx % emojiList.length];
-
+    const n = idx + 1;
+    const vis = state.currentPage === n;
+    const em = t.pageEmojis[idx % t.pageEmojis.length];
     html += `
-      <div class="page page-story" id="p-${pageNum}"
-        style="background:${t.pageGrad};z-index:${totalPages-pageNum};
-               display:${isVisible?'flex':'none'};">
-        <div class="story-illustration">${pageEmoji}</div>
+      <div class="page" id="p-${n}" style="background:${t.pageGrad};z-index:${total-n};display:${vis?'flex':'none'};">
+        <div class="story-illustration">${em}</div>
         <div class="story-text" style="color:${tc}">${pg.text}</div>
-        <div class="story-page-label" style="color:${tc}">· ${pageNum} ·</div>
-        <div class="page-num right" style="color:${tc};opacity:.4">${pageNum}</div>
+        <div class="page-num right" style="color:${tc}">${n}</div>
       </div>
     `;
   });
 
-  // End page
-  const endIdx = pages.length + 1;
+  // End
+  const ei = pages.length + 1;
   html += `
-    <div class="page page-end" id="p-${endIdx}"
-      style="background:${t.coverGrad};
-             display:${state.currentPage===endIdx?'flex':'none'};">
+    <div class="page page-end" id="p-${ei}" style="background:${t.coverGrad};display:${state.currentPage===ei?'flex':'none'};">
       <div class="end-emoji">🌟</div>
-      <div class="end-title" style="color:white">¡Fin!</div>
+      <div class="end-title">¡Colorín colorado!</div>
       <div class="end-sub" style="color:rgba(255,255,255,.7)">
-        Un cuento escrito con IA<br>especialmente para <strong style="color:white">${f.name}</strong><br><br>
-        ${t.emoji} ${t.sparkles.join(' ')}
+        Este cuento fue escrito con ✨ IA<br>especialmente para <strong style="color:white">${f.name}</strong>
+        <br><br>${t.sparkles.join('  ')}
       </div>
-      <div class="page-num right" style="color:rgba(255,255,255,.4)">Fin</div>
+      <div class="page-num right" style="color:rgba(255,255,255,.3)">Fin</div>
     </div>
   `;
-
   return html;
 }
 
 function getBookTitle() {
   const f = state.form;
-  const t = THEMES.find(x=>x.id===f.theme)||THEMES[0];
   const titles = {
-    unicorn: `${f.name} y el unicornio mágico`,
-    dino:    `${f.name} y los dinosaurios`,
-    space:   `${f.name} en el espacio`,
-    mermaid: `${f.name} bajo el mar`,
-    princess:`El reino de ${f.name}`,
-    dragon:  `${f.name} y el dragón`,
-    forest:  `${f.name} en el bosque encantado`,
-    pirate:  `El pirata ${f.name}`,
-    candy:   `${f.name} en el mundo de los dulces`,
-    robot:   `${f.name} y el robot del futuro`,
+    unicorn:`${f.name} y el unicornio mágico`, dino:`${f.name} y los dinosaurios`,
+    space:`${f.name} en el espacio`, mermaid:`${f.name} bajo el mar`,
+    princess:`El reino de ${f.name}`, dragon:`${f.name} y el dragón`,
+    forest:`${f.name} en el bosque`, pirate:`El pirata ${f.name}`,
+    candy:`${f.name} en el mundo dulce`, robot:`${f.name} y el robot`,
   };
   return titles[f.theme] || `La aventura de ${f.name}`;
 }
 
-// ═══════════════════════════════════
-// BOOK NAVIGATION
-// ═══════════════════════════════════
+// ══════════════════════════════════════════
+// BOOK NAVIGATION + SWIPE
+// ══════════════════════════════════════════
 function attachBookEvents() {
-  // Keyboard nav
-  document.onkeydown = (e) => {
-    if (e.key === 'ArrowRight') turnPage(1);
-    if (e.key === 'ArrowLeft')  turnPage(-1);
+  document.onkeydown = e => {
+    if(e.key==='ArrowRight') turnPage(1);
+    if(e.key==='ArrowLeft')  turnPage(-1);
   };
+  const bw = document.getElementById('book-wrap');
+  if (bw) {
+    bw.addEventListener('touchstart', e => { state.touchStartX = e.changedTouches[0].screenX; }, {passive:true});
+    bw.addEventListener('touchend',   e => {
+      const dx = e.changedTouches[0].screenX - state.touchStartX;
+      if (Math.abs(dx) > 40) turnPage(dx < 0 ? 1 : -1);
+    }, {passive:true});
+  }
 }
 
 function turnPage(dir) {
   if (state.flipping) return;
-  const totalPages = state.pages.length + 2;
+  const total = state.pages.length + 2;
   const next = state.currentPage + dir;
-  if (next < 0 || next >= totalPages) return;
+  if (next < 0 || next >= total) return;
 
-  // Animate current page out
-  const curEl = document.getElementById(`p-${state.currentPage}`);
+  const curEl  = document.getElementById(`p-${state.currentPage}`);
   const nextEl = document.getElementById(`p-${next}`);
   if (!curEl || !nextEl) return;
-
   state.flipping = true;
 
-  if (dir > 0) {
-    // Turn forward: current page flips left
-    curEl.style.transition = 'transform .5s cubic-bezier(.645,.045,.355,1), opacity .3s';
-    curEl.style.transform = 'rotateY(-90deg) scale(.98)';
-    curEl.style.opacity = '0';
-    setTimeout(() => {
-      curEl.style.display = 'none';
-      curEl.style.transform = '';
-      curEl.style.opacity = '';
-      curEl.style.transition = '';
-      nextEl.style.display = 'flex';
-      nextEl.style.transform = 'rotateY(90deg) scale(.98)';
-      nextEl.style.opacity = '0';
-      nextEl.style.transition = 'transform .5s cubic-bezier(.645,.045,.355,1), opacity .3s';
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          nextEl.style.transform = '';
-          nextEl.style.opacity = '1';
-        });
-      });
+  const outDir = dir > 0 ? '-90deg' : '90deg';
+  const inDir  = dir > 0 ?  '90deg' : '-90deg';
+
+  curEl.style.cssText += `transition:transform .45s cubic-bezier(.645,.045,.355,1),opacity .25s;transform:rotateY(${outDir}) scale(.97);opacity:0;`;
+  setTimeout(() => {
+    curEl.style.display = 'none';
+    curEl.style.cssText = curEl.style.cssText.replace(/transition:[^;]+;|transform:[^;]+;|opacity:[^;]+;/g,'');
+    nextEl.style.display = 'flex';
+    nextEl.style.cssText += `transform:rotateY(${inDir}) scale(.97);opacity:0;`;
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      nextEl.style.cssText += `transition:transform .45s cubic-bezier(.645,.045,.355,1),opacity .25s;transform:rotateY(0deg) scale(1);opacity:1;`;
       setTimeout(() => {
-        nextEl.style.transition = '';
+        nextEl.style.cssText = nextEl.style.cssText.replace(/transition:[^;]+;|transform:[^;]+;|opacity:[^;]+;/g,'');
         state.currentPage = next;
         state.flipping = false;
         updateNavBtns();
-      }, 520);
-    }, 260);
-  } else {
-    // Turn backward
-    curEl.style.transition = 'transform .5s cubic-bezier(.645,.045,.355,1), opacity .3s';
-    curEl.style.transform = 'rotateY(90deg) scale(.98)';
-    curEl.style.opacity = '0';
-    setTimeout(() => {
-      curEl.style.display = 'none';
-      curEl.style.transform = '';
-      curEl.style.opacity = '';
-      curEl.style.transition = '';
-      nextEl.style.display = 'flex';
-      nextEl.style.transform = 'rotateY(-90deg) scale(.98)';
-      nextEl.style.opacity = '0';
-      nextEl.style.transition = 'transform .5s cubic-bezier(.645,.045,.355,1), opacity .3s';
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          nextEl.style.transform = '';
-          nextEl.style.opacity = '1';
-        });
-      });
-      setTimeout(() => {
-        nextEl.style.transition = '';
-        state.currentPage = next;
-        state.flipping = false;
-        updateNavBtns();
-      }, 520);
-    }, 260);
-  }
+      }, 460);
+    }));
+  }, 240);
 }
 
 function updateNavBtns() {
   const total = state.pages.length + 2;
-  const prevBtn = document.getElementById('prev-btn');
-  const nextBtn = document.getElementById('next-btn');
-  const counter = document.querySelector('.page-counter');
-  if (prevBtn) prevBtn.disabled = state.currentPage === 0;
-  if (nextBtn) nextBtn.disabled = state.currentPage === total - 1;
-  if (counter) {
-    const cur = state.currentPage;
-    const max = total - 1;
-    counter.textContent = cur===0 ? 'Portada' : cur===max ? 'Fin' : `Página ${cur} de ${max-1}`;
+  const cur   = state.currentPage;
+  const max   = total - 1;
+  const prev  = document.getElementById('prev-btn');
+  const next  = document.getElementById('next-btn');
+  const ctr   = document.querySelector('.page-counter');
+  const prog  = document.querySelector('.rp-fill');
+  if (prev) prev.disabled = cur === 0;
+  if (next) next.disabled = cur === max;
+  if (ctr)  ctr.textContent = cur===0?'Portada':cur===max?'¡Fin!':'Página '+cur+' / '+(max-1);
+  if (prog) prog.style.width = Math.round((cur/max)*100)+'%';
+}
+
+// ══════════════════════════════════════════
+// CONFETTI
+// ══════════════════════════════════════════
+function launchConfetti() {
+  const colors = ['#f59e0b','#f43f5e','#7c3aed','#22d3ee','#4ade80'];
+  for (let i=0; i<40; i++) {
+    const el = document.createElement('div');
+    el.className = 'confetti-piece';
+    el.style.cssText = `
+      left:${Math.random()*100}vw;
+      top:-10px;
+      background:${colors[Math.floor(Math.random()*colors.length)]};
+      animation-delay:${Math.random()*2}s;
+      animation-duration:${2+Math.random()*2}s;
+      border-radius:${Math.random()>.5?'50%':'2px'};
+    `;
+    document.body.appendChild(el);
+    setTimeout(() => el.remove(), 5000);
   }
 }
 
-// ═══════════════════════════════════
+// ══════════════════════════════════════════
+// TOAST
+// ══════════════════════════════════════════
+function showToast(msg) {
+  const t = document.createElement('div');
+  t.style.cssText = `position:fixed;bottom:80px;left:50%;transform:translateX(-50%);
+    background:#1f2937;color:white;border-radius:12px;padding:12px 20px;
+    font-size:13px;font-weight:700;z-index:2000;font-family:Quicksand,sans-serif;
+    border:1px solid rgba(255,255,255,.1);animation:slideIn .3s ease;
+    max-width:80vw;text-align:center;`;
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(() => t.remove(), 3000);
+}
+
+// ══════════════════════════════════════════
 // FORM ACTIONS
-// ═══════════════════════════════════
+// ══════════════════════════════════════════
 function sf(key, val) {
   state.form[key] = val;
   const btn = document.getElementById('gen-btn');
   if (btn) btn.disabled = !state.form.name;
+  // Re-render only for visual toggles (mood, length, theme)
+  if (['mood','length','theme'].includes(key)) render();
 }
 
-function selectTheme(id) {
-  state.form.theme = id;
-  render();
-}
-
-// ═══════════════════════════════════
-// AI GENERATION
-// ═══════════════════════════════════
+// ══════════════════════════════════════════
+// GENERATION
+// ══════════════════════════════════════════
 async function generateStory() {
   state.screen = 'loading';
   state.currentPage = 0;
@@ -1342,86 +1151,102 @@ async function generateStory() {
 
   const f = state.form;
   const t = THEMES.find(x=>x.id===f.theme)||THEMES[0];
+  const lengthCfg = LENGTHS.find(l=>l.id===f.length)||LENGTHS[1];
+  const moodMap = { fun:'divertido y con humor', brave:'aventurero y emocionante', cozy:'tranquilo y perfecto para dormir', edu:'educativo con una enseñanza clara', magic:'mágico y lleno de fantasía' };
+  const moodStr = moodMap[f.mood] || 'mágico';
 
-  const prompt = `Escribí un cuento infantil corto y mágico dividido en exactamente 5 párrafos (páginas).
+  const prompt = `Escribí un cuento infantil ${moodStr} dividido en exactamente ${lengthCfg.pages} párrafos.
 
-Datos del protagonista:
-- Nombre: ${f.name}
-- Edad: ${f.age || '5'} años
-- Temática: ${t.name} (${t.storyStyle})
-- Personaje/tema favorito: ${f.character || t.name}
-${f.extra ? `- Detalle especial: ${f.extra}` : ''}
+Protagonista: ${f.name}${f.age ? ', '+f.age+' años' : ''}
+Temática: ${t.name} (${t.storyStyle})
+Personaje/tema favorito: ${f.character || t.name}
+${f.extra ? 'Detalle especial: '+f.extra : ''}
 
-INSTRUCCIONES IMPORTANTES:
-- Usá el nombre ${f.name} varias veces en la historia
-- El cuento debe tener un problema y una solución
-- Tono: mágico, divertido, con un valor positivo (amistad, valentía, bondad)
-- Vocabulario apropiado para ${f.age || '5'} años
-- Español rioplatense (usá "vos" en lugar de "tú")
-- Cada párrafo máximo 40 palabras
-- Sin título, sin numeración, solo los 5 párrafos separados por línea en blanco
+REGLAS:
+- Usá el nombre ${f.name} varias veces
+- El cuento tiene problema → acción → solución
+- Vocabulario apropiado para la edad
+- Español rioplatense (vos, che, boludo no)
+- Cada párrafo máximo 45 palabras
+- ${lengthCfg.pages} párrafos separados por línea en blanco
+- Sin título, sin numeración, solo los párrafos
+- El valor del cuento debe ser: ${f.mood==='edu'?'aprendizaje y curiosidad':f.mood==='brave'?'valentía y perseverancia':f.mood==='cozy'?'amor familiar y calidez':'amistad y bondad'}
 
-¡Hacé que ${f.name} sea el héroe o heroína de la historia!`;
+¡Hacé que ${f.name} sea el héroe de la historia!`;
 
   try {
     const res = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
-        max_tokens: 1000,
-        messages: [{ role:'user', content: prompt }]
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        model:'claude-sonnet-4-20250514',
+        max_tokens:1200,
+        messages:[{role:'user',content:prompt}]
       })
     });
     const data = await res.json();
     const raw = (data.content||[]).map(b=>b.text||'').join('').trim();
-
-    // Split into pages
-    const paragraphs = raw.split(/\n\n+/).filter(p=>p.trim()).slice(0,5);
-
-    // Pad if needed
-    while (paragraphs.length < 5) {
-      paragraphs.push(`Y así, ${f.name} vivió muchas aventuras más. ¡Hasta la próxima! 🌟`);
+    const paragraphs = raw.split(/\n\n+/).filter(p=>p.trim()).slice(0, lengthCfg.pages);
+    while (paragraphs.length < lengthCfg.pages) {
+      paragraphs.push(`Y así ${f.name} siguió su camino con el corazón lleno de alegría y ganas de vivir nuevas aventuras. ✨`);
     }
-
-    state.pages = paragraphs.map((text, i) => ({ text, page: i+1 }));
-
+    state.pages = paragraphs.map((text,i)=>({text,page:i+1}));
+    useCredit();
   } catch(e) {
-    // Fallback story
+    // Fallback
     const name = f.name;
-    state.pages = [
-      { text: `Érase una vez ${name}, un niño/a muy curioso/a que vivía en un lugar lleno de magia y colores. Cada mañana, ${name} despertaba con ganas de descubrir algo nuevo. 🌟`, page:1 },
-      { text: `Un día, ${name} encontró algo muy especial mientras exploraba: una puerta brillante escondida entre los árboles. "¿Qué habrá adentro?", pensó ${name} con emoción. ✨`, page:2 },
-      { text: `Cuando ${name} abrió la puerta, apareció un mundo increíble lleno de ${f.character||'maravillas'}. Al principio daba un poco de miedo, pero ${name} era muy valiente. 💜`, page:3 },
-      { text: `Adentro, ${name} encontró un amigo nuevo que necesitaba ayuda. Sin dudarlo, ${name} le tendió la mano. Juntos resolvieron el problema y todo se llenó de luz. 🌈`, page:4 },
-      { text: `Esa noche, ${name} volvió a casa con el corazón lleno de alegría. Había aprendido que ayudar a los demás es el acto más mágico del mundo. ¡Fin! 🌟`, page:5 },
-    ];
+    state.pages = Array(lengthCfg.pages).fill(0).map((_,i)=>({
+      text:[
+        `Érase una vez ${name}, un niño/a muy curioso/a que vivía en un lugar lleno de magia. Una mañana, ${name} encontró algo brillante entre los árboles. 🌟`,
+        `Era una puerta pequeña con estrellitas doradas. ${name} la abrió despacito y apareció un mundo lleno de ${f.character||'colores y maravillas'}. ✨`,
+        `Al principio daba un poco de miedo, pero ${name} era muy valiente. Adentro, un amiguito necesitaba ayuda urgente. 💜`,
+        `Sin dudarlo, ${name} lo ayudó con todo su corazón. Juntos resolvieron el problema y todo se llenó de luz y alegría. 🌈`,
+        `Esa noche, ${name} volvió a casa sonriendo. Había aprendido que ayudar a los demás es el acto más mágico del mundo. 🌟`,
+        `Los días siguientes, ${name} volvió muchas veces a ese lugar mágico. Cada visita era una nueva aventura llena de sorpresas. ⭐`,
+        `Y desde entonces, ${name} supo que la magia más grande no está en los lugares, sino en el corazón de quienes se animan a ayudar. ✨`,
+      ][i] || `Y ${name} vivió feliz para siempre, listo/a para la próxima aventura. 🌟`,
+      page: i+1
+    }));
   }
 
   state.screen = 'book';
   render();
+  launchConfetti();
+  showToast('🎉 ¡Cuento listo! Pasá las páginas con las flechas o deslizando.');
 }
 
-// ═══════════════════════════════════
-// UTILS
-// ═══════════════════════════════════
-function resetApp() {
-  document.onkeydown = null;
-  state = {
-    screen:'form',
-    form:{ name:'', age:'', theme:'unicorn', character:'', extra:'' },
-    pages:[], currentPage:0, flipping:false
-  };
-  render();
+// ══════════════════════════════════════════
+// BOOK ACTIONS
+// ══════════════════════════════════════════
+function saveAndConfirm() {
+  const f = state.form;
+  const t = THEMES.find(x=>x.id===f.theme)||THEMES[0];
+  saveStory({
+    name:f.name, age:f.age, theme:f.theme,
+    character:f.character, title:getBookTitle(),
+    pages:state.pages
+  });
+  showToast('💾 ¡Guardado en tu biblioteca!');
 }
 
 function shareWA() {
   const f = state.form;
   const t = THEMES.find(x=>x.id===f.theme)||THEMES[0];
-  const txt = `${t.emoji} ¡Mirá el cuento que le creé a ${f.name} con IA!\n\n`
-    + state.pages.map((p,i)=>`📖 Página ${i+1}:\n${p.text}`).join('\n\n')
-    + `\n\n✨ Creado con MagiCuento`;
+  const txt = `${t.emoji} *${getBookTitle()}*\nUn cuento creado con IA para ${f.name} ✨\n\n`
+    + state.pages.map((p,i)=>`📖 _Página ${i+1}:_\n${p.text}`).join('\n\n')
+    + `\n\n🌙 Creado con *MagiCuento*`;
   window.open(`https://wa.me/?text=${encodeURIComponent(txt)}`, '_blank');
+}
+
+function copyText() {
+  const txt = state.pages.map((p,i)=>`Página ${i+1}:\n${p.text}`).join('\n\n');
+  navigator.clipboard.writeText(txt).then(()=>showToast('📋 Texto copiado al portapapeles'));
+}
+
+function resetApp() {
+  document.onkeydown = null;
+  state = { screen:'form', form:{name:'',age:'',theme:'unicorn',character:'',extra:'',mood:'magic',length:'medium'}, pages:[], currentPage:0, flipping:false, touchStartX:0 };
+  render();
 }
 
 function scrollToApp() {
@@ -1430,16 +1255,17 @@ function scrollToApp() {
 
 function toggleFaq(btn) {
   const a = btn.nextElementSibling;
-  const open = a.style.display === 'block';
+  const open = a.style.display==='block';
   document.querySelectorAll('.faq-a').forEach(x=>x.style.display='none');
   document.querySelectorAll('.faq-q span').forEach(x=>x.textContent='▾');
   if (!open) { a.style.display='block'; btn.querySelector('span').textContent='▴'; }
 }
 
-// ═══════════════════════════════════
+// ══════════════════════════════════════════
 // INIT
-// ═══════════════════════════════════
+// ══════════════════════════════════════════
 render();
+renderLibrary();
 </script>
 </body>
 </html>
