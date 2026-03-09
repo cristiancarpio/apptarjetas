@@ -1,1341 +1,1367 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <!-- ═══════════════════════════════════════════════
-       SEO PRIMARIO
-  ═══════════════════════════════════════════════ -->
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MagiCard – Invitaciones Infantiles Personalizadas con IA | Cumpleaños, Bautismo, Baby Shower</title>
-  <meta name="description" content="Creá invitaciones infantiles únicas con inteligencia artificial. Cumpleaños, bautismos, baby showers, primera comunión y cuentos personalizados. Listo para imprimir o compartir por WhatsApp en segundos." />
-  <meta name="keywords" content="invitaciones infantiles personalizadas, tarjetas cumpleaños niños, invitaciones bautismo, baby shower invitaciones, primera comunion tarjetas, cuentos personalizados niños, invitaciones con IA, tarjetas para imprimir, invitaciones WhatsApp" />
-  <meta name="author" content="MagiCard" />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://magicard.app/" />
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>MagiCuento – Cuentos Personalizados con IA para Niños</title>
+<meta name="description" content="Creá cuentos mágicos personalizados con el nombre de tu hijo/a como protagonista. IA en español, formato librito con páginas, listo para leer o imprimir."/>
+<meta name="keywords" content="cuentos personalizados niños, cuentos con nombre del niño, estimulación temprana, cuentos para dormir personalizados, libros personalizados infantiles"/>
+<meta property="og:title" content="MagiCuento – Cuentos con IA para tus peques"/>
+<meta property="og:description" content="Tu hijo/a como protagonista del cuento. Generado con IA, formato librito mágico."/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- ═══════════════════════════════════════════════
-       OPEN GRAPH (Facebook, WhatsApp, Instagram)
-  ═══════════════════════════════════════════════ -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://magicard.app/" />
-  <meta property="og:title" content="MagiCard – Invitaciones Infantiles con IA" />
-  <meta property="og:description" content="Creá en segundos invitaciones mágicas para cumpleaños, bautismos, baby showers y más. ¡Personalizadas con el nombre de tu peque!" />
-  <meta property="og:image" content="https://magicard.app/og-image.jpg" />
-  <meta property="og:locale" content="es_AR" />
-  <meta property="og:site_name" content="MagiCard" />
+<style>
+:root {
+  --ink: #1a0a2e;
+  --soft: #f9f5ff;
+  --gold: #f59e0b;
+  --rose: #f43f5e;
+  --violet: #7c3aed;
+  --teal: #0d9488;
+  --sky: #0ea5e9;
+  --page-w: 340px;
+  --page-h: 460px;
+}
 
-  <!-- ═══════════════════════════════════════════════
-       TWITTER CARD
-  ═══════════════════════════════════════════════ -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="MagiCard – Invitaciones Infantiles con IA" />
-  <meta name="twitter:description" content="Invitaciones infantiles personalizadas con IA. Listo para WhatsApp o imprimir." />
-  <meta name="twitter:image" content="https://magicard.app/og-image.jpg" />
+*{box-sizing:border-box;margin:0;padding:0;}
 
-  <!-- ═══════════════════════════════════════════════
-       SCHEMA.ORG STRUCTURED DATA (Google Rich Results)
-  ═══════════════════════════════════════════════ -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "MagiCard",
-    "url": "https://magicard.app",
-    "description": "Generador de invitaciones infantiles personalizadas con inteligencia artificial para cumpleaños, bautismos, baby showers, primera comunión y cuentos para niños.",
-    "applicationCategory": "DesignApplication",
-    "operatingSystem": "Web",
-    "inLanguage": "es",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD",
-      "description": "2 invitaciones gratis. Packs desde $3 USD."
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.9",
-      "reviewCount": "312"
-    }
-  }
-  </script>
+body {
+  font-family:'Quicksand',sans-serif;
+  background: #0f0720;
+  color: var(--ink);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "¿Cómo crear una invitación de cumpleaños infantil?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Con MagiCard es muy fácil: elegís la temática (unicornio, dinosaurio, princesa, etc.), completás los datos del evento y nuestra IA genera el texto personalizado en segundos. Podés descargarla o compartirla directo por WhatsApp."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "¿Las invitaciones son gratis?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Sí, las primeras 2 invitaciones son completamente gratis. Para crear más podés adquirir packs desde $3 USD."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "¿Puedo compartir la invitación por WhatsApp?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Sí, todas las invitaciones generadas se pueden compartir directamente por WhatsApp con un solo clic."
-        }
-      }
-    ]
-  }
-  </script>
+/* ── STARFIELD ── */
+.stars {
+  position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background:
+    radial-gradient(1px 1px at 10% 15%, white, transparent),
+    radial-gradient(1px 1px at 25% 40%, white, transparent),
+    radial-gradient(1.5px 1.5px at 40% 10%, #ffe, transparent),
+    radial-gradient(1px 1px at 55% 60%, white, transparent),
+    radial-gradient(1px 1px at 70% 25%, white, transparent),
+    radial-gradient(1.5px 1.5px at 80% 70%, #ffe, transparent),
+    radial-gradient(1px 1px at 90% 45%, white, transparent),
+    radial-gradient(1px 1px at 15% 80%, white, transparent),
+    radial-gradient(1px 1px at 60% 85%, white, transparent),
+    radial-gradient(1px 1px at 35% 65%, white, transparent),
+    radial-gradient(1.5px 1.5px at 5% 50%, #ffe, transparent),
+    radial-gradient(1px 1px at 95% 15%, white, transparent);
+}
 
-  <!-- Fuentes -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+/* ── NAV ── */
+nav {
+  position: relative; z-index: 10;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 18px 32px;
+  background: rgba(15,7,32,0.7);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.logo {
+  font-family:'Bubblegum Sans',cursive;
+  font-size: 28px;
+  background: linear-gradient(135deg, #f9a8d4, #c4b5fd, #93c5fd);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  letter-spacing: .5px;
+}
+.nav-right { display:flex; gap:12px; align-items:center; }
+.btn-nav {
+  background: linear-gradient(135deg,#7c3aed,#db2777);
+  color: white; border: none; border-radius: 40px;
+  padding: 9px 22px; font-size: 13px; font-weight: 700;
+  cursor: pointer; font-family:'Quicksand',sans-serif;
+  transition: transform .15s, box-shadow .15s;
+}
+.btn-nav:hover { transform:scale(1.04); box-shadow: 0 4px 20px #7c3aed66; }
 
-  <style>
-    /* ═══════════ VARIABLES ═══════════ */
-    :root {
-      --rose: #f43f5e;
-      --violet: #8b5cf6;
-      --amber: #f59e0b;
-      --teal: #14b8a6;
-      --pink: #ec4899;
-      --bg: #fffbf7;
-      --surface: #ffffff;
-      --text: #1c1917;
-      --muted: #78716c;
-      --radius: 20px;
-      --shadow: 0 8px 32px rgba(0,0,0,0.10);
-    }
+/* ── HERO ── */
+.hero {
+  position: relative; z-index: 1;
+  text-align: center;
+  padding: 70px 20px 50px;
+}
+@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-14px)} }
+@keyframes floatB { 0%,100%{transform:translateY(0) rotate(-5deg)} 50%{transform:translateY(-10px) rotate(5deg)} }
+@keyframes fadeUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+@keyframes shimmer {
+  0%{background-position:-200% center}
+  100%{background-position:200% center}
+}
+@keyframes spin { to{transform:rotate(360deg)} }
+@keyframes pageTurn {
+  0%{transform:rotateY(0deg)}
+  100%{transform:rotateY(-180deg)}
+}
+@keyframes sparkle {
+  0%,100%{opacity:0;transform:scale(0) rotate(0deg)}
+  50%{opacity:1;transform:scale(1) rotate(180deg)}
+}
+@keyframes bounce {
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-8px)}
+}
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+.hero-deco {
+  position: absolute; font-size: 40px; pointer-events:none; user-select:none;
+}
 
-    body {
-      font-family: 'Nunito', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      overflow-x: hidden;
-    }
+.hero h1 {
+  font-family:'Bubblegum Sans',cursive;
+  font-size: clamp(36px,7vw,72px);
+  line-height: 1.1;
+  background: linear-gradient(135deg, #fde68a 0%, #f9a8d4 40%, #c4b5fd 70%, #93c5fd 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  animation: shimmer 4s linear infinite, fadeUp .8s ease both;
+  margin-bottom: 18px;
+}
+.hero-sub {
+  color: rgba(255,255,255,.7);
+  font-size: clamp(15px,2.5vw,19px);
+  font-weight: 600; line-height: 1.7;
+  max-width: 540px; margin: 0 auto 36px;
+  animation: fadeUp .9s .1s ease both;
+}
+.hero-btns {
+  display:flex; gap:14px; justify-content:center; flex-wrap:wrap;
+  animation: fadeUp 1s .2s ease both;
+}
+.btn-hero {
+  background: linear-gradient(135deg,#f59e0b,#f43f5e);
+  color: white; border: none; border-radius: 50px;
+  padding: 16px 38px; font-size: 17px; font-weight: 700;
+  cursor: pointer; font-family:'Quicksand',sans-serif;
+  box-shadow: 0 8px 32px #f43f5e55;
+  transition: transform .15s, box-shadow .15s;
+  animation: bounce 2.5s ease infinite;
+}
+.btn-hero:hover { transform:scale(1.05); box-shadow: 0 12px 40px #f43f5e77; }
+.btn-ghost {
+  background: rgba(255,255,255,.08);
+  color: white; border: 1px solid rgba(255,255,255,.2);
+  border-radius: 50px; padding: 16px 32px;
+  font-size: 16px; font-weight: 700;
+  cursor: pointer; font-family:'Quicksand',sans-serif;
+  transition: all .15s; animation: none;
+}
+.btn-ghost:hover { background: rgba(255,255,255,.15); }
 
-    /* ═══════════ ANIMATIONS ═══════════ */
-    @keyframes float {
-      0%,100% { transform: translateY(0px) rotate(-3deg); }
-      50% { transform: translateY(-12px) rotate(3deg); }
-    }
-    @keyframes floatB {
-      0%,100% { transform: translateY(0px) rotate(2deg); }
-      50% { transform: translateY(-8px) rotate(-2deg); }
-    }
-    @keyframes fadeUp {
-      from { opacity:0; transform: translateY(24px); }
-      to   { opacity:1; transform: translateY(0); }
-    }
-    @keyframes pulse-ring {
-      0% { box-shadow: 0 0 0 0 rgba(244,63,94,0.4); }
-      70% { box-shadow: 0 0 0 16px rgba(244,63,94,0); }
-      100% { box-shadow: 0 0 0 0 rgba(244,63,94,0); }
-    }
-    @keyframes shimmer {
-      0% { background-position: -200% center; }
-      100% { background-position: 200% center; }
-    }
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-    @keyframes bounce3 {
-      0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)}
-    }
+/* ── DEMO BOOK (hero preview) ── */
+.hero-book {
+  margin: 50px auto 0;
+  position: relative;
+  width: 280px; height: 200px;
+  animation: float 5s ease-in-out infinite;
+}
+.demo-page {
+  position: absolute;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.5);
+}
 
-    /* ═══════════ NAV ═══════════ */
-    nav {
-      position: sticky; top: 0; z-index: 100;
-      background: rgba(255,251,247,0.88);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid #f0ebe5;
-      padding: 14px 24px;
-      display: flex; align-items: center; justify-content: space-between;
-    }
-    .nav-logo {
-      font-family: 'Fredoka One', cursive;
-      font-size: 26px;
-      background: linear-gradient(135deg, var(--rose), var(--violet));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    }
-    .nav-links { display: flex; gap: 24px; list-style: none; }
-    .nav-links a {
-      color: var(--muted); text-decoration: none; font-weight: 700;
-      font-size: 14px; transition: color .2s;
-    }
-    .nav-links a:hover { color: var(--rose); }
-    .nav-cta {
-      background: linear-gradient(135deg, var(--rose), var(--pink));
-      color: white; border: none; border-radius: 40px;
-      padding: 10px 22px; font-size: 14px; font-weight: 800;
-      cursor: pointer; font-family: 'Nunito', sans-serif;
-      transition: transform .15s, box-shadow .15s;
-    }
-    .nav-cta:hover { transform: scale(1.04); box-shadow: 0 4px 16px rgba(244,63,94,.4); }
+/* ── SECTION BASE ── */
+section { position: relative; z-index: 1; padding: 80px 20px; }
+.container { max-width: 1080px; margin: 0 auto; }
+.section-label {
+  display: inline-block;
+  background: rgba(124,58,237,.3);
+  border: 1px solid rgba(124,58,237,.5);
+  color: #c4b5fd; border-radius: 40px;
+  padding: 5px 16px; font-size: 12px; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 14px;
+}
+h2 {
+  font-family:'Bubblegum Sans',cursive;
+  font-size: clamp(28px,4vw,46px);
+  color: white; margin-bottom: 12px; line-height: 1.2;
+}
+.section-sub {
+  color: rgba(255,255,255,.6);
+  font-size: 16px; font-weight: 500; line-height: 1.7;
+  max-width: 520px; margin-bottom: 48px;
+}
 
-    /* ═══════════ HERO ═══════════ */
-    .hero {
-      min-height: 92vh;
-      display: grid; place-items: center;
-      position: relative; overflow: hidden;
-      padding: 60px 20px;
-    }
-    .hero-bg {
-      position: absolute; inset: 0;
-      background: radial-gradient(ellipse 80% 60% at 20% 20%, #fce7f3 0%, transparent 60%),
-                  radial-gradient(ellipse 60% 50% at 80% 80%, #ede9fe 0%, transparent 60%),
-                  radial-gradient(ellipse 50% 40% at 50% 50%, #fef3c7 0%, transparent 70%);
-    }
-    .hero-float {
-      position: absolute; font-size: 52px;
-      animation: float 4s ease-in-out infinite;
-      pointer-events: none; user-select: none;
-    }
-    .hero-content {
-      position: relative; z-index: 2;
-      text-align: center; max-width: 680px;
-      animation: fadeUp .8s ease both;
-    }
-    .hero-badge {
-      display: inline-block;
-      background: linear-gradient(135deg, #fce7f3, #ede9fe);
-      border: 1px solid #e9d5ff;
-      border-radius: 40px; padding: 6px 18px;
-      font-size: 13px; font-weight: 800; color: var(--violet);
-      margin-bottom: 20px; letter-spacing: .5px;
-    }
-    h1 {
-      font-family: 'Fredoka One', cursive;
-      font-size: clamp(38px, 7vw, 72px);
-      line-height: 1.08;
-      background: linear-gradient(135deg, var(--rose) 0%, var(--violet) 50%, var(--pink) 100%);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      margin-bottom: 20px;
-    }
-    .hero-sub {
-      font-size: clamp(16px, 2.5vw, 20px);
-      color: var(--muted); line-height: 1.6;
-      max-width: 540px; margin: 0 auto 32px;
-      font-weight: 600;
-    }
-    .hero-btns {
-      display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;
-    }
-    .btn-primary {
-      background: linear-gradient(135deg, var(--rose), var(--pink));
-      color: white; border: none; border-radius: 50px;
-      padding: 16px 36px; font-size: 17px; font-weight: 800;
-      cursor: pointer; font-family: 'Nunito', sans-serif;
-      animation: pulse-ring 2s infinite;
-      transition: transform .15s;
-    }
-    .btn-primary:hover { transform: scale(1.04); }
-    .btn-secondary {
-      background: white; color: var(--violet);
-      border: 2px solid #e9d5ff; border-radius: 50px;
-      padding: 16px 32px; font-size: 16px; font-weight: 800;
-      cursor: pointer; font-family: 'Nunito', sans-serif;
-      transition: all .15s;
-    }
-    .btn-secondary:hover { background: #ede9fe; }
-    .hero-stats {
-      display: flex; gap: 32px; justify-content: center;
-      margin-top: 40px; flex-wrap: wrap;
-    }
-    .stat {
-      text-align: center;
-    }
-    .stat-num {
-      font-family: 'Fredoka One', cursive;
-      font-size: 32px; color: var(--rose);
-    }
-    .stat-label { font-size: 12px; color: var(--muted); font-weight: 700; }
+/* ── THEMES SHOWCASE ── */
+.themes-row {
+  display: flex; gap: 14px; overflow-x: auto;
+  padding-bottom: 12px; scrollbar-width: none;
+}
+.themes-row::-webkit-scrollbar { display:none; }
+.theme-pill {
+  flex-shrink: 0;
+  border-radius: 16px; padding: 16px 20px;
+  text-align: center; cursor: pointer;
+  border: 2px solid transparent;
+  transition: transform .2s, border-color .2s;
+  min-width: 90px;
+}
+.theme-pill:hover { transform: scale(1.08); }
+.theme-pill .tp-emoji { font-size: 28px; display:block; margin-bottom:6px; }
+.theme-pill .tp-name { font-size: 11px; font-weight: 700; }
 
-    /* ═══════════ SECTIONS ═══════════ */
-    section { padding: 80px 20px; }
-    .container { max-width: 1080px; margin: 0 auto; }
-    .section-tag {
-      display: inline-block;
-      background: #fce7f3; color: var(--rose);
-      border-radius: 40px; padding: 5px 16px;
-      font-size: 12px; font-weight: 800; letter-spacing: 1px;
-      text-transform: uppercase; margin-bottom: 12px;
-    }
-    h2 {
-      font-family: 'Fredoka One', cursive;
-      font-size: clamp(28px, 4vw, 48px);
-      color: var(--text); margin-bottom: 12px;
-    }
-    .section-sub {
-      color: var(--muted); font-size: 17px; font-weight: 600;
-      max-width: 560px; margin-bottom: 48px; line-height: 1.6;
-    }
+/* ── APP PANEL ── */
+#app-section { padding: 60px 20px 80px; }
+.app-container {
+  max-width: 780px; margin: 0 auto;
+}
+.app-panel {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 28px;
+  padding: 36px 32px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 32px 80px rgba(0,0,0,.4);
+}
 
-    /* ═══════════ FEATURES GRID ═══════════ */
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-    }
-    .feature-card {
-      background: white; border-radius: var(--radius);
-      padding: 28px 24px;
-      box-shadow: var(--shadow);
-      border: 1px solid #f5f0eb;
-      transition: transform .2s, box-shadow .2s;
-    }
-    .feature-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 16px 48px rgba(0,0,0,0.12);
-    }
-    .feature-icon {
-      font-size: 40px; margin-bottom: 14px; display: block;
-    }
-    .feature-title {
-      font-family: 'Fredoka One', cursive;
-      font-size: 20px; margin-bottom: 8px; color: var(--text);
-    }
-    .feature-desc { color: var(--muted); font-size: 14px; line-height: 1.7; font-weight: 600; }
+/* Step dots */
+.steps-dots {
+  display:flex; gap:8px; justify-content:center; margin-bottom:28px;
+}
+.sdot {
+  height:8px; border-radius:4px; background:rgba(255,255,255,.15);
+  transition: all .3s;
+}
+.sdot.active { background:#f59e0b; width:28px; }
+.sdot.done   { background:#7c3aed; width:8px; }
+.sdot.idle   { width:8px; }
 
-    /* ═══════════ HOW IT WORKS ═══════════ */
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px; position: relative;
-    }
-    .step {
-      text-align: center; padding: 24px 16px;
-      background: white; border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
-    .step-num {
-      width: 48px; height: 48px; border-radius: 50%;
-      background: linear-gradient(135deg, var(--rose), var(--pink));
-      color: white; font-family: 'Fredoka One', cursive;
-      font-size: 22px; display: grid; place-items: center;
-      margin: 0 auto 14px;
-    }
-    .step-emoji { font-size: 36px; margin-bottom: 10px; display: block; }
-    .step h3 { font-family: 'Fredoka One', cursive; font-size: 18px; margin-bottom: 6px; }
-    .step p { color: var(--muted); font-size: 13px; font-weight: 600; line-height: 1.6; }
+/* Form styles */
+.panel-title {
+  font-family:'Bubblegum Sans',cursive;
+  font-size: 26px; color: white; text-align:center; margin-bottom:6px;
+}
+.panel-sub {
+  color:rgba(255,255,255,.5); font-size:14px; font-weight:600;
+  text-align:center; margin-bottom:24px;
+}
+.form-row { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:14px; }
+.form-row.full { grid-template-columns:1fr; }
+.field { display:flex; flex-direction:column; gap:6px; }
+.field label {
+  font-size:11px; font-weight:700; color:rgba(255,255,255,.5);
+  text-transform:uppercase; letter-spacing:.8px;
+}
+.field input, .field select, .field textarea {
+  background: rgba(255,255,255,.07);
+  border: 1.5px solid rgba(255,255,255,.12);
+  border-radius: 12px; padding: 12px 14px;
+  color: white; font-size: 14px; font-weight: 600;
+  font-family:'Quicksand',sans-serif; outline:none;
+  transition: border-color .2s, background .2s;
+}
+.field input:focus, .field select:focus, .field textarea:focus {
+  border-color: #7c3aed;
+  background: rgba(124,58,237,.15);
+}
+.field input::placeholder { color: rgba(255,255,255,.25); }
+.field select option { background: #1a0a2e; color:white; }
+.field textarea { resize:vertical; min-height:80px; }
 
-    /* ═══════════ PRICING ═══════════ */
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px; align-items: start;
-    }
-    .price-card {
-      background: white; border-radius: var(--radius);
-      padding: 32px 24px; box-shadow: var(--shadow);
-      border: 2px solid #f5f0eb; position: relative;
-    }
-    .price-card.featured {
-      border-color: var(--rose);
-      transform: scale(1.03);
-      box-shadow: 0 16px 48px rgba(244,63,94,.2);
-    }
-    .price-badge {
-      position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
-      background: linear-gradient(135deg, var(--rose), var(--pink));
-      color: white; border-radius: 40px; padding: 5px 18px;
-      font-size: 12px; font-weight: 800; white-space: nowrap;
-    }
-    .price-name { font-family: 'Fredoka One', cursive; font-size: 22px; margin-bottom: 6px; }
-    .price-amount {
-      font-family: 'Fredoka One', cursive;
-      font-size: 42px; color: var(--rose); margin-bottom: 4px;
-    }
-    .price-period { color: var(--muted); font-size: 13px; font-weight: 600; margin-bottom: 20px; }
-    .price-features { list-style: none; margin-bottom: 24px; }
-    .price-features li {
-      padding: 7px 0; font-size: 14px; font-weight: 600;
-      border-bottom: 1px solid #f5f0eb; color: var(--text);
-    }
-    .price-features li::before { content: "✓ "; color: var(--teal); font-weight: 900; }
-    .price-btn {
-      width: 100%; padding: 14px;
-      border-radius: 50px; border: none;
-      font-size: 15px; font-weight: 800;
-      cursor: pointer; font-family: 'Nunito', sans-serif;
-      transition: transform .15s;
-    }
-    .price-btn:hover { transform: scale(1.02); }
-    .price-btn.primary {
-      background: linear-gradient(135deg, var(--rose), var(--pink));
-      color: white;
-    }
-    .price-btn.secondary {
-      background: #f5f0eb; color: var(--muted);
-    }
+/* Theme grid in form */
+.theme-grid-sm {
+  display: grid; grid-template-columns: repeat(5,1fr); gap:8px; margin-bottom:20px;
+}
+.tgs-btn {
+  border-radius: 12px; padding: 10px 6px;
+  cursor: pointer; text-align: center; border: 2px solid transparent;
+  transition: all .2s; background: rgba(255,255,255,.06);
+}
+.tgs-btn:hover { transform:scale(1.08); }
+.tgs-btn.selected { border-color: #f59e0b; box-shadow: 0 0 20px #f59e0b44; }
+.tgs-btn .te { font-size:22px; display:block; margin-bottom:3px; }
+.tgs-btn .tl { font-size:9.5px; font-weight:700; color:rgba(255,255,255,.7); }
 
-    /* ═══════════ SEO CONTENT ═══════════ */
-    .seo-section {
-      background: white; padding: 80px 20px;
-    }
-    .seo-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 40px;
-    }
-    .seo-block h3 {
-      font-family: 'Fredoka One', cursive;
-      font-size: 22px; color: var(--rose); margin-bottom: 12px;
-    }
-    .seo-block p {
-      color: var(--muted); font-size: 14px; line-height: 1.8; font-weight: 600;
-    }
+/* Big generate button */
+.btn-generate {
+  width:100%; padding:16px;
+  background: linear-gradient(135deg,#7c3aed,#f43f5e);
+  color:white; border:none; border-radius:50px;
+  font-size:17px; font-weight:700; cursor:pointer;
+  font-family:'Quicksand',sans-serif;
+  box-shadow: 0 8px 32px rgba(124,58,237,.4);
+  transition: transform .15s, box-shadow .15s, opacity .15s;
+  margin-top:4px;
+}
+.btn-generate:hover:not(:disabled) {
+  transform:scale(1.02); box-shadow: 0 12px 40px rgba(124,58,237,.6);
+}
+.btn-generate:disabled { opacity:.4; cursor:not-allowed; }
 
-    /* ═══════════ FAQ ═══════════ */
-    .faq-list { max-width: 720px; margin: 0 auto; }
-    .faq-item {
-      background: white; border-radius: 14px;
-      margin-bottom: 12px; overflow: hidden;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-    }
-    .faq-q {
-      width: 100%; background: none; border: none;
-      padding: 18px 22px; text-align: left;
-      font-family: 'Nunito', sans-serif; font-size: 15px; font-weight: 800;
-      color: var(--text); cursor: pointer; display: flex;
-      justify-content: space-between; align-items: center;
-    }
-    .faq-a {
-      padding: 0 22px 18px;
-      color: var(--muted); font-size: 14px; line-height: 1.7; font-weight: 600;
-    }
+.btn-back {
+  background:none; border:none; color:rgba(255,255,255,.4);
+  font-size:13px; font-weight:700; cursor:pointer;
+  display:block; margin:14px auto 0;
+  font-family:'Quicksand',sans-serif;
+  transition: color .2s;
+}
+.btn-back:hover { color:rgba(255,255,255,.8); }
 
-    /* ═══════════ TESTIMONIALS ═══════════ */
-    .testimonials {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
-    }
-    .testi {
-      background: white; border-radius: var(--radius);
-      padding: 24px; box-shadow: var(--shadow);
-    }
-    .testi-stars { color: var(--amber); font-size: 16px; margin-bottom: 10px; }
-    .testi-text { font-size: 14px; color: var(--text); line-height: 1.7; font-weight: 600; margin-bottom: 14px; }
-    .testi-author { font-size: 13px; color: var(--muted); font-weight: 800; }
+/* ── LOADING ── */
+.loading-wrap {
+  text-align:center; padding:48px 20px;
+}
+.magic-loader {
+  position:relative; width:80px; height:80px; margin:0 auto 24px;
+}
+.ml-ring {
+  position:absolute; inset:0; border-radius:50%;
+  border: 3px solid transparent;
+  border-top-color: #7c3aed;
+  animation: spin 1.2s linear infinite;
+}
+.ml-ring2 {
+  position:absolute; inset:8px; border-radius:50%;
+  border: 3px solid transparent;
+  border-top-color: #f59e0b;
+  animation: spin .8s linear infinite reverse;
+}
+.ml-center {
+  position:absolute; inset:0;
+  display:grid; place-items:center;
+  font-size:28px;
+}
+.loading-title {
+  font-family:'Bubblegum Sans',cursive;
+  font-size:24px; color:white; margin-bottom:8px;
+}
+.loading-sub {
+  color:rgba(255,255,255,.5); font-size:14px; font-weight:600;
+}
+.loading-dots span {
+  display:inline-block; width:8px; height:8px; border-radius:50%;
+  background:#7c3aed; margin:0 3px;
+  animation: bounce 1s infinite;
+}
+.loading-dots span:nth-child(2) { animation-delay:.15s; background:#f43f5e; }
+.loading-dots span:nth-child(3) { animation-delay:.3s; background:#f59e0b; }
 
-    /* ═══════════ APP SECTION ═══════════ */
-    #app-section {
-      background: linear-gradient(160deg, #fdf4ff 0%, #eff6ff 50%, #f0fdf4 100%);
-      padding: 80px 20px;
-    }
-    .app-wrapper {
-      max-width: 640px; margin: 0 auto;
-    }
+/* ── BOOK VIEWER ── */
+.book-viewer {
+  display:flex; flex-direction:column; align-items:center;
+}
+.book-title-display {
+  font-family:'Bubblegum Sans',cursive;
+  font-size:22px; color:white; text-align:center;
+  margin-bottom:6px;
+}
+.book-subtitle-display {
+  color:rgba(255,255,255,.5); font-size:13px; font-weight:600;
+  text-align:center; margin-bottom:24px;
+}
 
-    /* APP UI */
-    .app-card {
-      background: white; border-radius: 24px;
-      padding: 32px 28px;
-      box-shadow: 0 24px 64px rgba(0,0,0,0.12);
-    }
-    .step-indicator {
-      display: flex; gap: 8px; margin-bottom: 28px; justify-content: center;
-    }
-    .step-dot {
-      width: 10px; height: 10px; border-radius: 50%;
-      background: #e5e7eb; transition: all .3s;
-    }
-    .step-dot.active { background: var(--rose); width: 28px; border-radius: 5px; }
-    .step-dot.done { background: var(--teal); }
+/* THE BOOK */
+.book-wrap {
+  perspective: 1200px;
+  width: var(--page-w);
+  height: var(--page-h);
+  position: relative;
+  margin-bottom: 28px;
+}
+.book {
+  width: 100%; height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+}
+.book-shadow {
+  position:absolute; bottom:-16px; left:10%; right:10%;
+  height:20px; background:radial-gradient(ellipse, rgba(0,0,0,.6), transparent);
+  filter:blur(8px);
+}
 
-    .event-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-    .event-btn {
-      background: #fafafa; border: 2px solid #f0ebe5;
-      border-radius: 16px; padding: 18px 12px;
-      cursor: pointer; text-align: center; transition: all .2s;
-      font-family: 'Nunito', sans-serif;
-    }
-    .event-btn:hover, .event-btn.selected {
-      border-color: var(--rose); background: #fff0f3;
-    }
-    .event-btn span { display: block; font-size: 30px; margin-bottom: 6px; }
-    .event-btn strong { font-size: 13px; font-weight: 800; color: var(--text); }
+/* Each page */
+.page {
+  position:absolute; inset:0;
+  border-radius: 4px 16px 16px 4px;
+  padding: 28px 24px;
+  overflow:hidden;
+  display:flex; flex-direction:column;
+  transform-origin: left center;
+  transition: transform .6s cubic-bezier(.645,.045,.355,1), box-shadow .6s;
+  cursor: pointer;
+  backface-visibility: hidden;
+}
+.page.is-back {
+  border-radius: 16px 4px 4px 16px;
+  transform-origin: right center;
+  transform: rotateY(180deg);
+  cursor:default;
+}
+.page.flipped {
+  transform: rotateY(-180deg);
+  box-shadow: -8px 0 32px rgba(0,0,0,.5);
+  cursor:default;
+}
 
-    .theme-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-    .theme-btn {
-      border: 2px solid transparent; border-radius: 14px;
-      padding: 16px 8px; cursor: pointer;
-      text-align: center; transition: all .2s;
-      font-family: 'Nunito', sans-serif;
-    }
-    .theme-btn span { display: block; font-size: 26px; margin-bottom: 5px; }
-    .theme-btn strong { font-size: 11px; font-weight: 800; color: var(--text); }
+/* Page spine line */
+.page::before {
+  content:'';
+  position:absolute; left:0; top:5%; bottom:5%;
+  width:3px; border-radius:2px;
+  background:rgba(0,0,0,.15);
+}
+.page.is-back::before { left:auto; right:0; }
 
-    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 20px; }
-    .form-group { display: flex; flex-direction: column; gap: 5px; }
-    .form-group.full { grid-column: 1 / -1; }
-    .form-group label { font-size: 12px; font-weight: 800; color: var(--muted); text-transform: uppercase; letter-spacing: .5px; }
-    .form-group input {
-      border: 2px solid #f0ebe5; border-radius: 12px;
-      padding: 11px 14px; font-size: 14px; font-weight: 600;
-      font-family: 'Nunito', sans-serif; color: var(--text); outline: none;
-      transition: border-color .2s;
-    }
-    .form-group input:focus { border-color: var(--rose); }
+/* Page number */
+.page-num {
+  position:absolute; bottom:14px;
+  font-size:11px; font-weight:700;
+  opacity:.5;
+}
+.page-num.left  { left:20px; }
+.page-num.right { right:20px; }
 
-    .gen-btn {
-      width: 100%; padding: 16px;
-      background: linear-gradient(135deg, var(--rose), var(--pink));
-      color: white; border: none; border-radius: 50px;
-      font-size: 16px; font-weight: 800; cursor: pointer;
-      font-family: 'Nunito', sans-serif;
-      transition: transform .15s, box-shadow .15s;
-    }
-    .gen-btn:hover:not(:disabled) { transform: scale(1.02); box-shadow: 0 8px 24px rgba(244,63,94,.4); }
-    .gen-btn:disabled { opacity: .5; cursor: not-allowed; }
+/* Cover page */
+.page-cover {
+  align-items:center; justify-content:center; text-align:center;
+}
+.cover-emoji {
+  font-size:72px; margin-bottom:12px;
+  filter:drop-shadow(0 8px 24px rgba(0,0,0,.4));
+  animation: float 4s ease-in-out infinite;
+}
+.cover-sparkles {
+  position:absolute; inset:0; pointer-events:none;
+  overflow:hidden;
+}
+.sparkle {
+  position:absolute; font-size:16px;
+  animation: sparkle 2s ease-in-out infinite;
+}
+.cover-title {
+  font-family:'Bubblegum Sans',cursive;
+  font-size:22px; line-height:1.3;
+  text-shadow:0 2px 8px rgba(0,0,0,.3);
+  margin-bottom:8px;
+}
+.cover-name {
+  font-size:13px; font-weight:700; opacity:.8;
+}
 
-    /* INVITATION PREVIEW */
-    .invitation-preview {
-      border-radius: 20px; padding: 28px 24px;
-      position: relative; overflow: hidden;
-      margin-bottom: 20px;
-    }
-    .inv-deco {
-      position: absolute; border-radius: 50%;
-      pointer-events: none;
-    }
-    .inv-title {
-      font-family: 'Fredoka One', cursive;
-      font-size: 26px; text-align: center; margin-bottom: 10px;
-      position: relative; z-index: 1;
-    }
-    .inv-body {
-      position: relative; z-index: 1;
-      border-radius: 14px; padding: 16px 18px;
-      font-size: 14px; font-weight: 600; line-height: 2.1;
-      white-space: pre-line;
-    }
-    .inv-emojis { text-align: center; font-size: 32px; margin-top: 14px; position: relative; z-index:1; }
+/* Story page */
+.page-story {
+  justify-content:space-between;
+}
+.story-illustration {
+  text-align:center;
+  font-size:56px;
+  margin-bottom:12px;
+  filter:drop-shadow(0 4px 12px rgba(0,0,0,.3));
+  flex-shrink:0;
+}
+.story-text {
+  font-size:14px; line-height:1.8; font-weight:600;
+  flex:1; overflow:hidden;
+}
+.story-page-label {
+  font-size:10px; font-weight:700;
+  opacity:.4; text-align:center; margin-top:8px;
+  flex-shrink:0;
+}
 
-    .result-btns {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
-    }
-    .result-btn {
-      padding: 13px; border-radius: 50px; border: none;
-      font-size: 14px; font-weight: 800; cursor: pointer;
-      font-family: 'Nunito', sans-serif; transition: transform .15s;
-    }
-    .result-btn:hover { transform: scale(1.03); }
-    .result-btn.print { background: linear-gradient(135deg, var(--violet), #6366f1); color: white; }
-    .result-btn.whatsapp { background: #25d366; color: white; }
+/* End page */
+.page-end {
+  align-items:center; justify-content:center; text-align:center;
+}
+.end-emoji { font-size:52px; margin-bottom:12px; }
+.end-title {
+  font-family:'Bubblegum Sans',cursive;
+  font-size:20px; margin-bottom:8px;
+}
+.end-sub { font-size:12px; font-weight:600; opacity:.6; line-height:1.6; }
 
-    .back-link {
-      background: none; border: none; color: var(--muted);
-      font-size: 13px; font-weight: 800; cursor: pointer;
-      display: block; margin: 16px auto 0; font-family: 'Nunito', sans-serif;
-    }
+/* Book nav */
+.book-nav {
+  display:flex; align-items:center; gap:20px; margin-bottom:20px;
+}
+.bnav-btn {
+  width:44px; height:44px; border-radius:50%;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.15);
+  color:white; font-size:18px; cursor:pointer;
+  display:grid; place-items:center;
+  transition: all .2s; font-family:'Quicksand',sans-serif;
+}
+.bnav-btn:hover:not(:disabled) {
+  background:rgba(124,58,237,.4); border-color:#7c3aed;
+  box-shadow:0 4px 16px #7c3aed44;
+}
+.bnav-btn:disabled { opacity:.2; cursor:not-allowed; }
+.page-counter {
+  color:rgba(255,255,255,.6); font-size:13px; font-weight:700;
+  min-width:80px; text-align:center;
+}
 
-    /* LOADING */
-    .loading-box {
-      text-align: center; padding: 40px;
-    }
-    .loading-spinner {
-      width: 48px; height: 48px;
-      border: 4px solid #f0ebe5;
-      border-top-color: var(--rose);
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
-      margin: 0 auto 16px;
-    }
+/* Action buttons after book */
+.book-actions {
+  display:grid; grid-template-columns:1fr 1fr; gap:12px; width:100%; max-width:var(--page-w);
+}
+.bact-btn {
+  padding:12px; border-radius:40px; border:none;
+  font-size:13px; font-weight:700; cursor:pointer;
+  font-family:'Quicksand',sans-serif; transition:transform .15s;
+}
+.bact-btn:hover { transform:scale(1.03); }
+.bact-print { background:linear-gradient(135deg,#0d9488,#0ea5e9); color:white; }
+.bact-share { background:#25d366; color:white; }
+.btn-new {
+  grid-column: 1/-1;
+  background:rgba(255,255,255,.08); color:rgba(255,255,255,.7);
+  border:1px solid rgba(255,255,255,.15); border-radius:40px;
+  padding:11px; font-size:13px; font-weight:700;
+  cursor:pointer; font-family:'Quicksand',sans-serif;
+  transition:all .15s;
+}
+.btn-new:hover { background:rgba(255,255,255,.15); color:white; }
 
-    /* ═══════════ FOOTER ═══════════ */
-    footer {
-      background: var(--text); color: #a8a29e;
-      padding: 48px 20px; text-align: center;
-    }
-    .footer-logo {
-      font-family: 'Fredoka One', cursive;
-      font-size: 30px;
-      background: linear-gradient(135deg, var(--rose), var(--violet));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      margin-bottom: 12px;
-    }
-    footer p { font-size: 13px; line-height: 1.8; font-weight: 600; }
-    .footer-links { display: flex; gap: 20px; justify-content: center; margin-top: 20px; flex-wrap: wrap; }
-    .footer-links a { color: #a8a29e; text-decoration: none; font-size: 13px; font-weight: 700; }
-    .footer-links a:hover { color: var(--rose); }
+/* ── FEATURES ── */
+.features-grid {
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:20px;
+}
+.feat-card {
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:20px; padding:28px 22px;
+  transition: transform .2s, border-color .2s;
+}
+.feat-card:hover {
+  transform:translateY(-4px);
+  border-color:rgba(124,58,237,.4);
+}
+.feat-icon { font-size:36px; margin-bottom:14px; display:block; }
+.feat-title {
+  font-family:'Bubblegum Sans',cursive;
+  font-size:19px; color:white; margin-bottom:8px;
+}
+.feat-desc { color:rgba(255,255,255,.5); font-size:14px; line-height:1.7; font-weight:500; }
 
-    /* ═══════════ RESPONSIVE ═══════════ */
-    @media (max-width: 600px) {
-      .nav-links { display: none; }
-      .form-grid { grid-template-columns: 1fr; }
-      .result-btns { grid-template-columns: 1fr; }
-      .steps { grid-template-columns: 1fr 1fr; }
-    }
+/* ── PRICING ── */
+.price-grid {
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:20px; align-items:start;
+}
+.price-card {
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:22px; padding:28px 22px;
+  position:relative;
+}
+.price-card.hot {
+  border-color:#7c3aed;
+  background:rgba(124,58,237,.12);
+  box-shadow:0 0 40px rgba(124,58,237,.2);
+}
+.price-hot-badge {
+  position:absolute; top:-13px; left:50%; transform:translateX(-50%);
+  background:linear-gradient(135deg,#7c3aed,#f43f5e);
+  color:white; border-radius:40px; padding:4px 16px;
+  font-size:11px; font-weight:700; white-space:nowrap;
+}
+.price-name { font-family:'Bubblegum Sans',cursive; font-size:20px; color:white; margin-bottom:6px; }
+.price-amount { font-family:'Bubblegum Sans',cursive; font-size:44px; color:#f59e0b; margin-bottom:2px; }
+.price-period { color:rgba(255,255,255,.4); font-size:12px; font-weight:600; margin-bottom:18px; }
+.price-list { list-style:none; margin-bottom:22px; }
+.price-list li {
+  padding:6px 0; font-size:13px; font-weight:600;
+  color:rgba(255,255,255,.7);
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.price-list li::before { content:"✦ "; color:#7c3aed; }
+.price-btn {
+  width:100%; padding:13px; border-radius:40px; border:none;
+  font-size:14px; font-weight:700; cursor:pointer;
+  font-family:'Quicksand',sans-serif; transition:transform .15s;
+}
+.price-btn:hover { transform:scale(1.02); }
+.price-btn.main { background:linear-gradient(135deg,#7c3aed,#f43f5e); color:white; }
+.price-btn.sec  { background:rgba(255,255,255,.08); color:rgba(255,255,255,.7); }
 
-    @media print {
-      body > *:not(#app-section) { display: none !important; }
-      #app-section { display: block !important; padding: 0; }
-      .app-wrapper > div:first-child { display: none; }
-      .app-card { box-shadow: none !important; padding: 0 !important; }
-      .step-indicator, .result-btns, .back-link { display: none !important; }
-      #inv-card { box-shadow: none !important; border: 2px solid #ccc !important; }
-    }
-  </style>
+/* ── TESTIMONIALS ── */
+.testi-grid {
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px;
+}
+.testi-card {
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:18px; padding:22px;
+}
+.testi-stars { color:#f59e0b; font-size:14px; margin-bottom:10px; }
+.testi-text { color:rgba(255,255,255,.7); font-size:13px; line-height:1.8; font-weight:500; margin-bottom:12px; }
+.testi-author { color:rgba(255,255,255,.4); font-size:12px; font-weight:700; }
+
+/* ── FAQ ── */
+.faq-wrap { max-width:680px; margin:0 auto; }
+.faq-item {
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:14px; margin-bottom:10px; overflow:hidden;
+}
+.faq-q {
+  width:100%; background:none; border:none; padding:18px 20px;
+  text-align:left; color:white; font-size:14px; font-weight:700;
+  cursor:pointer; display:flex; justify-content:space-between; align-items:center;
+  font-family:'Quicksand',sans-serif;
+}
+.faq-a {
+  display:none; padding:0 20px 16px;
+  color:rgba(255,255,255,.5); font-size:13px; line-height:1.8; font-weight:500;
+}
+
+/* ── FOOTER ── */
+footer {
+  position:relative; z-index:1;
+  background:rgba(0,0,0,.4); backdrop-filter:blur(10px);
+  border-top:1px solid rgba(255,255,255,.06);
+  padding:40px 20px; text-align:center;
+}
+.footer-logo {
+  font-family:'Bubblegum Sans',cursive; font-size:26px;
+  background:linear-gradient(135deg,#f9a8d4,#c4b5fd);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+  margin-bottom:10px;
+}
+footer p { color:rgba(255,255,255,.3); font-size:13px; font-weight:500; line-height:1.8; }
+.footer-links { display:flex; gap:20px; justify-content:center; margin-top:16px; flex-wrap:wrap; }
+.footer-links a { color:rgba(255,255,255,.3); text-decoration:none; font-size:12px; font-weight:700; }
+.footer-links a:hover { color:#c4b5fd; }
+
+/* PRINT */
+@media print {
+  body > *:not(#app-section) { display:none!important; }
+  .stars,.nav,.hero,section:not(#app-section) { display:none!important; }
+  #app-section { padding:0!important; }
+  .app-panel { background:white!important; border:none!important; box-shadow:none!important; padding:0!important; }
+  .steps-dots,.btn-back,.btn-generate,.book-nav,.book-actions,.panel-title,.panel-sub { display:none!important; }
+  .book-wrap { perspective:none!important; }
+  .page { position:relative!important; transform:none!important; break-inside:avoid; page-break-inside:avoid; margin-bottom:20px; border-radius:12px!important; }
+  .page.is-back { transform:none!important; }
+}
+
+@media(max-width:600px){
+  :root { --page-w:290px; --page-h:400px; }
+  .form-row { grid-template-columns:1fr; }
+  .theme-grid-sm { grid-template-columns:repeat(5,1fr); }
+  .book-actions { grid-template-columns:1fr; }
+  .app-panel { padding:24px 16px; }
+}
+</style>
 </head>
 <body>
 
-<!-- ═══════════════════════════════════════════
-     NAV
-════════════════════════════════════════════ -->
+<div class="stars"></div>
+
+<!-- NAV -->
 <nav>
-  <div class="nav-logo">🪄 MagiCard</div>
-  <ul class="nav-links">
-    <li><a href="#como-funciona">Cómo funciona</a></li>
-    <li><a href="#precios">Precios</a></li>
-    <li><a href="#faq">FAQ</a></li>
-  </ul>
-  <button class="nav-cta" onclick="document.getElementById('app-section').scrollIntoView({behavior:'smooth'})">
-    Crear gratis ✨
-  </button>
+  <div class="logo">🌙 MagiCuento</div>
+  <div class="nav-right">
+    <button class="btn-nav" onclick="scrollToApp()">✨ Crear cuento gratis</button>
+  </div>
 </nav>
 
-<!-- ═══════════════════════════════════════════
-     HERO
-════════════════════════════════════════════ -->
-<header class="hero" role="banner">
-  <div class="hero-bg"></div>
-  <!-- Floating emojis for visual delight -->
-  <div class="hero-float" style="top:10%; left:5%; animation-delay:0s;">🦄</div>
-  <div class="hero-float" style="top:15%; right:8%; animation-delay:.7s; animation-name:floatB;">🎂</div>
-  <div class="hero-float" style="bottom:20%; left:8%; animation-delay:1.4s;">🚀</div>
-  <div class="hero-float" style="bottom:25%; right:6%; animation-delay:.3s; animation-name:floatB;">🌟</div>
-  <div class="hero-float" style="top:40%; left:2%; animation-delay:2s; font-size:36px;">🎈</div>
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-deco" style="top:12%;left:4%;animation:float 4s ease-in-out infinite;">🌟</div>
+  <div class="hero-deco" style="top:18%;right:5%;animation:floatB 5s ease-in-out infinite;font-size:36px;">🦄</div>
+  <div class="hero-deco" style="bottom:22%;left:6%;animation:float 6s 1s ease-in-out infinite;font-size:32px;">🚀</div>
+  <div class="hero-deco" style="bottom:28%;right:7%;animation:floatB 4.5s .5s ease-in-out infinite;font-size:28px;">🌈</div>
+  <div class="hero-deco" style="top:45%;left:1%;animation:float 5.5s 2s ease-in-out infinite;font-size:24px;">⭐</div>
 
-  <div class="hero-content">
-    <span class="hero-badge">✨ Powered by IA · 100% en español</span>
-    <h1>Invitaciones mágicas para tus peques</h1>
-    <p class="hero-sub">
-      Creá en segundos invitaciones personalizadas para cumpleaños, bautismos, baby showers, comunión y cuentos únicos. ¡Listas para WhatsApp o imprimir!
-    </p>
-    <div class="hero-btns">
-      <button class="btn-primary" onclick="document.getElementById('app-section').scrollIntoView({behavior:'smooth'})">
-        🎉 Crear mi invitación gratis
-      </button>
-      <button class="btn-secondary" onclick="document.getElementById('como-funciona').scrollIntoView({behavior:'smooth'})">
-        Ver cómo funciona →
-      </button>
+  <h1>Cuentos mágicos<br>con el nombre de tu peque</h1>
+  <p class="hero-sub">La IA crea un libro personalizado donde tu hijo o hija es el protagonista. Con ilustraciones animadas, páginas que se pasan como un libro de verdad, y listo para leer o imprimir.</p>
+  <div class="hero-btns">
+    <button class="btn-hero" onclick="scrollToApp()">📖 Crear mi cuento gratis</button>
+    <button class="btn-ghost" onclick="document.getElementById('como').scrollIntoView({behavior:'smooth'})">Ver cómo funciona →</button>
+  </div>
+
+  <!-- Mini preview book -->
+  <div class="hero-book">
+    <div class="demo-page" style="background:linear-gradient(135deg,#7c3aed,#db2777);color:white;width:170px;height:200px;right:0;top:0;z-index:2;">
+      <div style="font-size:40px;text-align:center;margin-bottom:8px">🦄</div>
+      <div style="font-family:'Bubblegum Sans',cursive;font-size:14px;text-align:center;line-height:1.4">La aventura de<br><strong>Valentina</strong></div>
     </div>
-    <div class="hero-stats">
-      <div class="stat">
-        <div class="stat-num">+12K</div>
-        <div class="stat-label">Invitaciones creadas</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">4.9⭐</div>
-        <div class="stat-label">Valoración promedio</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">30s</div>
-        <div class="stat-label">Tiempo promedio</div>
-      </div>
+    <div class="demo-page" style="background:linear-gradient(135deg,#1e1b4b,#312e81);color:#c4b5fd;width:160px;height:190px;left:0;top:10px;z-index:1;font-size:11px;line-height:1.7;font-weight:600;">
+      <div style="font-size:24px;margin-bottom:6px">✨</div>
+      Érase una vez una niña llamada <strong style="color:white">Valentina</strong> que encontró un unicornio mágico...
     </div>
   </div>
 </header>
 
-<!-- ═══════════════════════════════════════════
-     FEATURES
-════════════════════════════════════════════ -->
-<section>
+<!-- FEATURES -->
+<section id="como">
   <div class="container">
-    <div style="text-align:center; margin-bottom:48px;">
-      <span class="section-tag">¿Por qué MagiCard?</span>
-      <h2>Todo lo que necesitás para la fiesta perfecta</h2>
-      <p class="section-sub" style="margin:0 auto;">Sin diseño, sin complicaciones. Solo completás los datos y la magia hace el resto.</p>
+    <div style="text-align:center;margin-bottom:48px;">
+      <span class="section-label">¿Por qué MagiCuento?</span>
+      <h2>Más que un cuento.<br>Una experiencia mágica.</h2>
+      <p class="section-sub" style="margin:0 auto;">Cada cuento es único, personalizado con el nombre y los gustos del niño, en español argentino.</p>
     </div>
     <div class="features-grid">
-      <article class="feature-card">
-        <span class="feature-icon">🤖</span>
-        <h3 class="feature-title">IA que entiende el español</h3>
-        <p class="feature-desc">Texto creativo, emotivo y personalizado generado automáticamente. No es una plantilla genérica, es una invitación única para tu peque.</p>
-      </article>
-      <article class="feature-card">
-        <span class="feature-icon">📲</span>
-        <h3 class="feature-title">Lista para WhatsApp</h3>
-        <p class="feature-desc">Con un clic compartís la invitación por WhatsApp. Formato perfecto para grupos de familia y amigos. Sin apps extra ni conversiones.</p>
-      </article>
-      <article class="feature-card">
-        <span class="feature-icon">🖨️</span>
-        <h3 class="feature-title">Imprimible en casa</h3>
-        <p class="feature-desc">Descargá en alta calidad y llevá al kiosco o imprimí en casa. Ideal para repartir en la puerta del jardín o en el colegio.</p>
-      </article>
-      <article class="feature-card">
-        <span class="feature-icon">🎨</span>
-        <h3 class="feature-title">6 temáticas mágicas</h3>
-        <p class="feature-desc">Unicornio, Dinosaurio, Barbie, Harry Potter, Fútbol, Espacio, Sirena y más. 12 temáticas con paleta de color, tipografía y emojis únicos.</p>
-      </article>
-      <article class="feature-card">
-        <span class="feature-icon">📖</span>
-        <h3 class="feature-title">Cuentos personalizados</h3>
-        <p class="feature-desc">Tu hijo/a como protagonista del cuento, con su personaje favorito. Ideal para estimular la lectura y dar como regalo.</p>
-      </article>
-      <article class="feature-card">
-        <span class="feature-icon">🎁</span>
-        <h3 class="feature-title">Pack fiesta completo</h3>
-        <p class="feature-desc">Invitación + cartel de bienvenida + etiquetas de mesa + menú. Todo con la misma temática para una fiesta cohesiva y profesional.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════
-     HOW IT WORKS
-════════════════════════════════════════════ -->
-<section id="como-funciona" style="background:white;">
-  <div class="container">
-    <div style="text-align:center; margin-bottom:48px;">
-      <span class="section-tag">Paso a paso</span>
-      <h2>Listo en menos de 30 segundos</h2>
-    </div>
-    <div class="steps">
-      <div class="step">
-        <span class="step-emoji">🎪</span>
-        <div class="step-num">1</div>
-        <h3>Elegí el evento</h3>
-        <p>Cumpleaños, bautismo, baby shower, primera comunión o cuento personalizado.</p>
+      <div class="feat-card">
+        <span class="feat-icon">🤖</span>
+        <div class="feat-title">IA que escribe en español</div>
+        <p class="feat-desc">No son plantillas genéricas. Cada cuento es generado de cero con el nombre, edad y personaje favorito de tu peque. Texto creativo, con valores y vocabulario apropiado a la edad.</p>
       </div>
-      <div class="step">
-        <span class="step-emoji">🎨</span>
-        <div class="step-num">2</div>
-        <h3>Elegí la temática</h3>
-        <p>Unicornio, dinosaurio, princesa, espacio y más. Cada una tiene su propio estilo visual.</p>
+      <div class="feat-card">
+        <span class="feat-icon">📖</span>
+        <div class="feat-title">Librito con efecto flip</div>
+        <p class="feat-desc">Las páginas se pasan como un libro real con animación 3D. Cada página tiene su ilustración de emojis animados y el texto de la historia. Funciona en celular y desktop.</p>
       </div>
-      <div class="step">
-        <span class="step-emoji">✏️</span>
-        <div class="step-num">3</div>
-        <h3>Completá los datos</h3>
-        <p>Nombre del festejado, fecha, dirección y horario. Solo lo esencial.</p>
+      <div class="feat-card">
+        <span class="feat-icon">🎨</span>
+        <div class="feat-title">10 temáticas mágicas</div>
+        <p class="feat-desc">Unicornios, dinosaurios, espacio, sirenas, princesas, dragones y más. Cada temática tiene su paleta de colores, emojis e ilustraciones propias.</p>
       </div>
-      <div class="step">
-        <span class="step-emoji">✨</span>
-        <div class="step-num">4</div>
-        <h3>¡Magia!</h3>
-        <p>La IA genera tu invitación personalizada. Descargá o compartí por WhatsApp al toque.</p>
+      <div class="feat-card">
+        <span class="feat-icon">🖨️</span>
+        <div class="feat-title">Imprimible como libro</div>
+        <p class="feat-desc">Descargá e imprimí en casa o llevá al kiosco. El formato está pensado para doblarse como un pequeño libro físico. Ideal para regalar.</p>
+      </div>
+      <div class="feat-card">
+        <span class="feat-icon">💚</span>
+        <div class="feat-title">Compartir por WhatsApp</div>
+        <p class="feat-desc">Con un clic compartís el cuento por WhatsApp. Los abuelos, los amigos del jardín, los primos... todos pueden leerlo al toque desde el celu.</p>
+      </div>
+      <div class="feat-card">
+        <span class="feat-icon">🧠</span>
+        <div class="feat-title">Estimulación real</div>
+        <p class="feat-desc">Los cuentos donde el niño es protagonista estimulan la lectura, la autoestima y la imaginación. La IA genera historias con valores positivos adaptadas a cada edad.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════
-     APP
-════════════════════════════════════════════ -->
+<!-- APP -->
 <section id="app-section">
-  <div class="app-wrapper">
-    <div style="text-align:center; margin-bottom:32px;">
-      <span class="section-tag">Probalo ahora</span>
-      <h2>Creá tu invitación gratis</h2>
-      <p class="section-sub" style="margin:0 auto;">Las primeras 2 invitaciones son sin costo.</p>
+  <div class="app-container">
+    <div style="text-align:center;margin-bottom:32px;">
+      <span class="section-label">Probalo ahora · gratis</span>
+      <h2>Creá el cuento de tu peque</h2>
+      <p class="section-sub" style="margin:0 auto;">Los primeros 2 cuentos son sin costo, sin tarjeta de crédito.</p>
     </div>
-    <div class="app-card" id="app-root">
-      <!-- Rendered by JS below -->
-    </div>
+    <div class="app-panel" id="app-root"></div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════
-     TESTIMONIALS
-════════════════════════════════════════════ -->
-<section style="background:white;">
+<!-- TESTIMONIALS -->
+<section>
   <div class="container">
-    <div style="text-align:center; margin-bottom:40px;">
-      <span class="section-tag">Lo que dicen las mamás</span>
-      <h2>Más de 12.000 invitaciones creadas</h2>
+    <div style="text-align:center;margin-bottom:40px;">
+      <span class="section-label">Familias felices</span>
+      <h2>Lo que dicen los papás</h2>
     </div>
-    <div class="testimonials">
-      <div class="testi">
+    <div class="testi-grid">
+      <div class="testi-card">
         <div class="testi-stars">⭐⭐⭐⭐⭐</div>
-        <p class="testi-text">"¡No lo podía creer! En 20 segundos tenía la invitación del cumple de Mía con la temática de sirenas, con su nombre y todo. La compartí en el grupo del jardín y me llenaron de mensajes."</p>
-        <span class="testi-author">— Valentina R., mamá de Mía (5 años)</span>
+        <p class="testi-text">"Mateo no quería que le lean cuentos hasta que vio que él era el personaje principal. Ahora me pide uno nuevo cada noche. Es increíble lo que genera la IA."</p>
+        <span class="testi-author">— Rocío M., mamá de Mateo (4 años)</span>
       </div>
-      <div class="testi">
+      <div class="testi-card">
         <div class="testi-stars">⭐⭐⭐⭐⭐</div>
-        <p class="testi-text">"Usé MagiCard para el bautismo de Tomás. El texto que generó fue hermoso, muy emotivo. Lo imprimimos en casa y quedó súper profesional. Recomiendo 100%."</p>
-        <span class="testi-author">— Carolina M., mamá de Tomás (1 año)</span>
+        <p class="testi-text">"Lo usé como regalo de cumpleaños para mi sobrina. Imprimimos el librito, lo encuadernamos y quedó hermoso. Fue el regalo más original de la fiesta."</p>
+        <span class="testi-author">— Florencia D., tía de Emma (5 años)</span>
       </div>
-      <div class="testi">
+      <div class="testi-card">
         <div class="testi-stars">⭐⭐⭐⭐⭐</div>
-        <p class="testi-text">"El cuento con el nombre de mi hijo fue el regalo más original que pude dar. Lucas no paraba de reír leyendo que él era el héroe. Vale cada centavo."</p>
-        <span class="testi-author">— Florencia D., mamá de Lucas (7 años)</span>
+        <p class="testi-text">"La maestra nos recomendó estimular la lectura y esto fue lo mejor que encontré. Sofía escucha el cuento y después quiere leerlo sola. Genial para el desarrollo."</p>
+        <span class="testi-author">— Mariana P., mamá de Sofía (6 años)</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════
-     PRICING
-════════════════════════════════════════════ -->
+<!-- PRICING -->
 <section id="precios">
   <div class="container">
-    <div style="text-align:center; margin-bottom:48px;">
-      <span class="section-tag">Precios</span>
+    <div style="text-align:center;margin-bottom:48px;">
+      <span class="section-label">Precios</span>
       <h2>Simple y transparente</h2>
       <p class="section-sub" style="margin:0 auto;">Sin suscripciones. Pagás solo lo que necesitás.</p>
     </div>
-    <div class="pricing-grid">
+    <div class="price-grid">
       <div class="price-card">
         <div class="price-name">🆓 Gratis</div>
         <div class="price-amount">$0</div>
-        <p class="price-period">Para probar la magia</p>
-        <ul class="price-features">
-          <li>2 invitaciones o cuentos</li>
+        <p class="price-period">Para descubrir la magia</p>
+        <ul class="price-list">
+          <li>2 cuentos personalizados</li>
           <li>Todas las temáticas</li>
+          <li>Librito con flip de páginas</li>
           <li>Compartir por WhatsApp</li>
-          <li>Descargar para imprimir</li>
         </ul>
-        <button class="price-btn secondary" onclick="document.getElementById('app-section').scrollIntoView({behavior:'smooth'})">Empezar gratis</button>
+        <button class="price-btn sec" onclick="scrollToApp()">Empezar gratis</button>
       </div>
-      <div class="price-card featured">
-        <div class="price-badge">⭐ Más popular</div>
-        <div class="price-name">🎉 Pack Fiesta</div>
+      <div class="price-card hot">
+        <div class="price-hot-badge">✦ Más elegido</div>
+        <div class="price-name">📚 Pack Cuentos</div>
         <div class="price-amount">$5</div>
-        <p class="price-period">USD · pago único por evento</p>
-        <ul class="price-features">
-          <li>10 invitaciones o cuentos</li>
-          <li>Kit mesa completo</li>
-          <li>Cartel de bienvenida</li>
-          <li>Etiquetas personalizadas</li>
+        <p class="price-period">USD · 10 cuentos</p>
+        <ul class="price-list">
+          <li>10 cuentos únicos</li>
           <li>Descarga en alta calidad</li>
+          <li>Formato imprimible</li>
+          <li>Ideal para regalar</li>
+          <li>Todas las temáticas</li>
         </ul>
-        <button class="price-btn primary">Comprar pack</button>
+        <button class="price-btn main">Comprar pack</button>
       </div>
       <div class="price-card">
-        <div class="price-name">👑 Pro</div>
-        <div class="price-amount">$15</div>
-        <p class="price-period">USD / mes</p>
-        <ul class="price-features">
-          <li>Creaciones ilimitadas</li>
-          <li>Todas las temáticas premium</li>
-          <li>Carga tu propio logo</li>
-          <li>Soporte prioritario</li>
-          <li>Ideal para diseñadoras</li>
+        <div class="price-name">👑 Familia</div>
+        <div class="price-amount">$12</div>
+        <p class="price-period">USD / mes · ilimitado</p>
+        <ul class="price-list">
+          <li>Cuentos ilimitados</li>
+          <li>Múltiples hijos/perfiles</li>
+          <li>Temáticas exclusivas</li>
+          <li>Nuevas funciones primero</li>
         </ul>
-        <button class="price-btn secondary">Suscribirme</button>
+        <button class="price-btn sec">Suscribirme</button>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════
-     SEO CONTENT BLOCK (importante para Google)
-════════════════════════════════════════════ -->
-<section class="seo-section">
-  <div class="container">
-    <div style="text-align:center; margin-bottom:48px;">
-      <span class="section-tag">Guía completa</span>
-      <h2>Todo sobre invitaciones infantiles</h2>
-    </div>
-    <div class="seo-grid">
-      <div class="seo-block">
-        <h3>Invitaciones de cumpleaños infantiles</h3>
-        <p>Las invitaciones de cumpleaños son el primer contacto de los invitados con la fiesta. Una tarjeta bien diseñada con el nombre del niño, la temática y los datos del evento genera entusiasmo y garantiza que los papás recuerden la fecha. Con MagiCard podés crear invitaciones de cumpleaños personalizadas en segundos, con temáticas de unicornio, dinosaurio, princesa, espacio y más.</p>
-      </div>
-      <div class="seo-block">
-        <h3>Invitaciones de bautismo originales</h3>
-        <p>El bautismo es uno de los momentos más especiales en la vida de un bebé y su familia. Las invitaciones de bautismo deben transmitir emoción, espiritualidad y alegría. Nuestra IA genera textos únicos que capturan ese momento con las palabras exactas que querés comunicar, personalizadas con el nombre del bebé y los datos del evento.</p>
-      </div>
-      <div class="seo-block">
-        <h3>Baby shower: invitaciones para mamás en camino</h3>
-        <p>Las invitaciones de baby shower son la excusa perfecta para reunir a familia y amigas en torno a la futura mamá. Que sea nena o nene, podés elegir la temática y el tono del texto: divertido, emotivo o elegante. Todo en segundos y listo para compartir por el grupo de WhatsApp.</p>
-      </div>
-      <div class="seo-block">
-        <h3>Primera comunión: tarjetas con alma</h3>
-        <p>Las invitaciones de primera comunión requieren un tono especial: espiritual, emotivo y familiar. MagiCard genera textos que reflejan la importancia del sacramento, incluyendo el nombre del niño, la fecha, la iglesia y los datos del festejo. Descargá e imprimí en casa o llevá al kiosco de fotos.</p>
-      </div>
-      <div class="seo-block">
-        <h3>Cuentos personalizados para estimular niños</h3>
-        <p>Los cuentos donde el protagonista tiene el mismo nombre que el niño son herramientas poderosas para estimular la lectura y la imaginación. Nuestra IA genera cuentos cortos con valores positivos, donde tu hijo o hija vive aventuras con su personaje favorito. Ideal como regalo de cumpleaños o para la hora del cuento.</p>
-      </div>
-      <div class="seo-block">
-        <h3>¿Por qué elegir invitaciones digitales?</h3>
-        <p>Las invitaciones digitales para fiestas infantiles tienen múltiples ventajas: se comparten al instante por WhatsApp, no generan residuos, pueden editarse si cambian los datos y llegan a todos los invitados en segundos. Además, con MagiCard podés también imprimir la versión física para los que prefieren tener una tarjeta en mano.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════
-     FAQ
-════════════════════════════════════════════ -->
-<section id="faq" style="background:white;">
+<!-- FAQ -->
+<section id="faq">
   <div class="container" style="text-align:center;">
-    <span class="section-tag">Preguntas frecuentes</span>
-    <h2 style="margin-bottom:40px;">Todo lo que querés saber</h2>
-    <div class="faq-list">
+    <span class="section-label">Preguntas frecuentes</span>
+    <h2 style="margin-bottom:36px;">Todo lo que querés saber</h2>
+    <div class="faq-wrap">
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          ¿Cómo creo una invitación de cumpleaños infantil con MagiCard? <span>▼</span>
-        </button>
-        <div class="faq-a">Es muy simple: elegís el tipo de evento (cumpleaños), luego la temática visual (unicornio, dinosaurio, etc.), completás el nombre del niño/a, la fecha, el horario y la dirección, y nuestra IA genera el texto en segundos. Podés descargarla o compartirla por WhatsApp al instante.</div>
+        <button class="faq-q" onclick="toggleFaq(this)">¿La IA realmente escribe el cuento de cero? <span>▾</span></button>
+        <div class="faq-a">Sí, cada cuento es generado de cero por inteligencia artificial con el nombre, edad y personaje favorito que ingresás. No son plantillas con espacios en blanco — es una historia original cada vez.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          ¿Las invitaciones son realmente gratis? <span>▼</span>
-        </button>
-        <div class="faq-a">Sí, las primeras 2 invitaciones o cuentos son completamente gratuitas, sin necesidad de tarjeta de crédito. Para crear más podés adquirir el Pack Fiesta ($5 USD por evento) o el plan Pro ($15 USD/mes) para creaciones ilimitadas.</div>
+        <button class="faq-q" onclick="toggleFaq(this)">¿Para qué edades es apropiado? <span>▾</span></button>
+        <div class="faq-a">Desde los 2 hasta los 10 años aproximadamente. La IA adapta el vocabulario y la complejidad de la historia según la edad que ingresás. Para bebés de 0-2 el cuento es muy simple y visual; para niños de 7-10 es más elaborado.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          ¿Puedo imprimir las invitaciones en casa? <span>▼</span>
-        </button>
-        <div class="faq-a">Sí. Todas las invitaciones generadas pueden descargarse en alta resolución para imprimir en casa, en un kiosco de fotos o en una imprenta. El formato es estándar A6 o 10x15cm, ideal para tarjetas.</div>
+        <button class="faq-q" onclick="toggleFaq(this)">¿Puedo imprimir el cuento? <span>▾</span></button>
+        <div class="faq-a">Sí. Con el botón "Imprimir" se genera una versión optimizada para papel. Podés imprimirlo en casa, en un kiosco de fotos o en una imprenta. El formato está diseñado para doblarse como un pequeño libro físico.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          ¿Qué eventos puedo usar para crear invitaciones? <span>▼</span>
-        </button>
-        <div class="faq-a">Podés crear invitaciones para cumpleaños infantiles, bautismos, baby showers y primera comunión. También podés generar cuentos personalizados con el nombre del niño como protagonista.</div>
+        <button class="faq-q" onclick="toggleFaq(this)">¿Está en español argentino? <span>▾</span></button>
+        <div class="faq-a">Sí, los cuentos se generan en español con modismos y expresiones del español rioplatense (vos, che, etc.). Si preferís español neutro o de otro país podés indicarlo en el campo de personaje favorito.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          ¿Los cuentos personalizados sirven como regalo? <span>▼</span>
-        </button>
-        <div class="faq-a">¡Son uno de los regalos más originales y emotivos! El cuento incluye el nombre del niño/a como protagonista y su personaje favorito. Podés imprimirlo, guardarlo en PDF o compartirlo digitalmente. Ideal para cumpleaños, Navidad o cualquier ocasión especial.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          ¿En qué idiomas están disponibles las invitaciones? <span>▼</span>
-        </button>
-        <div class="faq-a">MagiCard está 100% en español, optimizado para Argentina, México, Colombia, España y todos los países de habla hispana. El texto generado respeta el tono y las expresiones del español latinoamericano.</div>
+        <button class="faq-q" onclick="toggleFaq(this)">¿Cuánto tiempo tarda en generarse? <span>▾</span></button>
+        <div class="faq-a">Entre 10 y 20 segundos dependiendo de la conexión. La IA divide el cuento en 5 páginas automáticamente y genera el texto completo en una sola llamada.</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════
-     FOOTER
-════════════════════════════════════════════ -->
+<!-- FOOTER -->
 <footer>
-  <div class="footer-logo">🪄 MagiCard</div>
-  <p>Invitaciones infantiles y cuentos personalizados con inteligencia artificial.<br>
-  Cumpleaños · Bautismos · Baby Shower · Primera Comunión · Cuentos</p>
+  <div class="footer-logo">🌙 MagiCuento</div>
+  <p>Cuentos personalizados con IA para estimular la lectura y la imaginación.<br>
+  Cada historia es única. Cada niño es el protagonista.</p>
   <div class="footer-links">
-    <a href="#">Términos y condiciones</a>
+    <a href="#">Términos</a>
     <a href="#">Privacidad</a>
     <a href="#">Contacto</a>
     <a href="#">Instagram</a>
   </div>
-  <p style="margin-top:24px; font-size:12px;">© 2025 MagiCard. Todos los derechos reservados.</p>
+  <p style="margin-top:20px;font-size:11px;">© 2025 MagiCuento. Todos los derechos reservados.</p>
 </footer>
 
-<!-- ═══════════════════════════════════════════
-     APP JAVASCRIPT
-════════════════════════════════════════════ -->
 <script>
-// ═══ STATE ═══
+// ═══════════════════════════════════
+// THEMES
+// ═══════════════════════════════════
+const THEMES = [
+  {
+    id:'unicorn', name:'Unicornio', emoji:'🦄',
+    pageEmojis:['🦄','🌈','✨','🌸','💜','⭐'],
+    coverGrad:'linear-gradient(145deg,#7c3aed,#db2777)',
+    pageGrad:'linear-gradient(160deg,#fdf4ff,#ede9fe)',
+    textColor:'#3b0764', headerColor:'white',
+    sparkles:['✨','🌸','💜','🌟'],
+    storyStyle:'Una historia de amistad y magia'
+  },
+  {
+    id:'dino', name:'Dinosaurio', emoji:'🦕',
+    pageEmojis:['🦕','🦖','🌿','🥚','🌴','🐾'],
+    coverGrad:'linear-gradient(145deg,#15803d,#065f46)',
+    pageGrad:'linear-gradient(160deg,#f0fdf4,#dcfce7)',
+    textColor:'#14532d', headerColor:'white',
+    sparkles:['🌿','🦕','🥚','🌴'],
+    storyStyle:'Una aventura prehistórica'
+  },
+  {
+    id:'space', name:'Espacio', emoji:'🚀',
+    pageEmojis:['🚀','⭐','🪐','🌙','👽','💫'],
+    coverGrad:'linear-gradient(145deg,#1e1b4b,#0f172a)',
+    pageGrad:'linear-gradient(160deg,#1e1b4b,#0f172a)',
+    textColor:'#e0e7ff', headerColor:'#fde68a',
+    sparkles:['⭐','💫','🌙','✨'],
+    storyStyle:'Una aventura intergaláctica',
+    dark:true
+  },
+  {
+    id:'mermaid', name:'Sirena', emoji:'🧜',
+    pageEmojis:['🧜','🐚','🌊','🐠','🐬','💙'],
+    coverGrad:'linear-gradient(145deg,#0891b2,#0e7490)',
+    pageGrad:'linear-gradient(160deg,#ecfeff,#cffafe)',
+    textColor:'#164e63', headerColor:'white',
+    sparkles:['🐚','🌊','💙','🐠'],
+    storyStyle:'Una aventura bajo el mar'
+  },
+  {
+    id:'princess', name:'Princesa', emoji:'👑',
+    pageEmojis:['👑','💎','🌸','🪄','🏰','✨'],
+    coverGrad:'linear-gradient(145deg,#be185d,#9d174d)',
+    pageGrad:'linear-gradient(160deg,#fff0f7,#fce7f3)',
+    textColor:'#831843', headerColor:'white',
+    sparkles:['👑','💎','🌸','✨'],
+    storyStyle:'Un cuento de realeza y valentía'
+  },
+  {
+    id:'dragon', name:'Dragón', emoji:'🐉',
+    pageEmojis:['🐉','🔥','🏰','⚔️','🌋','💎'],
+    coverGrad:'linear-gradient(145deg,#c2410c,#7f1d1d)',
+    pageGrad:'linear-gradient(160deg,#fff7ed,#ffedd5)',
+    textColor:'#431407', headerColor:'white',
+    sparkles:['🔥','🐉','⚔️','💎'],
+    storyStyle:'Una aventura épica llena de fuego'
+  },
+  {
+    id:'forest', name:'Bosque', emoji:'🦊',
+    pageEmojis:['🦊','🌲','🍄','🦉','🌺','🐿️'],
+    coverGrad:'linear-gradient(145deg,#166534,#14532d)',
+    pageGrad:'linear-gradient(160deg,#f0fdf4,#dcfce7)',
+    textColor:'#14532d', headerColor:'white',
+    sparkles:['🍄','🌺','🦊','🌲'],
+    storyStyle:'Una aventura en el bosque encantado'
+  },
+  {
+    id:'pirate', name:'Pirata', emoji:'🏴‍☠️',
+    pageEmojis:['🏴‍☠️','⚓','🗺️','💰','🦜','🌊'],
+    coverGrad:'linear-gradient(145deg,#1e3a5f,#0f172a)',
+    pageGrad:'linear-gradient(160deg,#eff6ff,#dbeafe)',
+    textColor:'#1e3a5f', headerColor:'white',
+    sparkles:['⚓','💰','🗺️','🦜'],
+    storyStyle:'Una aventura en alta mar'
+  },
+  {
+    id:'candy', name:'Dulces', emoji:'🍭',
+    pageEmojis:['🍭','🍬','🎂','🍦','🌈','🍰'],
+    coverGrad:'linear-gradient(145deg,#ec4899,#f43f5e)',
+    pageGrad:'linear-gradient(160deg,#fff0f7,#fce7f3)',
+    textColor:'#831843', headerColor:'white',
+    sparkles:['🍭','🍬','✨','🌈'],
+    storyStyle:'Un viaje al mundo de los dulces'
+  },
+  {
+    id:'robot', name:'Robot', emoji:'🤖',
+    pageEmojis:['🤖','⚡','🔧','💡','🌐','🛸'],
+    coverGrad:'linear-gradient(145deg,#1e40af,#1d4ed8)',
+    pageGrad:'linear-gradient(160deg,#eff6ff,#dbeafe)',
+    textColor:'#1e3a5f', headerColor:'white',
+    sparkles:['⚡','🤖','💡','🌐'],
+    storyStyle:'Una aventura tecnológica del futuro'
+  },
+];
+
+// ═══════════════════════════════════
+// STATE
+// ═══════════════════════════════════
 let state = {
-  screen: 'events',   // events | themes | form | loading | result
-  eventType: '',
-  theme: '',
-  form: { childName:'', age:'', date:'', time:'', address:'', rsvp:'', storyChar:'', storyAge:'' },
-  result: ''
+  screen: 'form',   // form | loading | book
+  form: { name:'', age:'', theme:'unicorn', character:'', extra:'' },
+  pages: [],        // [{emoji, text}]
+  currentPage: 0,
+  flipping: false,
 };
 
-const EVENTS = [
-  { id:'cumple',    label:'Cumpleaños',      emoji:'🎂' },
-  { id:'bautismo',  label:'Bautismo',         emoji:'🕊️' },
-  { id:'babyshow',  label:'Baby Shower',      emoji:'🍼' },
-  { id:'comunion',  label:'1ª Comunión',      emoji:'✝️' },
-  { id:'cuento',    label:'Cuento mágico',    emoji:'📖' },
-];
-
-const THEMES = [
-  // ── ORIGINALES mejoradas ──
-  {
-    id:'unicorn', label:'Unicornio', emoji:'🦄', tag:'✨',
-    accent:'#d946ef', textColor:'#581c87',
-    bg:'linear-gradient(145deg,#fdf4ff 0%,#fae8ff 40%,#f0abfc 100%)',
-    headerBg:'linear-gradient(135deg,#e879f9,#a855f7)',
-    pattern:'radial-gradient(circle at 20% 80%, #f0abfc44 0%, transparent 50%), radial-gradient(circle at 80% 20%, #c084fc33 0%, transparent 50%)',
-    bodyBg:'rgba(255,255,255,0.65)', border:'#e879f9',
-    deco:['🌈','✨','💜','🌸','⭐'], dark:false
-  },
-  {
-    id:'dino', label:'Dinosaurio', emoji:'🦕', tag:'🌿',
-    accent:'#16a34a', textColor:'#14532d',
-    bg:'linear-gradient(145deg,#f0fdf4 0%,#dcfce7 40%,#86efac 100%)',
-    headerBg:'linear-gradient(135deg,#22c55e,#15803d)',
-    pattern:'radial-gradient(circle at 10% 90%, #86efac44 0%, transparent 50%), radial-gradient(circle at 90% 10%, #4ade8033 0%, transparent 50%)',
-    bodyBg:'rgba(255,255,255,0.65)', border:'#4ade80',
-    deco:['🦖','🌿','🦕','🌴','🥚'], dark:false
-  },
-  {
-    id:'princess', label:'Princesa', emoji:'👑', tag:'💎',
-    accent:'#db2777', textColor:'#831843',
-    bg:'linear-gradient(145deg,#fff7ed 0%,#fce7f3 40%,#fbcfe8 100%)',
-    headerBg:'linear-gradient(135deg,#f472b6,#db2777)',
-    pattern:'radial-gradient(circle at 25% 75%, #fbcfe844 0%, transparent 50%), radial-gradient(circle at 75% 25%, #f9a8d433 0%, transparent 50%)',
-    bodyBg:'rgba(255,255,255,0.65)', border:'#f472b6',
-    deco:['👑','💎','🌸','✨','🪄'], dark:false
-  },
-  {
-    id:'space', label:'Espacio', emoji:'🚀', tag:'⭐',
-    accent:'#818cf8', textColor:'#e0e7ff',
-    bg:'linear-gradient(145deg,#0f0c29 0%,#1e1b4b 50%,#0f172a 100%)',
-    headerBg:'linear-gradient(135deg,#6366f1,#4338ca)',
-    pattern:'radial-gradient(circle at 20% 50%, #6366f122 0%, transparent 60%), radial-gradient(circle at 80% 30%, #818cf811 0%, transparent 50%)',
-    bodyBg:'rgba(255,255,255,0.08)', border:'#6366f1',
-    deco:['🚀','⭐','🪐','🌙','💫'], dark:true
-  },
-  {
-    id:'mermaid', label:'Sirena', emoji:'🧜', tag:'🐚',
-    accent:'#0891b2', textColor:'#164e63',
-    bg:'linear-gradient(145deg,#ecfeff 0%,#cffafe 40%,#67e8f9 100%)',
-    headerBg:'linear-gradient(135deg,#22d3ee,#0891b2)',
-    pattern:'radial-gradient(circle at 30% 70%, #67e8f944 0%, transparent 50%), radial-gradient(circle at 70% 30%, #a5f3fc33 0%, transparent 50%)',
-    bodyBg:'rgba(255,255,255,0.65)', border:'#22d3ee',
-    deco:['🧜','🐚','🌊','🐠','💙'], dark:false
-  },
-  {
-    id:'hero', label:'Superhéroe', emoji:'🦸', tag:'⚡',
-    accent:'#dc2626', textColor:'#7f1d1d',
-    bg:'linear-gradient(145deg,#eff6ff 0%,#fee2e2 50%,#fecaca 100%)',
-    headerBg:'linear-gradient(135deg,#ef4444,#1d4ed8)',
-    pattern:'radial-gradient(circle at 15% 85%, #fecaca44 0%, transparent 50%), radial-gradient(circle at 85% 15%, #bfdbfe33 0%, transparent 50%)',
-    bodyBg:'rgba(255,255,255,0.65)', border:'#ef4444',
-    deco:['🦸','⚡','💥','🛡️','⭐'], dark:false
-  },
-  // ── NUEVAS ──
-  {
-    id:'harry', label:'Harry Potter', emoji:'⚡', tag:'🪄',
-    accent:'#854d0e', textColor:'#1c1917',
-    bg:'linear-gradient(145deg,#1c1917 0%,#292524 50%,#1c1917 100%)',
-    headerBg:'linear-gradient(135deg,#92400e,#78350f)',
-    pattern:'radial-gradient(circle at 50% 50%, #d9770611 0%, transparent 70%)',
-    bodyBg:'rgba(255,255,255,0.06)', border:'#d97706',
-    deco:['⚡','🦉','🪄','⭐','🧙'], dark:true,
-    extraCss:`font-family:'Georgia',serif;`,
-    bannerText:'✦ Hogwarts te invita ✦'
-  },
-  {
-    id:'barbie', label:'Barbie', emoji:'💗', tag:'👗',
-    accent:'#ec4899', textColor:'#831843',
-    bg:'linear-gradient(145deg,#fff0f7 0%,#fce7f3 30%,#fbcfe8 70%,#f9a8d4 100%)',
-    headerBg:'linear-gradient(135deg,#ec4899,#be185d)',
-    pattern:'radial-gradient(circle at 50% 0%, #f9a8d466 0%, transparent 60%), radial-gradient(circle at 50% 100%, #fce7f344 0%, transparent 50%)',
-    bodyBg:'rgba(255,255,255,0.7)', border:'#ec4899',
-    deco:['💗','👗','✨','💅','🎀'], dark:false,
-    bannerText:'✦ Come on Barbie, let\'s party! ✦'
-  },
-  {
-    id:'futbol', label:'Fútbol', emoji:'⚽', tag:'🏆',
-    accent:'#16a34a', textColor:'#14532d',
-    bg:'linear-gradient(145deg,#f0fdf4 0%,#dcfce7 40%,#bbf7d0 100%)',
-    headerBg:'linear-gradient(135deg,#15803d,#166534)',
-    pattern:'repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(22,163,74,0.05) 20px, rgba(22,163,74,0.05) 22px)',
-    bodyBg:'rgba(255,255,255,0.65)', border:'#22c55e',
-    deco:['⚽','🏆','🥇','⭐','🎯'], dark:false,
-    bannerText:'⚽ ¡GOL! ¡Llega el partido! ⚽'
-  },
-  {
-    id:'minions', label:'Minions', emoji:'💛', tag:'🍌',
-    accent:'#ca8a04', textColor:'#713f12',
-    bg:'linear-gradient(145deg,#fefce8 0%,#fef9c3 40%,#fde047 100%)',
-    headerBg:'linear-gradient(135deg,#eab308,#1d4ed8)',
-    pattern:'radial-gradient(circle at 30% 70%, #fde04744 0%, transparent 50%), radial-gradient(circle at 70% 30%, #bfdbfe33 0%, transparent 50%)',
-    bodyBg:'rgba(255,255,255,0.65)', border:'#eab308',
-    deco:['💛','🍌','😂','👓','🎉'], dark:false,
-    bannerText:'¡Banalaaaa! 🍌 ¡Fiesta Minion!'
-  },
-  {
-    id:'farm', label:'Granjita', emoji:'🐄', tag:'🌻',
-    accent:'#d97706', textColor:'#451a03',
-    bg:'linear-gradient(145deg,#fffbeb 0%,#fef3c7 40%,#fde68a 100%)',
-    headerBg:'linear-gradient(135deg,#f59e0b,#b45309)',
-    pattern:'radial-gradient(circle at 20% 80%, #fde68a44 0%, transparent 50%), radial-gradient(circle at 80% 20%, #fbbf2433 0%, transparent 50%)',
-    bodyBg:'rgba(255,255,255,0.65)', border:'#f59e0b',
-    deco:['🐄','🌻','🐓','🌾','🐷'], dark:false,
-    bannerText:'🌻 ¡Bienvenidos a la granjita! 🌻'
-  },
-  {
-    id:'ocean', label:'Océano', emoji:'🌊', tag:'🐳',
-    accent:'#1d4ed8', textColor:'#1e3a5f',
-    bg:'linear-gradient(145deg,#eff6ff 0%,#dbeafe 40%,#93c5fd 100%)',
-    headerBg:'linear-gradient(135deg,#3b82f6,#1d4ed8)',
-    pattern:'radial-gradient(circle at 0% 100%, #93c5fd44 0%, transparent 50%), radial-gradient(circle at 100% 0%, #bfdbfe33 0%, transparent 50%)',
-    bodyBg:'rgba(255,255,255,0.65)', border:'#3b82f6',
-    deco:['🌊','🐳','🐬','🐙','🐟'], dark:false,
-    bannerText:'🌊 ¡Sumérgete en la fiesta! 🌊'
-  },
-];
-
-function getTheme() { return THEMES.find(t => t.id === state.theme) || THEMES[0]; }
-function getEvent() { return EVENTS.find(e => e.id === state.eventType); }
-function isStory()  { return state.eventType === 'cuento'; }
-
-// ═══ RENDER ═══
+// ═══════════════════════════════════
+// RENDER ENGINE
+// ═══════════════════════════════════
 function render() {
   const root = document.getElementById('app-root');
-  const dots = ['events','themes','form','loading','result'];
-  const cur  = dots.indexOf(state.screen);
+  const screenNames = ['form','loading','book'];
+  const cur = screenNames.indexOf(state.screen);
 
   root.innerHTML = `
-    <div class="step-indicator">
-      ${dots.map((d,i) => `<div class="step-dot ${i < cur ? 'done' : i === cur ? 'active' : ''}"></div>`).join('')}
+    <div class="steps-dots">
+      ${screenNames.map((_,i) => `<div class="sdot ${i<cur?'done':i===cur?'active':'idle'}"></div>`).join('')}
     </div>
-    ${screens[state.screen]()}
+    ${SCREENS[state.screen]()}
   `;
+
+  // Attach book 3D after render
+  if (state.screen === 'book') attachBookEvents();
 }
 
-const screens = {
-  events() {
-    return `
-      <h2 style="font-family:'Fredoka One',cursive;font-size:26px;margin-bottom:6px;text-align:center">¿Qué vas a crear?</h2>
-      <p style="color:var(--muted);font-size:14px;font-weight:600;text-align:center;margin-bottom:24px">Elegí el tipo de celebración</p>
-      <div class="event-grid">
-        ${EVENTS.map(e => `
-          <button class="event-btn" onclick="selectEvent('${e.id}')">
-            <span>${e.emoji}</span>
-            <strong>${e.label}</strong>
-          </button>
-        `).join('')}
-      </div>
-    `;
-  },
-  themes() {
-    return `
-      <h2 style="font-family:'Fredoka One',cursive;font-size:24px;margin-bottom:4px;text-align:center">¿Qué temática?</h2>
-      <p style="color:var(--muted);font-size:13px;font-weight:600;text-align:center;margin-bottom:16px">
-        ${getEvent()?.emoji} ${getEvent()?.label} &nbsp;·&nbsp; ${THEMES.length} temáticas disponibles
-      </p>
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-bottom:12px">
-        ${THEMES.map(t => `
-          <button onclick="selectTheme('${t.id}')"
-            style="background:${t.bg};border:2px solid ${t.border||t.accent};border-radius:12px;padding:11px 4px;cursor:pointer;text-align:center;transition:transform .15s,box-shadow .15s;"
-            onmouseover="this.style.transform='scale(1.06)';this.style.boxShadow='0 4px 16px ${t.accent}55'"
-            onmouseout="this.style.transform='scale(1)';this.style.boxShadow='none'">
-            <span style="display:block;font-size:20px;margin-bottom:3px">${t.emoji}</span>
-            <strong style="font-size:9.5px;font-weight:900;color:${t.dark?'#e0e7ff':'#374151'};display:block;line-height:1.2;letter-spacing:.2px">${t.label}</strong>
-          </button>
-        `).join('')}
-      </div>
-      <button class="back-link" onclick="goBack('events')">← Volver</button>
-    `;
-  },
+// ═══════════════════════════════════
+// SCREENS
+// ═══════════════════════════════════
+const SCREENS = {
+
   form() {
     const f = state.form;
-    const story = isStory();
+    const t = THEMES.find(x=>x.id===f.theme)||THEMES[0];
     return `
-      <h2 style="font-family:'Fredoka One',cursive;font-size:26px;margin-bottom:6px;text-align:center">
-        ${story ? '📖 Datos del cuento' : '✏️ Datos del evento'}
-      </h2>
-      <p style="color:var(--muted);font-size:13px;font-weight:600;text-align:center;margin-bottom:22px">
-        ${story ? '' : `${getEvent()?.emoji} ${getEvent()?.label} · ${getTheme()?.emoji} ${getTheme()?.label}`}
+      <div class="panel-title">✨ Creá el cuento de tu peque</div>
+      <div class="panel-sub">Contanos sobre tu niño/a y la IA escribirá una historia única</div>
+
+      <div class="form-row">
+        <div class="field">
+          <label>Nombre del protagonista ✦</label>
+          <input id="f-name" placeholder="Ej: Valentina" value="${f.name}"
+            oninput="sf('name',this.value)"/>
+        </div>
+        <div class="field">
+          <label>Edad</label>
+          <input id="f-age" placeholder="Ej: 5" type="number" min="1" max="12" value="${f.age}"
+            oninput="sf('age',this.value)"/>
+        </div>
+      </div>
+
+      <div class="field" style="margin-bottom:14px">
+        <label>Personaje o tema favorito</label>
+        <input id="f-char" placeholder="Ej: dinosaurios, Peppa Pig, fútbol, mariposas..."
+          value="${f.character}" oninput="sf('character',this.value)"/>
+      </div>
+
+      <div class="field" style="margin-bottom:18px">
+        <label>¿Algo más que quieras incluir? (opcional)</label>
+        <input placeholder="Ej: tiene un perro llamado Firu, le gusta el helado de frutilla..."
+          value="${f.extra}" oninput="sf('extra',this.value)"/>
+      </div>
+
+      <div class="field" style="margin-bottom:6px"><label>Temática del libro ✦</label></div>
+      <div class="theme-grid-sm" id="tgrid">
+        ${THEMES.map(th => `
+          <button class="tgs-btn ${f.theme===th.id?'selected':''}"
+            style="background:${th.coverGrad};"
+            onclick="selectTheme('${th.id}')">
+            <span class="te">${th.emoji}</span>
+            <span class="tl">${th.name}</span>
+          </button>
+        `).join('')}
+      </div>
+      <p style="color:rgba(255,255,255,.35);font-size:11px;text-align:center;margin-bottom:18px;margin-top:4px">
+        Temática seleccionada: <strong style="color:#c4b5fd">${t.name} ${t.emoji}</strong>
+        &nbsp;·&nbsp; ${t.storyStyle}
       </p>
-      <div class="form-grid">
-        <div class="form-group">
-          <label>Nombre del niño/a *</label>
-          <input id="f-name" value="${f.childName}" oninput="updateForm('childName',this.value)" placeholder="Ej: Valentina" />
-        </div>
-        ${story ? `
-          <div class="form-group">
-            <label>Edad</label>
-            <input id="f-age" value="${f.storyAge}" oninput="updateForm('storyAge',this.value)" placeholder="Ej: 5" type="number"/>
-          </div>
-          <div class="form-group full">
-            <label>Personaje o tema favorito</label>
-            <input id="f-char" value="${f.storyChar}" oninput="updateForm('storyChar',this.value)" placeholder="Ej: unicornios, Peppa Pig, dinosaurios" />
-          </div>
-        ` : `
-          ${state.eventType === 'cumple' ? `
-          <div class="form-group">
-            <label>Años que cumple</label>
-            <input value="${f.age}" oninput="updateForm('age',this.value)" placeholder="Ej: 5" type="number"/>
-          </div>` : ''}
-          <div class="form-group">
-            <label>Fecha del evento *</label>
-            <input value="${f.date}" oninput="updateForm('date',this.value)" type="date"/>
-          </div>
-          <div class="form-group">
-            <label>Horario</label>
-            <input value="${f.time}" oninput="updateForm('time',this.value)" placeholder="Ej: 17:00"/>
-          </div>
-          <div class="form-group full">
-            <label>Dirección *</label>
-            <input value="${f.address}" oninput="updateForm('address',this.value)" placeholder="Ej: Av. Corrientes 1234, CABA"/>
-          </div>
-          <div class="form-group full">
-            <label>Tel. para confirmar asistencia</label>
-            <input value="${f.rsvp}" oninput="updateForm('rsvp',this.value)" placeholder="Ej: 11 1234-5678"/>
-          </div>
-        `}
-      </div>
-      <button class="gen-btn" id="gen-btn"
-        ${canGenerate() ? '' : 'disabled'}
-        onclick="generate()">
-        ✨ Generar ${story ? 'cuento' : 'invitación'}
+
+      <button class="btn-generate" id="gen-btn"
+        ${f.name ? '' : 'disabled'}
+        onclick="generateStory()">
+        🪄 Generar mi cuento mágico
       </button>
-      <button class="back-link" onclick="goBack(${story ? "'events'" : "'themes'"})">← Volver</button>
+      <p style="color:rgba(255,255,255,.25);font-size:11px;text-align:center;margin-top:10px">
+        Sin tarjeta de crédito · Listo en ~15 segundos
+      </p>
     `;
   },
+
   loading() {
+    const f = state.form;
     return `
-      <div class="loading-box">
-        <div class="loading-spinner"></div>
-        <p style="font-family:'Fredoka One',cursive;font-size:20px;color:var(--rose);margin-bottom:8px">Generando magia...</p>
-        <p style="color:var(--muted);font-size:14px;font-weight:600">La IA está creando algo único para ${state.form.childName} ✨</p>
+      <div class="loading-wrap">
+        <div class="magic-loader">
+          <div class="ml-ring"></div>
+          <div class="ml-ring2"></div>
+          <div class="ml-center">✨</div>
+        </div>
+        <div class="loading-title">Escribiendo la magia...</div>
+        <p class="loading-sub" style="margin-bottom:16px">
+          La IA está creando una historia única<br>para <strong style="color:white">${f.name}</strong> ✨
+        </p>
+        <div class="loading-dots">
+          <span></span><span></span><span></span>
+        </div>
+        <p style="color:rgba(255,255,255,.2);font-size:11px;margin-top:20px">
+          Generando páginas, ilustraciones y texto personalizado...
+        </p>
       </div>
     `;
   },
-  result() {
-    const t = getTheme();
-    const lines = state.result.split('\n').filter(l => l.trim());
-    const titleLine = lines[0] || ('¡' + state.form.childName + ' te invita!');
-    const bodyLines = lines.slice(1).join('\n');
-    const story = isStory();
-    const tc = t.textColor || (t.dark ? '#e0e7ff' : '#1c1917');
-    const decos = (t.deco || ['✨','🎉','⭐']).join('  ');
+
+  book() {
+    const f = state.form;
+    const t = THEMES.find(x=>x.id===f.theme)||THEMES[0];
+    const totalPages = state.pages.length + 2; // cover + story pages + end page
+    const cur = state.currentPage;
+    const maxPage = totalPages - 1;
 
     return `
-      <!-- BEAUTIFUL CARD -->
-      <div id="inv-card" style="
-        position:relative;overflow:hidden;border-radius:22px;
-        background:${t.bg};
-        border:2.5px solid ${t.border||t.accent};
-        box-shadow:0 20px 60px ${t.accent}33, 0 4px 16px rgba(0,0,0,0.1);
-        margin-bottom:16px;
-      ">
-        <!-- Pattern overlay -->
-        <div style="position:absolute;inset:0;background:${t.pattern||'none'};pointer-events:none;z-index:0"></div>
-
-        <!-- Decorative corner blobs -->
-        <div style="position:absolute;top:-28px;right:-28px;width:90px;height:90px;border-radius:50%;background:${t.accent}28;pointer-events:none;z-index:0"></div>
-        <div style="position:absolute;bottom:-20px;left:-20px;width:70px;height:70px;border-radius:50%;background:${t.accent}1a;pointer-events:none;z-index:0"></div>
-
-        <!-- HEADER BAND -->
-        <div style="
-          position:relative;z-index:1;
-          background:${t.headerBg||t.bg};
-          padding:20px 24px 16px;
-          text-align:center;
-        ">
-          <!-- Floating deco emojis -->
-          <div style="font-size:13px;letter-spacing:6px;margin-bottom:6px;opacity:.7">${decos}</div>
-
-          ${story ? `
-            <div style="font-size:44px;margin-bottom:4px">📖</div>
-            <div style="font-family:'Fredoka One',cursive;font-size:22px;color:white;text-shadow:0 2px 8px rgba(0,0,0,.3)">
-              Cuento de ${state.form.childName} ✨
-            </div>
-          ` : `
-            <div style="font-size:48px;margin-bottom:6px;filter:drop-shadow(0 4px 8px rgba(0,0,0,.2))">${t.emoji}</div>
-            <div style="font-family:'Fredoka One',cursive;font-size:clamp(18px,4vw,26px);color:white;text-shadow:0 2px 8px rgba(0,0,0,.3);line-height:1.2;padding:0 8px">
-              ${titleLine}
-            </div>
-            ${t.bannerText ? `<div style="margin-top:8px;font-size:11px;color:rgba(255,255,255,.8);font-weight:700;letter-spacing:.5px">${t.bannerText}</div>` : ''}
-          `}
+      <div class="book-viewer">
+        <div class="book-title-display">${getBookTitle()}</div>
+        <div class="book-subtitle-display">
+          ${t.emoji} ${t.name} · ${totalPages} páginas
         </div>
 
-        <!-- BODY -->
-        <div style="
-          position:relative;z-index:1;
-          padding:20px 22px 22px;
-        ">
-          ${story ? `
-            <div style="
-              background:${t.bodyBg||'rgba(255,255,255,0.6)'};
-              backdrop-filter:blur(8px);
-              border-radius:14px;
-              padding:18px 16px;
-              font-size:14px;
-              line-height:1.9;
-              color:${tc};
-              white-space:pre-line;
-              font-style:italic;
-              border:1px solid ${t.accent}22;
-            ">${bodyLines || state.result}</div>
-          ` : `
-            <div style="
-              background:${t.bodyBg||'rgba(255,255,255,0.6)'};
-              backdrop-filter:blur(8px);
-              border-radius:14px;
-              padding:18px 16px;
-              font-size:14px;
-              line-height:2;
-              color:${tc};
-              white-space:pre-line;
-              border:1px solid ${t.accent}22;
-            ">${bodyLines}</div>
-          `}
+        <div class="book-wrap" id="book-wrap">
+          <div class="book" id="book-el">
+            ${buildPages(t)}
+          </div>
+          <div class="book-shadow"></div>
+        </div>
 
-          <!-- Bottom deco row -->
-          <div style="text-align:center;margin-top:14px;font-size:22px;letter-spacing:4px">${decos}</div>
+        <div class="book-nav">
+          <button class="bnav-btn" id="prev-btn"
+            ${cur===0?'disabled':''}
+            onclick="turnPage(-1)">‹</button>
+          <div class="page-counter">
+            ${cur===0?'Portada':cur===maxPage?'Fin':`Página ${cur} de ${maxPage-1}`}
+          </div>
+          <button class="bnav-btn" id="next-btn"
+            ${cur===maxPage?'disabled':''}
+            onclick="turnPage(1)">›</button>
+        </div>
+
+        <div class="book-actions">
+          <button class="bact-btn bact-print" onclick="window.print()">🖨️ Imprimir librito</button>
+          <button class="bact-btn bact-share" onclick="shareWA()">📲 Compartir</button>
+          <button class="btn-new" onclick="resetApp()">+ Crear otro cuento</button>
         </div>
       </div>
-
-      <!-- ACTION BUTTONS -->
-      <div class="result-btns">
-        <button class="result-btn print" onclick="window.print()">📥 Imprimir</button>
-        <button class="result-btn whatsapp" onclick="shareWhatsApp()">📲 WhatsApp</button>
-      </div>
-      <button class="back-link" onclick="restart()">+ Crear otra</button>
     `;
   }
 };
 
-// ═══ ACTIONS ═══
-function selectEvent(id) {
-  state.eventType = id;
-  state.screen = id === 'cuento' ? 'form' : 'themes';
-  render();
-}
-function selectTheme(id) {
-  state.theme = id;
-  state.screen = 'form';
-  render();
-}
-function updateForm(key, val) {
-  state.form[key] = val;
-  const btn = document.getElementById('gen-btn');
-  if (btn) btn.disabled = !canGenerate();
-}
-function goBack(screen) {
-  state.screen = screen;
-  render();
-}
-function restart() {
-  state = { screen:'events', eventType:'', theme:'', form:{childName:'',age:'',date:'',time:'',address:'',rsvp:'',storyChar:'',storyAge:''}, result:'' };
-  render();
-}
-function canGenerate() {
-  if (isStory()) return !!state.form.childName;
-  return !!(state.form.childName && state.form.date && state.form.address);
-}
-function shareWhatsApp() {
-  const txt = encodeURIComponent(state.result);
-  window.open(`https://wa.me/?text=${txt}`, '_blank');
+// ═══════════════════════════════════
+// PAGE BUILDER
+// ═══════════════════════════════════
+function buildPages(t) {
+  const f = state.form;
+  const pages = state.pages;
+  const dark = t.dark;
+  const tc = t.textColor;
+  const totalPages = pages.length + 2;
+
+  let html = '';
+
+  // Stack all pages; CSS handles z-index via nth-child
+  // Page 0: Cover
+  html += `
+    <div class="page page-cover" id="p-0"
+      style="background:${t.coverGrad};z-index:${totalPages};
+             display:${state.currentPage===0?'flex':'none'};">
+      <div class="cover-sparkles">
+        ${t.sparkles.map((s,i) => `
+          <span class="sparkle" style="
+            top:${10+i*20}%;left:${5+i*22}%;
+            animation-delay:${i*.4}s;font-size:${14+i*2}px">${s}</span>
+        `).join('')}
+        ${t.sparkles.map((s,i) => `
+          <span class="sparkle" style="
+            top:${60+i*8}%;right:${5+i*18}%;
+            animation-delay:${i*.5+.2}s;font-size:${12+i*2}px">${s}</span>
+        `).join('')}
+      </div>
+      <div class="cover-emoji">${t.emoji}</div>
+      <div class="cover-title" style="color:white">${getBookTitle()}</div>
+      <div class="cover-name" style="color:rgba(255,255,255,.7)">
+        Un cuento para ${f.name}${f.age?' ('+f.age+' años)':''}
+      </div>
+      <div style="margin-top:16px;font-size:13px;color:rgba(255,255,255,.5);font-weight:600">
+        Tocá ▸ para comenzar
+      </div>
+      <div class="page-num right" style="color:rgba(255,255,255,.4)">Portada</div>
+    </div>
+  `;
+
+  // Story pages
+  pages.forEach((pg, idx) => {
+    const pageNum = idx + 1;
+    const isVisible = state.currentPage === pageNum;
+    const emojiList = t.pageEmojis;
+    const pageEmoji = emojiList[idx % emojiList.length];
+
+    html += `
+      <div class="page page-story" id="p-${pageNum}"
+        style="background:${t.pageGrad};z-index:${totalPages-pageNum};
+               display:${isVisible?'flex':'none'};">
+        <div class="story-illustration">${pageEmoji}</div>
+        <div class="story-text" style="color:${tc}">${pg.text}</div>
+        <div class="story-page-label" style="color:${tc}">· ${pageNum} ·</div>
+        <div class="page-num right" style="color:${tc};opacity:.4">${pageNum}</div>
+      </div>
+    `;
+  });
+
+  // End page
+  const endIdx = pages.length + 1;
+  html += `
+    <div class="page page-end" id="p-${endIdx}"
+      style="background:${t.coverGrad};
+             display:${state.currentPage===endIdx?'flex':'none'};">
+      <div class="end-emoji">🌟</div>
+      <div class="end-title" style="color:white">¡Fin!</div>
+      <div class="end-sub" style="color:rgba(255,255,255,.7)">
+        Un cuento escrito con IA<br>especialmente para <strong style="color:white">${f.name}</strong><br><br>
+        ${t.emoji} ${t.sparkles.join(' ')}
+      </div>
+      <div class="page-num right" style="color:rgba(255,255,255,.4)">Fin</div>
+    </div>
+  `;
+
+  return html;
 }
 
-async function generate() {
+function getBookTitle() {
+  const f = state.form;
+  const t = THEMES.find(x=>x.id===f.theme)||THEMES[0];
+  const titles = {
+    unicorn: `${f.name} y el unicornio mágico`,
+    dino:    `${f.name} y los dinosaurios`,
+    space:   `${f.name} en el espacio`,
+    mermaid: `${f.name} bajo el mar`,
+    princess:`El reino de ${f.name}`,
+    dragon:  `${f.name} y el dragón`,
+    forest:  `${f.name} en el bosque encantado`,
+    pirate:  `El pirata ${f.name}`,
+    candy:   `${f.name} en el mundo de los dulces`,
+    robot:   `${f.name} y el robot del futuro`,
+  };
+  return titles[f.theme] || `La aventura de ${f.name}`;
+}
+
+// ═══════════════════════════════════
+// BOOK NAVIGATION
+// ═══════════════════════════════════
+function attachBookEvents() {
+  // Keyboard nav
+  document.onkeydown = (e) => {
+    if (e.key === 'ArrowRight') turnPage(1);
+    if (e.key === 'ArrowLeft')  turnPage(-1);
+  };
+}
+
+function turnPage(dir) {
+  if (state.flipping) return;
+  const totalPages = state.pages.length + 2;
+  const next = state.currentPage + dir;
+  if (next < 0 || next >= totalPages) return;
+
+  // Animate current page out
+  const curEl = document.getElementById(`p-${state.currentPage}`);
+  const nextEl = document.getElementById(`p-${next}`);
+  if (!curEl || !nextEl) return;
+
+  state.flipping = true;
+
+  if (dir > 0) {
+    // Turn forward: current page flips left
+    curEl.style.transition = 'transform .5s cubic-bezier(.645,.045,.355,1), opacity .3s';
+    curEl.style.transform = 'rotateY(-90deg) scale(.98)';
+    curEl.style.opacity = '0';
+    setTimeout(() => {
+      curEl.style.display = 'none';
+      curEl.style.transform = '';
+      curEl.style.opacity = '';
+      curEl.style.transition = '';
+      nextEl.style.display = 'flex';
+      nextEl.style.transform = 'rotateY(90deg) scale(.98)';
+      nextEl.style.opacity = '0';
+      nextEl.style.transition = 'transform .5s cubic-bezier(.645,.045,.355,1), opacity .3s';
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          nextEl.style.transform = '';
+          nextEl.style.opacity = '1';
+        });
+      });
+      setTimeout(() => {
+        nextEl.style.transition = '';
+        state.currentPage = next;
+        state.flipping = false;
+        updateNavBtns();
+      }, 520);
+    }, 260);
+  } else {
+    // Turn backward
+    curEl.style.transition = 'transform .5s cubic-bezier(.645,.045,.355,1), opacity .3s';
+    curEl.style.transform = 'rotateY(90deg) scale(.98)';
+    curEl.style.opacity = '0';
+    setTimeout(() => {
+      curEl.style.display = 'none';
+      curEl.style.transform = '';
+      curEl.style.opacity = '';
+      curEl.style.transition = '';
+      nextEl.style.display = 'flex';
+      nextEl.style.transform = 'rotateY(-90deg) scale(.98)';
+      nextEl.style.opacity = '0';
+      nextEl.style.transition = 'transform .5s cubic-bezier(.645,.045,.355,1), opacity .3s';
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          nextEl.style.transform = '';
+          nextEl.style.opacity = '1';
+        });
+      });
+      setTimeout(() => {
+        nextEl.style.transition = '';
+        state.currentPage = next;
+        state.flipping = false;
+        updateNavBtns();
+      }, 520);
+    }, 260);
+  }
+}
+
+function updateNavBtns() {
+  const total = state.pages.length + 2;
+  const prevBtn = document.getElementById('prev-btn');
+  const nextBtn = document.getElementById('next-btn');
+  const counter = document.querySelector('.page-counter');
+  if (prevBtn) prevBtn.disabled = state.currentPage === 0;
+  if (nextBtn) nextBtn.disabled = state.currentPage === total - 1;
+  if (counter) {
+    const cur = state.currentPage;
+    const max = total - 1;
+    counter.textContent = cur===0 ? 'Portada' : cur===max ? 'Fin' : `Página ${cur} de ${max-1}`;
+  }
+}
+
+// ═══════════════════════════════════
+// FORM ACTIONS
+// ═══════════════════════════════════
+function sf(key, val) {
+  state.form[key] = val;
+  const btn = document.getElementById('gen-btn');
+  if (btn) btn.disabled = !state.form.name;
+}
+
+function selectTheme(id) {
+  state.form.theme = id;
+  render();
+}
+
+// ═══════════════════════════════════
+// AI GENERATION
+// ═══════════════════════════════════
+async function generateStory() {
   state.screen = 'loading';
+  state.currentPage = 0;
   render();
 
   const f = state.form;
-  const t = getTheme();
-  const ev = getEvent();
-  let prompt = '';
+  const t = THEMES.find(x=>x.id===f.theme)||THEMES[0];
 
-  if (isStory()) {
-    prompt = `Generá un cuento corto (máximo 180 palabras) para estimular y entretener a un niño/a llamado/a ${f.childName}${f.storyAge ? ' de ' + f.storyAge + ' años' : ''}. El personaje favorito es: ${f.storyChar || 'un animal mágico'}. Usá el nombre del niño/a como protagonista. El cuento debe ser divertido, positivo, con valores, y en español argentino. Solo el texto del cuento, sin título ni aclaraciones.`;
-  } else {
-    const evNames = { cumple:'cumpleaños', bautismo:'bautismo', babyshow:'baby shower', comunion:'primera comunión' };
-    prompt = `Generá texto para una invitación infantil de ${evNames[state.eventType]} con temática ${t.label} ${t.emoji}.
-Datos: Nombre: ${f.childName}${f.age ? ', ' + f.age + ' años' : ''}. Fecha: ${f.date}${f.time ? ', ' + f.time + 'hs' : ''}. Dirección: ${f.address}${f.rsvp ? '. Confirmar: ' + f.rsvp : ''}.
-FORMATO EXACTO (sin explicaciones, solo esto):
-Línea 1: título creativo y festivo con emojis (max 10 palabras)
-Líneas 2-8: cuerpo de la invitación con todos los datos, emojis, tono festivo en español argentino.`;
-  }
+  const prompt = `Escribí un cuento infantil corto y mágico dividido en exactamente 5 párrafos (páginas).
+
+Datos del protagonista:
+- Nombre: ${f.name}
+- Edad: ${f.age || '5'} años
+- Temática: ${t.name} (${t.storyStyle})
+- Personaje/tema favorito: ${f.character || t.name}
+${f.extra ? `- Detalle especial: ${f.extra}` : ''}
+
+INSTRUCCIONES IMPORTANTES:
+- Usá el nombre ${f.name} varias veces en la historia
+- El cuento debe tener un problema y una solución
+- Tono: mágico, divertido, con un valor positivo (amistad, valentía, bondad)
+- Vocabulario apropiado para ${f.age || '5'} años
+- Español rioplatense (usá "vos" en lugar de "tú")
+- Cada párrafo máximo 40 palabras
+- Sin título, sin numeración, solo los 5 párrafos separados por línea en blanco
+
+¡Hacé que ${f.name} sea el héroe o heroína de la historia!`;
 
   try {
     const res = await fetch('https://api.anthropic.com/v1/messages', {
@@ -1344,35 +1370,76 @@ Líneas 2-8: cuerpo de la invitación con todos los datos, emojis, tono festivo 
       body: JSON.stringify({
         model: 'claude-sonnet-4-20250514',
         max_tokens: 1000,
-        messages: [{ role: 'user', content: prompt }]
+        messages: [{ role:'user', content: prompt }]
       })
     });
     const data = await res.json();
-    const text = (data.content || []).map(b => b.text || '').join('').trim();
-    state.result = text;
-    state.screen = 'result';
+    const raw = (data.content||[]).map(b=>b.text||'').join('').trim();
+
+    // Split into pages
+    const paragraphs = raw.split(/\n\n+/).filter(p=>p.trim()).slice(0,5);
+
+    // Pad if needed
+    while (paragraphs.length < 5) {
+      paragraphs.push(`Y así, ${f.name} vivió muchas aventuras más. ¡Hasta la próxima! 🌟`);
+    }
+
+    state.pages = paragraphs.map((text, i) => ({ text, page: i+1 }));
+
   } catch(e) {
-    state.result = `¡${t.emoji} Invitación de ${state.form.childName}!\n\n📅 ${f.date}${f.time?' · '+f.time+'hs':''}\n📍 ${f.address}${f.rsvp?'\n📲 Confirmar: '+f.rsvp:''}\n\n¡Te esperamos! ${t.emoji}`;
-    state.screen = 'result';
+    // Fallback story
+    const name = f.name;
+    state.pages = [
+      { text: `Érase una vez ${name}, un niño/a muy curioso/a que vivía en un lugar lleno de magia y colores. Cada mañana, ${name} despertaba con ganas de descubrir algo nuevo. 🌟`, page:1 },
+      { text: `Un día, ${name} encontró algo muy especial mientras exploraba: una puerta brillante escondida entre los árboles. "¿Qué habrá adentro?", pensó ${name} con emoción. ✨`, page:2 },
+      { text: `Cuando ${name} abrió la puerta, apareció un mundo increíble lleno de ${f.character||'maravillas'}. Al principio daba un poco de miedo, pero ${name} era muy valiente. 💜`, page:3 },
+      { text: `Adentro, ${name} encontró un amigo nuevo que necesitaba ayuda. Sin dudarlo, ${name} le tendió la mano. Juntos resolvieron el problema y todo se llenó de luz. 🌈`, page:4 },
+      { text: `Esa noche, ${name} volvió a casa con el corazón lleno de alegría. Había aprendido que ayudar a los demás es el acto más mágico del mundo. ¡Fin! 🌟`, page:5 },
+    ];
   }
+
+  state.screen = 'book';
   render();
 }
 
-// ═══ FAQ TOGGLE ═══
-function toggleFaq(btn) {
-  const answer = btn.nextElementSibling;
-  const isOpen = answer.style.display === 'block';
-  document.querySelectorAll('.faq-a').forEach(a => a.style.display = 'none');
-  document.querySelectorAll('.faq-q span').forEach(s => s.textContent = '▼');
-  if (!isOpen) {
-    answer.style.display = 'block';
-    btn.querySelector('span').textContent = '▲';
-  }
+// ═══════════════════════════════════
+// UTILS
+// ═══════════════════════════════════
+function resetApp() {
+  document.onkeydown = null;
+  state = {
+    screen:'form',
+    form:{ name:'', age:'', theme:'unicorn', character:'', extra:'' },
+    pages:[], currentPage:0, flipping:false
+  };
+  render();
 }
 
-// ═══ INIT ═══
+function shareWA() {
+  const f = state.form;
+  const t = THEMES.find(x=>x.id===f.theme)||THEMES[0];
+  const txt = `${t.emoji} ¡Mirá el cuento que le creé a ${f.name} con IA!\n\n`
+    + state.pages.map((p,i)=>`📖 Página ${i+1}:\n${p.text}`).join('\n\n')
+    + `\n\n✨ Creado con MagiCuento`;
+  window.open(`https://wa.me/?text=${encodeURIComponent(txt)}`, '_blank');
+}
+
+function scrollToApp() {
+  document.getElementById('app-section').scrollIntoView({behavior:'smooth'});
+}
+
+function toggleFaq(btn) {
+  const a = btn.nextElementSibling;
+  const open = a.style.display === 'block';
+  document.querySelectorAll('.faq-a').forEach(x=>x.style.display='none');
+  document.querySelectorAll('.faq-q span').forEach(x=>x.textContent='▾');
+  if (!open) { a.style.display='block'; btn.querySelector('span').textContent='▴'; }
+}
+
+// ═══════════════════════════════════
+// INIT
+// ═══════════════════════════════════
 render();
 </script>
-
 </body>
 </html>
